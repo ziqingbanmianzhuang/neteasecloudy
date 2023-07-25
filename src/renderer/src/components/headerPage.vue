@@ -1,23 +1,23 @@
 <template>
-  <header>
+  <header class="keep-px">
     <!-- <header> 元素应该被用作介绍性内容的容器。元素通常包含：一个或多个标题元素 (<h1> - <h6>)logo 或 icon作者信息 -->
   <nav>
     <!-- 元定义导航链接集合。 -->
     <h1>
     <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="">
-      <a href="">音丸子</a>
+      <a href="" class="keep-px">音丸子</a>
     </h1>
     <h2>
-      <a href="">我的</a>
-      <a href="">发现</a>
-      <a href="">设置</a>
-      <a href="">关于</a>
+      <a href=""  class="keep-px">我的</a>
+      <a href=""  class="keep-px">发现</a>
+      <a href=""  class="keep-px">设置</a>
+      <a href=""  class="keep-px">关于</a>
     </h2>
     <div></div>
     <ul>
-      <li>-</li>
-      <li>+</li>
-      <li>x</li>
+      <li  class="keep-px">-</li>
+      <li  class="keep-px">+</li>
+      <li  class="keep-px">x</li>
     </ul>
     
   </nav>
@@ -29,10 +29,12 @@
 </script>
 
 <style lang="less" scoped>
-header {
+header.keep-px {
     width: 100%;
     height: 50px;
     // background-color: red;
+    -webkit-app-region: drag;
+    position: relative;
     nav {
       height: 100%;
       display: grid;
@@ -45,6 +47,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "YinWanZi";
   .flower-logo {
   width: 30px;
   height: 30px;
@@ -52,7 +55,7 @@ h1 {
   margin: 0 10px 0 10px;
   vertical-align: middle;
 }
-  a{
+  a.keep-px{
   color:#78AE87;
   font-size: 32px;
   line-height: 50px;
@@ -61,9 +64,12 @@ h1 {
   }
   }
 h2 {
+  -webkit-app-region:no-drag;
   text-align: center;
   background-color: #FFEDEB;
-  a {
+  position: relative;
+  z-index: 9999;
+  a.keep-px {
     width: 14px;
   height: 14px;
   font-size: 14px;
@@ -71,7 +77,6 @@ h2 {
   padding: 0 14px;
   padding-bottom: 30px;
   position: relative;
-  z-index: 9999;
   &::before {
     content: '';
     display: block;
@@ -88,13 +93,13 @@ h2 {
     }
   }
   ul {
+  font-family: "YinWanZi";
     position: absolute;
-    z-index: -1;
     top: 0px;
     right: 10px;
  justify-self: end;
     text-align: center;
-    li {
+   li.keep-px{
       display: inline-block;
       padding: 0 10px;
       font-size: 30px;
