@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4247129 */
+  src: url('iconfont.woff2?t=1694437852112') format('woff2'),
+       url('iconfont.woff?t=1694437852112') format('woff'),
+       url('iconfont.ttf?t=1694437852112') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cunchu:before {
+  content: "\e619";
+}
+
+.icon-pinglun:before {
+  content: "\e61a";
+}
+

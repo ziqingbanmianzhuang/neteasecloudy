@@ -1,0 +1,23 @@
+{
+  "id": "4247129",
+  "name": "neatease",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "37306242",
+      "name": "存储",
+      "font_class": "cunchu",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "37306254",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    }
+  ]
+}

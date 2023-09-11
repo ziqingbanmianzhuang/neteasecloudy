@@ -1,14 +1,14 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, ipcMain,BrowserView } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
-function createWindow(): void {
+function createWindow(): BrowserWindow {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 670,
-    frame: false,
+    // frame: false,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -31,9 +31,12 @@ function createWindow(): void {
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+   
+
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+  return mainWindow
 }
 
 // This method will be called when Electron has finished
@@ -50,7 +53,29 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  createWindow()
+  const win = createWindow()
+  // 监听创建My窗口事件
+  ipcMain.on('createWinMy', (event,options) => {
+    const winMy = new BrowserWindow({
+      width: options.w,
+      height: options.h,
+      // frame: false,
+      // show: false,
+      autoHideMenuBar: true,
+      // ...(process.platform === 'linux' ? { icon } : {}),
+      webPreferences: {
+        preload: join(__dirname, '../preload/index.js'),
+        sandbox: false
+      }
+    })
+    winMy.loadURL(`${process.env['ELECTRON_RENDERER_URL'] as string}/my`)
+    
+    // winMy.loadURL('https://www.houdunren.com')
+    // winMy.webContents.on('did-finish-load', () => {
+    //   winMy.webContents.send('createWinMy', options)
+    // })
+
+  })
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -58,6 +83,8 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
+
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

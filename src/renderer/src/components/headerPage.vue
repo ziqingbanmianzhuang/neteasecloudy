@@ -8,7 +8,7 @@
         <a href="" class="keep-px">音丸子</a>
       </h1>
       <h2>
-        <router-link to="/my" class="keep-px">我的</router-link>
+        <a ref="" class="keep-px" @click="createWinToMy">我的</a>
         <router-link to="/find" class="keep-px">发现</router-link>
         <router-link to="/find" class="keep-px">设置</router-link>
         <router-link to="/find" class="keep-px">关于</router-link>
@@ -19,14 +19,20 @@
         <li class="keep-px">+</li>
         <li class="keep-px">x</li>
       </ul>
-
     </nav>
   </header>
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
+const createWinToMy = () => {
+  const options = {
+    h: 800,
+    w: 400
+  }
+  window.api.createWinMy(options)
 
+}
 </script>
 
 <style lang="less" scoped>
