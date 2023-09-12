@@ -76,6 +76,48 @@ app.whenReady().then(() => {
     // })
 
   })
+  ipcMain.on('createSign', (event,options) => {
+    const winMy = new BrowserWindow({
+      width: options.w,
+      height: options.h,
+      // frame: false,
+      // show: false,
+      autoHideMenuBar: true,
+      // ...(process.platform === 'linux' ? { icon } : {}),
+      webPreferences: {
+        preload: join(__dirname, '../preload/index.js'),
+        sandbox: false
+      }
+    })
+    winMy.loadURL(`${process.env['ELECTRON_RENDERER_URL'] as string}/sign`)
+    
+    // winMy.loadURL('https://www.houdunren.com')
+    // winMy.webContents.on('did-finish-load', () => {
+    //   winMy.webContents.send('createWinMy', options)
+    // })
+
+  })
+  ipcMain.on('createSignTips', (event,options) => {
+    const winMy = new BrowserWindow({
+      width: options.w,
+      height: options.h,
+      // frame: false,
+      // show: false,
+      autoHideMenuBar: true,
+      // ...(process.platform === 'linux' ? { icon } : {}),
+      webPreferences: {
+        preload: join(__dirname, '../preload/index.js'),
+        sandbox: false
+      }
+    })
+    winMy.loadURL(`${process.env['ELECTRON_RENDERER_URL'] as string}/signtips`)
+    
+    // winMy.loadURL('https://www.houdunren.com')
+    // winMy.webContents.on('did-finish-load', () => {
+    //   winMy.webContents.send('createWinMy', options)
+    // })
+
+  })
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

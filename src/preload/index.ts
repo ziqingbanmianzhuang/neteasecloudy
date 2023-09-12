@@ -6,7 +6,14 @@ import { electronAPI } from '@electron-toolkit/preload'
 const api = {
   createWinMy: (options: any) => {
     ipcRenderer.send('createWinMy', options)
-  }
+  },
+  createSign: (options: any) => {
+    ipcRenderer.send('createSign', options)
+  },
+  createSignTips: (options: any) => {
+    ipcRenderer.send('createSignTips', options)
+  },
+
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

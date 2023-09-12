@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <headerPage></headerPage>
+        <headerPage @switchToFind="switchToFind"></headerPage>
         <!-- 头部组件 -->
         <section class="main">
             <!-- <contentPage></contentPage> -->
@@ -20,6 +20,15 @@ import sidebarPage from '../components/sidebarPage.vue';
 // import contentPage from '../components/contentPage.vue';
 // // 引入contentPage组件
 import homePage from '../components/homePage.vue';
+// 引入路由器
+import router from '../router/index'
+
+// 跳转find组件
+const switchToFind = () => {
+    router.push('/find')
+
+
+}
 </script>
 
 <style lang="less" scoped>

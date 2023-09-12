@@ -9,7 +9,8 @@
       </h1>
       <h2>
         <a ref="" class="keep-px" @click="createWinToMy">我的</a>
-        <router-link to="/find" class="keep-px">发现</router-link>
+        <!-- // 通知父级跳转Find路由页面 -->
+        <a ref="" class="keep-px" @click="$emit('switchToFind')">发现</a>
         <router-link to="/find" class="keep-px">设置</router-link>
         <router-link to="/find" class="keep-px">关于</router-link>
       </h2>
@@ -25,14 +26,32 @@
 </template>
 
 <script setup lang="ts">
+// 是否登录
+const isLogin = false;
+// 创建My窗口
 const createWinToMy = () => {
-  const options = {
-    h: 800,
-    w: 400
+  if (isLogin) {
+    const options = {
+      h: 800,
+      w: 400
+    }
+    window.api.createWinMy(options)
   }
-  window.api.createWinMy(options)
+  else {
+    const options = {
+      h: 600,
+      w: 900
+    }
+    // 登录注册窗口
+    // window.api.createSign(options)
+    // 提示登录注册窗口
+    window.api.createSignTips(options)
+
+  }
 
 }
+
+
 </script>
 
 <style lang="less" scoped>
