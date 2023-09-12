@@ -11,8 +11,9 @@
         <a ref="" class="keep-px" @click="createWinToMy">我的</a>
         <!-- // 通知父级跳转Find路由页面 -->
         <a ref="" class="keep-px" @click="$emit('switchToFind')">发现</a>
-        <router-link to="/find" class="keep-px">设置</router-link>
-        <router-link to="/find" class="keep-px">关于</router-link>
+        <a ref="" class="keep-px" @click="$emit('switchToSetting')">设置</a>
+        <!-- // 通知父级跳转About路由页面 -->
+        <a ref="" class="keep-px" @click="$emit('switchToAbout')">关于</a>
       </h2>
       <div></div>
       <ul>

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <headerPage @switchToFind="switchToFind"></headerPage>
+        <headerPage @switchToFind="switchToFind" @switchToAbout="switchToAbout" @switchToSetting="switchToSetting">
+        </headerPage>
         <!-- 头部组件 -->
         <section class="main">
             <!-- <contentPage></contentPage> -->
@@ -28,6 +29,16 @@ const switchToFind = () => {
     router.push('/find')
 
 
+}
+// 跳转about组件
+const switchToAbout = () => {
+    router.push('/about')
+
+
+}
+// 跳转setting页面
+const switchToSetting = () => {
+    router.push('/setting')
 }
 </script>
 
