@@ -12,14 +12,27 @@
                     <input type="text" placeholder="your password">
                     <input type="text" placeholder="your password again">
                 </form>
-                <button>确定</button>
+                <button @click="createMyWin">确定</button>
             </section>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
+// 创建loginStore
+// import { useLoginStore } from '../store/loginStore/index';
+// const loginStore = useLoginStore()
+const createMyWin = () => {
+    const options = {
+        h: 800,
+        w: 400
+    }
+    window.api.createWinMy(options)
+    // loginStore.setLogin()
+    localStorage.setItem('isLogin', 'true')
+    // console.log(`1111111111111,${loginStore.isLogin}`);
 
+}
 </script>
 
 <style lang="less" scoped>

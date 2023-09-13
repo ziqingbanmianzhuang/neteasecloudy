@@ -1,12 +1,18 @@
 <template>
     <div class="container-box">
         <h1>QAQ,你忘记登录啦</h1>
-        <button>赶紧登录一个❤</button>
+        <button @click="switchToSign">赶紧登录一个❤</button>
     </div>
 </template>
 
 <script setup lang="ts">
+import router from '../router/index';
 
+const switchToSign = () => {
+    // 登录注册窗口
+    // window.api.createSign(options)
+    router.push('/sign')
+}
 </script>
 
 <style lang="less" scoped>

@@ -1,6 +1,7 @@
 <template>
     <div class="container-box">
         <h1>设置</h1>
+        <i @click="switchToHome">返回</i>
         <nav>
             <a href="#">账号</a>
             <a href="#">常规</a>
@@ -100,13 +101,26 @@
 </template>
 
 <script setup lang="ts">
+import router from '@renderer/router';
 
+const switchToHome = () => {
+    router.push('/')
+}
 </script>
 
 <style lang="less" scoped>
 .container-box {
     font-family: 'YinWanZi';
     padding-left: 40px;
+
+    >i {
+        display: block;
+        color: #c8a8a4;
+        position: fixed;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
 
     h1 {
         margin-top: 30px;

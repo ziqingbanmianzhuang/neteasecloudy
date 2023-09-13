@@ -8,7 +8,7 @@
         <a href="" class="keep-px">音丸子</a>
       </h1>
       <h2>
-        <a ref="" class="keep-px" @click="createWinToMy">我的</a>
+        <a ref="" class="keep-px" @click="judgeIsLogin">我的</a>
         <!-- // 通知父级跳转Find路由页面 -->
         <a ref="" class="keep-px" @click="$emit('switchToFind')">发现</a>
         <a ref="" class="keep-px" @click="$emit('switchToSetting')">设置</a>
@@ -27,11 +27,17 @@
 </template>
 
 <script setup lang="ts">
-// 是否登录
-const isLogin = false;
-// 创建My窗口
-const createWinToMy = () => {
-  if (isLogin) {
+// 创建loginStore
+// import { useLoginStore } from '../store/loginStore/index';
+localStorage.setItem('isLogin', 'false')
+//判断是否登录
+const judgeIsLogin = () => {
+  // 是否登录
+  // 创建My窗口
+  // const loginStore = useLoginStore()
+  // console.log(loginStore.isLogin);
+
+  if (localStorage.getItem('isLogin') === 'true') {
     const options = {
       h: 800,
       w: 400
@@ -49,8 +55,9 @@ const createWinToMy = () => {
     window.api.createSignTips(options)
 
   }
-
 }
+
+
 
 
 </script>

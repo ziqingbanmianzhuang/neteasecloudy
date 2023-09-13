@@ -1,6 +1,8 @@
 <template>
     <div class="container-box">
-        <section></section>
+        <section>
+            <i @click="switchToHome">返回</i>
+        </section>
         <section>
             <h1>关于音/丸/子</h1>
             <p>当前版本:1.0.0</p>
@@ -33,7 +35,10 @@
 </template>
 
 <script setup lang="ts">
-
+import router from '@renderer/router';
+const switchToHome = () => {
+    router.push('/')
+}
 </script>
 
 <style lang="less" scoped>
@@ -51,6 +56,15 @@
         background: #f1fff1;
         position: absolute;
         left: 0;
+
+        i {
+            display: block;
+            color: #c8a8a4;
+            position: fixed;
+            top: 0;
+            left: 20px;
+            cursor: pointer;
+        }
     }
 
     section:nth-child(2) {

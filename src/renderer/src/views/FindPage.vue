@@ -8,7 +8,7 @@
         <a href="">榜单</a>
         <a href="">歌手</a>
       </nav>
-      <button>返回</button>
+      <i @click="switchToHome">返回</i>
     </header>
     <main>
       <section>
@@ -62,7 +62,11 @@
 </template>
 
 <script setup lang="ts">
+import router from '@renderer/router';
 
+const switchToHome = () => {
+  router.push('/')
+}
 </script>
 
 <style lang="less" scoped>
@@ -83,8 +87,13 @@
       padding-left: 15px;
     }
 
-    button {
+    i {
+      display: block;
+      text-align: right;
+      padding-right: 20px;
       flex: 1;
+      cursor: pointer;
+      ;
     }
 
     nav {
