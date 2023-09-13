@@ -6,9 +6,14 @@
     <img src="../public/images/home-3.jpg" alt="" style="--i:3">
     <img src="../public/images/home-2.jpg" alt="" style="--i:4">
     <img src="../public/images/home-1.jpg" alt="" style="--i:5">
+    <div v-if="isLogin" class="popdialog">
+        <content-page></content-page>
+    </div>
 </template>
 
 <script setup lang="ts">
+import contentPage from './contentPage.vue'
+const isLogin = localStorage.getItem('isLogin')
 </script>
 
 <style lang="less" scoped>
@@ -24,12 +29,20 @@
     }
 }
 
+.popdialog {
+    position: absolute;
+    top: 200px;
+}
+
 .contain {
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
     border-radius: 10px;
     padding: 20px;
     overflow: auto;
+
+
+
 
     @keyframes backgroundAnimate {
         0% {
