@@ -3,20 +3,11 @@
         <h1>设置</h1>
         <i @click="switchToHome">返回</i>
         <nav>
-            <a href="#">账号</a>
-            <a href="#">常规</a>
-            <a href="#">播放</a>
-            <a href="#">消息和隐私</a>
-            <a href="#">快捷键</a>
-            <a href="#">下载</a>
-            <a href="#">歌词</a>
-            <a href="#">工具</a>
+            <a href="#" v-for="(link) in links" :key="link.name">{{ link.name }}</a>
         </nav>
         <section class="zhanghao">
             <ul>
-                <li><img src="../public/images/flower-logo.jpg" alt=""></li>
-                <li><img src="../public/images/flower-logo.jpg" alt=""></li>
-                <li><img src="../public/images/flower-logo.jpg" alt=""></li>
+                <li><img v-for="(image) in images" alt="" :key="image.src" :src="image.src"></li>
                 <li>
                     <a href="">绑定账号</a>
                     <i>-></i>
@@ -29,20 +20,14 @@
             <h2>字体选择</h2>
             <select name="" id="font-setting">
                 <optgroup>
-                    <option value="默认">默认</option>
-                    <option value="14px">14px</option>
-                    <option value="18px">18px</option>
-                    <option value="20px">20px</option>
+                    <option :value="fontOpt.value" v-for="(fontOpt, index) in fontOpts" :key="index">{{ fontOpt.value }}
+                    </option>
                 </optgroup>
             </select>
-            <h2>启动</h2>
-            <label><input type="radio">开启自动运行</label>
-            <h2>关联</h2>
-            <label><input type="radio">设置为默认浏览器</label>
-            <h2>动画</h2>
-            <label><input type="radio">禁用动画效果</label>
-            <h2>gpu加速</h2>
-            <label><input type="radio">禁用gpu加速</label>
+            <template :key="index" v-for="(setting) in settings">
+                <h2>{{ setting.title }}</h2>
+                <label><input type="radio">{{ setting.info }}</label>
+            </template>
             <h2>关闭主面板</h2>
             <label><input type="radio" name="mianban">最小化到系统托盘</label>
             <label><input type="radio" name="mianban">退出音丸子</label>
@@ -52,18 +37,7 @@
                 <div class="hours">
                     <select name="" id="hours">
                         <optgroup>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                            <option value="">11</option>
-                            <option value="">12</option>
+                            <option :value="time.value" v-for="time in times" :key="time.value">{{ time.value }}</option>
                         </optgroup>
                     </select>
                     <i>时</i>
@@ -71,18 +45,7 @@
                 <div class="minutes">
                     <select name="" id="minutes">
                         <optgroup>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                            <option value="">11</option>
-                            <option value="">12</option>
+                            <option :value="time.value" v-for="time in times" :key="time.value">{{ time.value }}</option>
                         </optgroup>
                     </select>
                     <i>分</i>
@@ -102,10 +65,53 @@
 
 <script setup lang="ts">
 import router from '@renderer/router';
+import { ref } from 'vue'
 
 const switchToHome = () => {
     router.push('/')
 }
+// 保存工具栏的链接的对象数组
+const links = ref([
+    { name: '账号' },
+    { name: '常规' },
+    { name: '播放' },
+    { name: '消息和隐私' },
+    { name: '快捷键' },
+    { name: '下载' },
+    { name: '歌词' },
+    { name: '工具' },
+])
+// 保存账号头像的链接的对象数组
+const images = ref([
+    { src: '/src/public/images/home-1.jpg' },
+    { src: '/src/public/images/home-2.jpg' },
+    { src: '/src/public/images/home-3.jpg' }
+])
+// 保存选择字体大小数据的对象数组
+const fontOpts = ref([
+    { value: '默认' },
+    { value: '14px' },
+    { value: '20px' },
+    { value: '25px' },
+    { value: '30px' },
+])
+// 保存设置的数据的对象数组
+const settings = ref([
+    { title: '启动', info: '开启自动运行' },
+    { title: '关联', info: '设置为默认浏览器' },
+    { title: '动画', info: '禁用动画效果' },
+    { title: 'gpu加速', info: '禁用gpu加速' },
+])
+// 保存时间option的数据的对象数组
+const times = ref([
+    { value: '默认' },
+    { value: 10 },
+    { value: 20 },
+    { value: 30 },
+    { value: 40 },
+    { value: 50 },
+    { value: 60 }
+])
 </script>
 
 <style lang="less" scoped>

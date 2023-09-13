@@ -22,9 +22,9 @@
             <p>if you have any question or want anything else ,please contact with us by:
             </p>
             <ul>
-                <li>邮箱:1387545</li>
-                <li>github:47545859586</li>
-                <li>微信:13dfdhf</li>
+                <li v-for="(contact, index) in contacts" :key="index">
+                    {{ contact.info }}
+                </li>
             </ul>
         </section>
         <section>
@@ -35,10 +35,20 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import router from '@renderer/router';
 const switchToHome = () => {
     router.push('/')
 }
+// 保存联系方式的对象数组
+
+const contacts = ref([
+    { info: '邮箱:1387545' },
+    { info: 'github:47545859586' },
+    { info: '微信:13dfdhf' },
+])
+
+
 </script>
 
 <style lang="less" scoped>

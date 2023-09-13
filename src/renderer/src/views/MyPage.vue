@@ -19,17 +19,21 @@
     </section>
     <section class="mys-box">
       <ul>
-        <li>我的历史</li>
-        <li>我的收藏</li>
-        <li>我的关注</li>
-        <li>我的歌单</li>
+        <li v-for="(my) in mys" :key="my.name">{{ my.name }}</li>
       </ul>
     </section>
   </section>
 </template>
 
 <script setup lang="ts">
-
+import { ref } from 'vue'
+// 保存我的xx的列表数据
+const mys = ref([
+  { name: '我的历史' },
+  { name: '我的收藏' },
+  { name: '我的关注' },
+  { name: '我的歌单' },
+])
 </script>
 <style lang="less" scoped>
 .container-box {

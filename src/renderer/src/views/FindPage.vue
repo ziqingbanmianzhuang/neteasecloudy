@@ -3,10 +3,7 @@
     <header>
       <h1>发现</h1>
       <nav>
-        <a href="">推荐</a>
-        <a href="">最新</a>
-        <a href="">榜单</a>
-        <a href="">歌手</a>
+        <a href="#" v-for="(link, index) in links" :key="index">{{ link.name }}</a>
       </nav>
       <i @click="switchToHome">返回</i>
     </header>
@@ -14,47 +11,26 @@
       <section>
         <h2>推荐</h2>
         <div class="images-box">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
+          <i v-for="n in 8" :key="n"></i>
           <i></i>
         </div>
       </section>
       <section>
         <h2>最新</h2>
         <div class="images-box">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
+          <i v-for="n in 4" :key="n"></i>
         </div>
       </section>
       <section>
         <h2>榜单</h2>
         <div class="images-box">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
+          <i v-for="n in 10" :key="n"></i>
         </div>
       </section>
       <section>
         <h2>歌手</h2>
         <div class="images-box">
-          <i style="--deg:-2"></i>
-          <i style="--deg:-1"></i>
-          <i style="--deg:1"></i>
-          <i style="--deg:2"></i>
+          <i v-for="tag in tags" :key="tag['--deg']" :style="{ '--deg': tag['--deg'] }"></i>
         </div>
       </section>
     </main>
@@ -63,10 +39,25 @@
 
 <script setup lang="ts">
 import router from '@renderer/router';
+import { ref } from 'vue'
 
 const switchToHome = () => {
   router.push('/')
 }
+// 保存导航链接的对象数组
+const links = ref([
+  { name: '推荐' },
+  { name: '最新' },
+  { name: '榜单' },
+  { name: '歌手' },
+])
+// 保存四张旋转图像的角度值的对象数组
+const tags = ref([
+  { '--deg': -2 },
+  { '--deg': -1 },
+  { '--deg': 1 },
+  { '--deg': 2 },
+])
 </script>
 
 <style lang="less" scoped>
