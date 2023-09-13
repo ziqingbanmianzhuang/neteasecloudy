@@ -8,7 +8,7 @@ function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 670,
-    // frame: false,
+    frame: false,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -117,6 +117,15 @@ app.whenReady().then(() => {
     //   winMy.webContents.send('createWinMy', options)
     // })
 
+  })
+  ipcMain.on('closeWin', () => {
+    win.close()
+  })
+  ipcMain.on('hiddenWin', () => {
+    win.hide()
+  })
+  ipcMain.on('maximizeWin', () => {
+    win.maximize()
   })
 
   app.on('activate', function () {

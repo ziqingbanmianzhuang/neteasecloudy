@@ -13,6 +13,16 @@ const api = {
   createSignTips: (options: any) => {
     ipcRenderer.send('createSignTips', options)
   },
+  closeWin: (page) => {
+    ipcRenderer.send('closeWin',page)
+  },
+  hiddenWin: (page) => {
+    ipcRenderer.send('hiddenWin',page)
+  },
+  maximizeWin: (page) => {
+    ipcRenderer.send('maximizeWin',page)
+    
+  }
 
 }
 

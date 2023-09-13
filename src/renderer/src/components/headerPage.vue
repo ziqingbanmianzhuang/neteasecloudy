@@ -17,9 +17,9 @@
       </h2>
       <div></div>
       <ul>
-        <li class="keep-px">-</li>
-        <li class="keep-px">+</li>
-        <li class="keep-px">x</li>
+        <li class="keep-px" @click="hiddenWin">-</li>
+        <li class="keep-px" @click="maximizeWin">+</li>
+        <li class="keep-px" @click="closeWin">x</li>
       </ul>
     </nav>
   </header>
@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+
 // 创建loginStore
 // import { useLoginStore } from '../store/loginStore/index';
 localStorage.setItem('isLogin', 'false')
@@ -57,6 +58,21 @@ const judgeIsLogin = () => {
   }
 }
 
+// 关闭窗口
+const closeWin = () => {
+  let page = 'main'
+  window.api.closeWin(page)
+}
+// 隐藏窗口
+const hiddenWin = () => {
+  let page = 'main'
+  window.api.hiddenWin(page)
+}
+// 最大化窗口
+const maximizeWin = () => {
+  let page = 'main'
+  window.api.maximizeWin(page)
+}
 
 
 
@@ -67,7 +83,6 @@ header.keep-px {
   width: 100%;
   height: 50px;
   // background-color: red;
-  -webkit-app-region: drag;
   position: relative;
 
   nav {
@@ -97,6 +112,7 @@ header.keep-px {
         font-size: 32px;
         line-height: 50px;
         display: block;
+        -webkit-app-region: drag;
 
       }
     }
@@ -148,6 +164,7 @@ header.keep-px {
         font-size: 30px;
         color: #FFEDEB;
         -webkit-text-stroke: 1px #666;
+        cursor: pointer;
 
 
       }
