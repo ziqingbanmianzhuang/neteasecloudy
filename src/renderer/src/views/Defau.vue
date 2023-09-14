@@ -28,18 +28,20 @@ const switchToComponent = (to) => {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container {
     width: calc(100vw - 100px);
-    margin: 50px;
+    margin: @yihao-margin;
     height: calc(100vh - 100px);
-    background-color: #FFEDEB;
-    border-radius: 10px;
+    background-color: @yihao-red-bgc;
+    border-radius: @yihao-border-radius;
 }
 
 .main {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
+    margin-top: @yihao-margin;
     width: calc(100vw - 100px);
     height: calc(100vh - 200px);
 }

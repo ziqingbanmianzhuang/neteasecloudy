@@ -61,27 +61,29 @@ const tags = ref([
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
   width: 95vw;
-  border-radius: 10px;
+  border-radius: @yihao-border-radius;
   margin: 0 auto;
-  color: #fff;
-  background-color: #dececd;
+  color: @sanhao-font-color;
+  background-color: @jiuhao-red-bgc;
 
   header {
-    height: 50px;
+    height: @yihao-height;
     display: flex;
     align-items: center;
 
     h1 {
       flex: 2;
-      padding-left: 15px;
+      padding-left: @sanhao-padding;
     }
 
     i {
       display: block;
       text-align: right;
-      padding-right: 20px;
+      padding-right: @wuhao-padding;
       flex: 1;
       cursor: pointer;
       ;
@@ -94,7 +96,7 @@ const tags = ref([
       align-items: center;
 
       a {
-        color: #fff;
+        color: @sanhao-font-color;
       }
     }
 
@@ -103,15 +105,15 @@ const tags = ref([
   main {
     section {
       h2 {
-        font-size: 20px;
+        font-size: @sanhao-font-size;
         font-weight: normal;
-        padding-bottom: 20px;
+        padding-bottom: @wuhao-padding;
       }
 
       display: flex;
       justify-content: space-around;
       flex-direction: column;
-      padding: 20px 20px;
+      padding: @wuhao-padding;
     }
 
     section:nth-child(1) {
@@ -124,7 +126,7 @@ const tags = ref([
         i {
           width: 60px;
           height: 180px;
-          border-radius: 30px;
+          border-radius: @erhao-border-radius;
           display: block;
           position: relative;
           transition: all 0.3s;
@@ -134,8 +136,8 @@ const tags = ref([
 
           &::after {
             content: "你的名字 12345678  1234567890 12345";
-            color: #fff;
-            font-size: 18px;
+            color: @sanhao-font-color;
+            font-size: @sanhao-font-size;
             text-align: center;
             display: block;
             position: absolute;
@@ -146,8 +148,8 @@ const tags = ref([
 
           &::before {
             content: "你的名字";
-            color: #000;
-            font-size: 18px;
+            color: @bahao-font-color;
+            font-size: @sanhao-font-size;
             text-align: center;
             display: block;
             position: absolute;
@@ -155,7 +157,7 @@ const tags = ref([
             width: 60px;
             height: 40px;
             line-height: 40px;
-            background: #fff;
+            background: @qihao-white-bgc;
             transition: all 0.3s;
 
           }
@@ -163,7 +165,7 @@ const tags = ref([
 
         i:hover {
           width: 80px;
-          border-radius: 40px;
+          border-radius: @erhao-border-radius;
 
           &::before {
             width: 80px;
@@ -189,7 +191,7 @@ const tags = ref([
           display: block;
           width: 120px;
           height: 140px;
-          border-radius: 10px;
+          border-radius: @yihao-border-radius;
           // overflow-x: hidden;
           position: relative;
           transition: all 0.3s;
@@ -199,7 +201,7 @@ const tags = ref([
             content: "love  is painful xxxx";
             display: block;
             position: absolute;
-            color: #ab9d97;
+            color: @qihao-font-color;
             width: 100%;
             text-align: center;
             bottom: 10px;
@@ -230,9 +232,9 @@ const tags = ref([
         display: block;
         width: 120px;
         height: 120px;
-        border-radius: 10px;
+        border-radius: @yihao-border-radius;
         background: url('../public/images/flower-logo.jpg') center/cover no-repeat;
-        margin-bottom: 30px;
+        margin-bottom: @sihao-margin;
         position: relative;
 
         &::after {
@@ -240,7 +242,7 @@ const tags = ref([
           position: absolute;
           bottom: 0px;
           transform: translateY(calc(100% + 5px));
-          font-size: 30px;
+          font-size: @yihao-font-size;
           color: skyblue;
           left: 0px;
           width: 20px;
@@ -252,7 +254,7 @@ const tags = ref([
           display: block;
           position: absolute;
           bottom: 0px;
-          font-size: 25px;
+          font-size: @sanhao-font-size;
           width: 100%;
           left: 10px;
           transform: translateY(calc(100% + 5px));
@@ -273,7 +275,7 @@ const tags = ref([
           display: block;
           width: 150px;
           height: 200px;
-          border-radius: 10px;
+          border-radius: @yihao-border-radius;
           background: url(../public/images/home-2.jpg) center/cover no-repeat;
           transform: rotate(calc(var(--deg) * 10deg));
           transform-origin: 50%;

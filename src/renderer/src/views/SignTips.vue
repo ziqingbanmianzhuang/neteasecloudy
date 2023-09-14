@@ -14,6 +14,8 @@ const switchToSign = () => {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
     width: 100vw;
     height: 100vh;
@@ -24,10 +26,10 @@ const switchToSign = () => {
     align-items: center;
 
     button {
-        padding: 10px 10px;
-        border-radius: 5px;
-        background: #ae7d78;
-        color: #fff;
+        padding: @erhao-padding;
+        border-radius: @sihao-border-radius;
+        background: @shisihao-red-color;
+        color: @sanhao-font-color;
     }
 }
 </style>

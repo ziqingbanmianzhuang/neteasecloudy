@@ -69,16 +69,18 @@ const maximizeWin = () => {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 header.keep-px {
   width: 100%;
-  height: 50px;
+  height: @yihao-height;
   position: relative;
 
   nav {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    grid-template-rows: 50px;
+    grid-template-rows: @yihao-height;
 
     h1 {
       justify-self: start;
@@ -88,17 +90,17 @@ header.keep-px {
       font-family: "YinWanZi";
 
       .flower-logo {
-        width: 30px;
-        height: 30px;
+        width: @erhao-width;
+        height: @erhao-height;
         border-radius: 50%;
-        margin: 0 10px 0 10px;
+        margin: 0 @erhao-margin 0 @erhao-margin;
         vertical-align: middle;
       }
 
       a.keep-px {
         color: #78AE87;
-        font-size: 32px;
-        line-height: 50px;
+        font-size: @yihao-font-size;
+        line-height: @yihao-height;
         display: block;
         -webkit-app-region: drag;
 
@@ -107,32 +109,32 @@ header.keep-px {
 
     h2 {
       text-align: center;
-      background-color: #FFEDEB;
+      background-color: @yihao-red-bgc;
       position: relative;
       z-index: 1;
 
       a.keep-px {
-        width: 14px;
-        height: 14px;
-        font-size: 14px;
-        color: #AE7D78;
-        padding: 0 14px;
-        padding-bottom: 30px;
+        width: @sanhao-width;
+        height: @sanhao-height;
+        font-size: @erhao-font-size;
+        color: @erhao-font-color;
+        padding: 0 @sanhao-padding;
+        padding-bottom: @sihao-padding;
         position: relative;
 
         &::before {
           content: '';
           display: block;
           height: 2px;
-          width: 42px;
+          width: @sihao-width;
           position: absolute;
           bottom: 10px;
           left: 7px;
-          background-color: transparent;
+          background-color: @transparent-bgc;
         }
 
         &:hover::before {
-          background-color: #78AE87;
+          background-color: @erhao-green-bgc;
         }
       }
     }
@@ -147,13 +149,11 @@ header.keep-px {
 
       li.keep-px {
         display: inline-block;
-        padding: 0 10px;
-        font-size: 30px;
-        color: #FFEDEB;
-        -webkit-text-stroke: 1px #666;
+        padding: 0 @erhao-padding;
+        font-size: @yihao-font-size;
+        color: @yihao-font-color;
+        -webkit-text-stroke: 1px @yihao-stroke-color;
         cursor: pointer;
-
-
       }
     }
   }

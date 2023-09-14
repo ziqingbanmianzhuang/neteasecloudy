@@ -30,6 +30,8 @@ const createMyWin = () => {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
     width: 100vw;
     height: 100vh;
@@ -38,23 +40,23 @@ const createMyWin = () => {
     justify-content: center;
     align-items: center;
     font-family: 'YinWanZi';
-    color: #fff;
+    color: @sanhao-font-color;
 
     .sign-box {
         width: 70vw;
         height: 70vh;
-        border: 13px rgba(102, 139, 191, 0.4) solid;
+        border: 13px @wuhao-border-color solid;
 
         .info-box {
             width: 40vw;
             height: calc(70vh - 26px);
-            background: rgba(102, 139, 191, 0.4);
+            background: @shiyihao-blue-bgc;
             float: right;
             text-align: center;
 
             header {
                 height: 80px;
-                background: rgba(102, 139, 191, 0.8);
+                background: @shierhao-blue-bgc;
                 transform: translateY(-13px);
                 display: flex;
                 justify-content: space-around;
@@ -66,18 +68,18 @@ const createMyWin = () => {
 
                 a {
                     display: block;
-                    width: 60px;
-                    height: 30px;
-                    background: #5279b2;
-                    border-radius: 20px;
+                    width: @erhao-height;
+                    height: @erhao-height;
+                    background: @shisanhao-blue-bgc;
+                    border-radius: @sanhao-border-radius;
 
                     &::before {
                         content: "";
                         display: block;
-                        height: 30px;
-                        width: 30px;
+                        height: @erhao-height;
+                        width: @erhao-width;
                         border-radius: 50%;
-                        background: #fff;
+                        background: @sanhao-font-color;
                     }
                 }
 
@@ -89,28 +91,28 @@ const createMyWin = () => {
                 text-align: center;
 
                 input {
-                    padding: 0 20px;
-                    margin: 10px 0;
-                    height: 40px;
-                    background: #5279b2;
-                    color: #fff;
-                    border-radius: 5px;
+                    padding: 0 @wuhao-padding;
+                    margin: @erhao-margin 0;
+                    height: @erhao-height;
+                    background: @shisanhao-blue-bgc;
+                    color: @sanhao-font-color;
+                    border-radius: @sihao-border-radius;
 
                     &::placeholder {
-                        color: #ffffff9e;
+                        color: @shier-font-color;
                     }
                 }
             }
         }
 
         button {
-            width: 50px;
-            height: 30px;
-            border-radius: 5px;
+            width: @sihao-width;
+            height: @erhao-height;
+            border-radius: @sihao-border-radius;
             text-align: center;
-            background: #ae7d78;
-            color: #fff;
-            margin-top: 30px;
+            background: @shisihao-red-color;
+            color: @qihao-white-bgc;
+            margin-top: @sihao-margin;
         }
     }
 }

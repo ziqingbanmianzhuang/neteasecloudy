@@ -115,13 +115,15 @@ const times = ref([
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
     font-family: 'YinWanZi';
-    padding-left: 40px;
+    padding-left: @qihao-padding;
 
     >i {
         display: block;
-        color: #c8a8a4;
+        color: @wuhao-font-color;
         position: fixed;
         top: 0;
         left: 0;
@@ -129,66 +131,66 @@ const times = ref([
     }
 
     h1 {
-        margin-top: 30px;
+        margin-top: @sihao-margin;
     }
 
     h2 {
-        margin-top: 20px;
+        margin-top: @sanhao-margin;
         font-weight: 600;
     }
 
     >section {
-        padding-bottom: 10px;
-        border-bottom: 1px solid #fff8f8;
+        padding-bottom: @erhao-padding;
+        border-bottom: @sanhao-border solid #fff8f8;
     }
 
     nav {
         display: flex;
         justify-content: space-around;
         font-weight: 600;
-        margin-top: 30px;
+        margin-top: @sihao-margin;
 
 
         a {
-            border-bottom: 1px solid transparent;
+            border-bottom: @sanhao-border solid transparent;
 
             &:hover {
-                border-bottom: 1px solid #c8a8a4;
+                border-bottom: @sanhao-border solid @sanhao-border-color;
             }
         }
     }
 
     .zhanghao {
-        margin-top: 40px;
+        margin-top: @sihao-margin;
 
 
         ul {
             display: flex;
 
             li:nth-last-child(2) {
-                padding-right: 20px;
+                padding-right: @wuhao-padding;
             }
 
             img {
-                width: 30px;
-                height: 30px;
+                width: @erhao-width;
+                height: @erhao-height;
                 border-radius: 50%;
             }
         }
 
         button {
-            border: 1px solid #000;
-            background: #fff;
-            border-radius: 10px;
-            padding: 10px;
+            border: @sanhao-border solid @sihao-border-color;
+            background: @qihao-white-bgc;
+            border-radius: @yihao-border-radius;
+            padding: @erhao-padding;
             font-weight: 600;
-            margin-top: 30px;
+            margin-top: @sihao-margin;
         }
     }
 
     .changgui {
         #font-setting {
-            width: 100px;
+            width: @wuohao-width;
         }
 
         .time-box {
@@ -196,13 +198,13 @@ const times = ref([
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding-top: 10px;
+            padding-top: @erhao-padding;
 
             button {
-                border: 1px solid #000;
-                background: #fff;
-                border-radius: 5px;
-                padding: 10px;
+                border: @sanhao-border solid @sihao-border-color;
+                background: @qihao-white-bgc;
+                border-radius: @sihao-border-radius;
+                padding: @erhao-padding;
             }
         }
 

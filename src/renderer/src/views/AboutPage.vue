@@ -53,24 +53,26 @@ const contacts = ref([
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     position: relative;
-    color: #a7ccb0;
+    color: @sihao-font-color;
     text-align: center;
 
     section:nth-child(1) {
         width: 60vw;
         height: 30vh;
-        background: #f1fff1;
+        background: @sanhao-red-bgc;
         position: absolute;
         left: 0;
 
         i {
             display: block;
-            color: #c8a8a4;
+            color: @wuhao-font-color;
             position: fixed;
             top: 0;
             left: 20px;
@@ -81,38 +83,38 @@ const contacts = ref([
     section:nth-child(2) {
         width: 40vw;
         height: 45vh;
-        background: #f8fff8;
+        background: @bahao-white-bg;
         position: absolute;
         right: 0;
 
         h1 {
             font-weight: normal;
-            letter-spacing: 10px;
+            letter-spacing: @yihao-letter-spacing;
         }
 
         p {
-            font-size: 14px;
+            font-size: @erhao-font-size;
         }
 
         button {
-            margin-top: 20px;
-            border: 1px solid #d9e9dd;
-            color: #93be9e;
-            border-radius: 5px;
-            background: #fff;
+            margin-top: @sanhao-margin;
+            border: @erhao-border solid @erhao-border-color;
+            color: @liuhao-font-color;
+            border-radius: @sihao-border-radius;
+            background: @qihao-white-bgc;
         }
 
         label {
             display: block;
-            font-size: 18px;
+            font-size: @sanhao-font-size;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: @erhao-margin;
 
             a {
-                padding-right: 10px;
-                color: #93be9e;
+                padding-right: @erhao-padding;
+                color: @liuhao-font-color;
                 font-family: 'YinWanZi';
             }
         }
@@ -121,34 +123,34 @@ const contacts = ref([
     section:nth-child(3) {
         width: 70vw;
         height: 70vh;
-        background: #c5dccb;
+        background: @sihao-green-bgc;
         position: absolute;
         bottom: 0;
         text-align-last: left;
-        padding-left: 30px;
+        padding-left: @sihao-padding;
 
         h1 {
-            color: #fff;
+            color: @sanhao-font-color;
             font-weight: normal;
         }
 
         ul li {
-            color: #91c0b2;
+            color: @wuhao-green-bgc;
         }
     }
 
     section:nth-child(4) {
         width: 80vw;
         height: 60vh;
-        background: #ffedeb;
+        background: @liuhao-red-bgc;
         position: absolute;
         bottom: 0;
         right: 0;
         transform: translate(130px, 100px) rotate(-30deg);
-        color: #fff;
+        color: @sanhao-font-color;
 
         h2 {
-            margin-top: 10px;
+            margin-top: @erhao-padding;
             font-size: 80px;
         }
 

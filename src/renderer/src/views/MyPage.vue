@@ -36,6 +36,8 @@ const mys = ref([
 ])
 </script>
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
 .container-box {
   overflow: hidden;
   width: 100vw;
@@ -49,15 +51,15 @@ const mys = ref([
     top: 0;
     left: 0;
     z-index: -1;
-    height: 200px;
-    background: #f8efe0 url('../public/images/my-1.jpg') center/100vw 200px no-repeat;
+    height: @wuhao-height;
+    background: @shihao-white-bgc url('../public/images/my-1.jpg') center/100vw 200px no-repeat;
   }
 
   .info-box {
-    height: 200px;
+    height: @wuhao-height;
     width: 80%;
     margin: 180px auto 0px;
-    border-radius: 10px;
+    border-radius: @yihao-border-radius;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3),
       -3px -3px 3px 0 rgba(0, 0, 0, 0.1);
 
@@ -78,7 +80,7 @@ const mys = ref([
       }
 
       nav a {
-        color: #78ae87;
+        color: @jiuhao-font-color;
         font-size: 38px;
       }
 
@@ -86,7 +88,7 @@ const mys = ref([
         width: 100px;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        background: #f8efe0;
+        background: @shihao-white-bgc;
       }
     }
 
@@ -95,7 +97,7 @@ const mys = ref([
 
   .tool-box {
     width: 80vw;
-    height: 60px;
+    height: @liuhao-height;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -103,29 +105,29 @@ const mys = ref([
 
     .iconfont {
       font-family: 'iconfont';
-      color: #ffedee;
+      color: @shihao-font-color;
       font-size: 120px;
     }
   }
 
   .mys-box {
-    height: 340px;
+    height: @qihao-height;
 
     ul {
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      color: #b08079;
+      color: @shiyi-font-color;
 
       li {
-        height: 50px;
-        line-height: 50px;
+        height: @yihao-height;
+        line-height: @yihao-height;
         width: 80%;
-        padding: 0 50px;
-        margin: 10px 0;
+        padding: 0 @qihao-padding;
+        margin: @erhao-margin 0;
         text-align: center;
-        border-radius: 10px;
+        border-radius: @erhao-border-radius;
         box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.1),
           -1px -1px 3px 0 rgba(0, 0, 0, 0.1);
 
