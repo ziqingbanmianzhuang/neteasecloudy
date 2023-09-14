@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import router from '@renderer/router';
 import { ref } from 'vue'
-
+// 跳转home页面
 const switchToHome = () => {
   router.push('/')
 }

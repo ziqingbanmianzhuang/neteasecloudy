@@ -36,12 +36,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+// 引入路由
 import router from '@renderer/router';
+// 跳转home页面
 const switchToHome = () => {
     router.push('/')
 }
 // 保存联系方式的对象数组
-
 const contacts = ref([
     { info: '邮箱:1387545' },
     { info: 'github:47545859586' },

@@ -10,10 +10,10 @@
       <h2>
         <a ref="" class="keep-px" @click="judgeIsLogin">我的</a>
         <!-- // 通知父级跳转Find路由页面 -->
-        <a ref="" class="keep-px" @click="$emit('switchToFind')">发现</a>
-        <a ref="" class="keep-px" @click="$emit('switchToSetting')">设置</a>
+        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/find')">发现</a>
+        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/setting')">设置</a>
         <!-- // 通知父级跳转About路由页面 -->
-        <a ref="" class="keep-px" @click="$emit('switchToAbout')">关于</a>
+        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/about')">关于</a>
       </h2>
       <div></div>
       <ul>
@@ -27,17 +27,10 @@
 </template>
 
 <script setup lang="ts">
-
-// 创建loginStore
-// import { useLoginStore } from '../store/loginStore/index';
 localStorage.setItem('isLogin', 'false')
 //判断是否登录
 const judgeIsLogin = () => {
   // 是否登录
-  // 创建My窗口
-  // const loginStore = useLoginStore()
-  // console.log(loginStore.isLogin);
-
   if (localStorage.getItem('isLogin') === 'true') {
     const options = {
       h: 800,
@@ -50,14 +43,11 @@ const judgeIsLogin = () => {
       h: 600,
       w: 900
     }
-    // 登录注册窗口
-    // window.api.createSign(options)
-    // 提示登录注册窗口
+    // 创建提示登录注册窗口
     window.api.createSignTips(options)
 
   }
 }
-
 // 关闭窗口
 const closeWin = () => {
   let page = 'main'
@@ -82,7 +72,6 @@ const maximizeWin = () => {
 header.keep-px {
   width: 100%;
   height: 50px;
-  // background-color: red;
   position: relative;
 
   nav {
@@ -93,7 +82,6 @@ header.keep-px {
 
     h1 {
       justify-self: start;
-      // width: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -118,11 +106,10 @@ header.keep-px {
     }
 
     h2 {
-      -webkit-app-region: no-drag;
       text-align: center;
       background-color: #FFEDEB;
       position: relative;
-      z-index: 9999;
+      z-index: 1;
 
       a.keep-px {
         width: 14px;
@@ -155,7 +142,7 @@ header.keep-px {
       position: absolute;
       top: 0px;
       right: 10px;
-      justify-self: end;
+      // justify-self: end;
       text-align: center;
 
       li.keep-px {

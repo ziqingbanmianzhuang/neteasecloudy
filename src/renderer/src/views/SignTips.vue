@@ -7,10 +7,8 @@
 
 <script setup lang="ts">
 import router from '../router/index';
-
+// 登录注册窗口
 const switchToSign = () => {
-    // 登录注册窗口
-    // window.api.createSign(options)
     router.push('/sign')
 }
 </script>

@@ -1,11 +1,6 @@
 <template>
     <section class="contain">
     </section>
-    <!-- <img src="../public/images/home-5.jpg" alt="" style="--i:1">
-    <img src="../public/images/home-4.jpg" alt="" style="--i:2">
-    <img src="../public/images/home-3.jpg" alt="" style="--i:3">
-    <img src="../public/images/home-2.jpg" alt="" style="--i:4">
-    <img src="../public/images/home-1.jpg" alt="" style="--i:5"> -->
     <img :src="image.src" alt="" v-for="(image) in  images  " :key="image['---i']" :style="{ '--i': image['--i'] }">
     <div v-if="isLogin" class="popdialog">
         <content-page></content-page>
@@ -14,7 +9,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+// 引入contentpage组件
 import contentPage from './contentPage.vue'
+// 是否登录
 const isLogin = localStorage.getItem('isLogin')
 // 保存images数据的数组对象
 const images = ref([
@@ -50,10 +47,6 @@ const images = ref([
     animation-delay: 0.7s;
     border-radius: 10px;
     padding: 20px;
-    overflow: auto;
-
-
-
 
     @keyframes backgroundAnimate {
         0% {
