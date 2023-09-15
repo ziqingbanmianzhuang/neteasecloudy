@@ -51,12 +51,12 @@ const mys = ref([
     top: 0;
     left: 0;
     z-index: -1;
-    height: @wuhao-height;
+    height: @liuhao-height;
     background: @shihao-white-bgc url('../public/images/my-1.jpg') center/100vw 200px no-repeat;
   }
 
   .info-box {
-    height: @wuhao-height;
+    height: @liuhao-height;
     width: 80%;
     margin: 180px auto 0px;
     border-radius: @yihao-border-radius;
@@ -97,7 +97,7 @@ const mys = ref([
 
   .tool-box {
     width: 80vw;
-    height: @liuhao-height;
+    height: @sihao-height;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -105,7 +105,7 @@ const mys = ref([
 
     .iconfont {
       font-family: 'iconfont';
-      color: @shihao-font-color;
+      color: @wuhao-font-color;
       font-size: 120px;
     }
   }
@@ -118,16 +118,16 @@ const mys = ref([
       flex-direction: column;
       align-items: center;
 
-      color: @shiyi-font-color;
+      color: @wuhao-font-color;
 
       li {
-        height: @yihao-height;
-        line-height: @yihao-height;
+        height: @sanhao-height;
+        line-height: @sanhao-height;
         width: 80%;
-        padding: 0 @qihao-padding;
-        margin: @erhao-margin 0;
+        padding: 0 @liuhao-padding;
+        margin: @yihao-margin 0;
         text-align: center;
-        border-radius: @erhao-border-radius;
+        border-radius: @yihao-border-radius;
         box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.1),
           -1px -1px 3px 0 rgba(0, 0, 0, 0.1);
 

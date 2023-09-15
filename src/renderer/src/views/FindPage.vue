@@ -67,11 +67,11 @@ const tags = ref([
   width: 95vw;
   border-radius: @yihao-border-radius;
   margin: 0 auto;
-  color: @sanhao-font-color;
-  background-color: @jiuhao-red-bgc;
+  color: @erhao-font-color;
+  background-color: @yihao-red-bgc;
 
   header {
-    height: @yihao-height;
+    height: @sanhao-height;
     display: flex;
     align-items: center;
 
@@ -83,7 +83,7 @@ const tags = ref([
     i {
       display: block;
       text-align: right;
-      padding-right: @wuhao-padding;
+      padding-right: @sanhao-padding;
       flex: 1;
       cursor: pointer;
       ;
@@ -96,7 +96,7 @@ const tags = ref([
       align-items: center;
 
       a {
-        color: @sanhao-font-color;
+        color: @erhao-font-color;
       }
     }
 
@@ -105,15 +105,15 @@ const tags = ref([
   main {
     section {
       h2 {
-        font-size: @sanhao-font-size;
+        font-size: @erhao-font-size;
         font-weight: normal;
-        padding-bottom: @wuhao-padding;
+        padding-bottom: @sanhao-padding;
       }
 
       display: flex;
       justify-content: space-around;
       flex-direction: column;
-      padding: @wuhao-padding;
+      padding: @sanhao-padding;
     }
 
     section:nth-child(1) {
@@ -137,7 +137,7 @@ const tags = ref([
           &::after {
             content: "你的名字 12345678  1234567890 12345";
             color: @sanhao-font-color;
-            font-size: @sanhao-font-size;
+            font-size: @yihao-font-size;
             text-align: center;
             display: block;
             position: absolute;
@@ -148,8 +148,8 @@ const tags = ref([
 
           &::before {
             content: "你的名字";
-            color: @bahao-font-color;
-            font-size: @sanhao-font-size;
+            color: @sanhao-font-color;
+            font-size: @yihao-font-size;
             text-align: center;
             display: block;
             position: absolute;
@@ -157,7 +157,7 @@ const tags = ref([
             width: 60px;
             height: 40px;
             line-height: 40px;
-            background: @qihao-white-bgc;
+            background: @sihao-font-color;
             transition: all 0.3s;
 
           }
@@ -191,7 +191,7 @@ const tags = ref([
           display: block;
           width: 120px;
           height: 140px;
-          border-radius: @yihao-border-radius;
+          border-radius: @erhao-border-radius;
           // overflow-x: hidden;
           position: relative;
           transition: all 0.3s;
@@ -201,7 +201,7 @@ const tags = ref([
             content: "love  is painful xxxx";
             display: block;
             position: absolute;
-            color: @qihao-font-color;
+            color: @sihao-font-color;
             width: 100%;
             text-align: center;
             bottom: 10px;
@@ -232,9 +232,9 @@ const tags = ref([
         display: block;
         width: 120px;
         height: 120px;
-        border-radius: @yihao-border-radius;
+        border-radius: @erhao-border-radius;
         background: url('../public/images/flower-logo.jpg') center/cover no-repeat;
-        margin-bottom: @sihao-margin;
+        margin-bottom: @yihao-margin;
         position: relative;
 
         &::after {
@@ -243,7 +243,7 @@ const tags = ref([
           bottom: 0px;
           transform: translateY(calc(100% + 5px));
           font-size: @yihao-font-size;
-          color: skyblue;
+          color: @sihao-font-color;
           left: 0px;
           width: 20px;
 
@@ -254,7 +254,7 @@ const tags = ref([
           display: block;
           position: absolute;
           bottom: 0px;
-          font-size: @sanhao-font-size;
+          font-size: @yihao-font-size;
           width: 100%;
           left: 10px;
           transform: translateY(calc(100% + 5px));
@@ -275,7 +275,7 @@ const tags = ref([
           display: block;
           width: 150px;
           height: 200px;
-          border-radius: @yihao-border-radius;
+          border-radius: @erhao-border-radius;
           background: url(../public/images/home-2.jpg) center/cover no-repeat;
           transform: rotate(calc(var(--deg) * 10deg));
           transform-origin: 50%;

@@ -32,16 +32,16 @@ const switchToComponent = (to) => {
 
 .container {
     width: calc(100vw - 100px);
-    margin: @yihao-margin;
+    margin: @sihao-margin;
     height: calc(100vh - 100px);
     background-color: @yihao-red-bgc;
-    border-radius: @yihao-border-radius;
+    border-radius: @erhao-border-radius;
 }
 
 .main {
     display: flex;
     justify-content: space-evenly;
-    margin-top: @yihao-margin;
+    margin-top: @sihao-margin;
     width: calc(100vw - 100px);
     height: calc(100vh - 200px);
 }

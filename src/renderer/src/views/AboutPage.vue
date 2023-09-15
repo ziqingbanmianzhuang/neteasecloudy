@@ -60,7 +60,7 @@ const contacts = ref([
     height: 100vh;
     overflow: hidden;
     position: relative;
-    color: @sihao-font-color;
+    color: @jiuhao-font-color;
     text-align: center;
 
     section:nth-child(1) {
@@ -72,7 +72,7 @@ const contacts = ref([
 
         i {
             display: block;
-            color: @wuhao-font-color;
+            color: @qihao-font-color;
             position: fixed;
             top: 0;
             left: 20px;
@@ -93,27 +93,28 @@ const contacts = ref([
         }
 
         p {
-            font-size: @erhao-font-size;
+            font-size: @yihao-font-size;
         }
 
         button {
-            margin-top: @sanhao-margin;
-            border: @erhao-border solid @erhao-border-color;
+            margin-top: @yihao-margin;
+            border: @yihao-border solid @yihao-border-color;
             color: @liuhao-font-color;
-            border-radius: @sihao-border-radius;
+            border-radius: @yihao-border-radius;
             background: @qihao-white-bgc;
         }
 
         label {
             display: block;
-            font-size: @sanhao-font-size;
+            font-size: @yihao-font-size;
+            color: @shisan-font-color;
         }
 
         nav {
-            margin-top: @erhao-margin;
+            margin-top: @yihao-margin;
 
             a {
-                padding-right: @erhao-padding;
+                padding-right: @sanhao-padding;
                 color: @liuhao-font-color;
                 font-family: 'YinWanZi';
             }
@@ -127,7 +128,7 @@ const contacts = ref([
         position: absolute;
         bottom: 0;
         text-align-last: left;
-        padding-left: @sihao-padding;
+        padding-left: @sanhao-padding;
 
         h1 {
             color: @sanhao-font-color;
@@ -135,7 +136,7 @@ const contacts = ref([
         }
 
         ul li {
-            color: @wuhao-green-bgc;
+            color: @shisan-font-color;
         }
     }
 
@@ -150,7 +151,7 @@ const contacts = ref([
         color: @sanhao-font-color;
 
         h2 {
-            margin-top: @erhao-padding;
+            margin-top: @sanhao-margin;
             font-size: 80px;
         }
 

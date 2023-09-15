@@ -119,11 +119,11 @@ const times = ref([
 
 .container-box {
     font-family: 'YinWanZi';
-    padding-left: @qihao-padding;
+    padding-left: @liuhao-padding;
 
     >i {
         display: block;
-        color: @wuhao-font-color;
+        color: @jiuhao-font-color;
         position: fixed;
         top: 0;
         left: 0;
@@ -131,66 +131,66 @@ const times = ref([
     }
 
     h1 {
-        margin-top: @sihao-margin;
+        margin-top: @yihao-margin;
     }
 
     h2 {
-        margin-top: @sanhao-margin;
+        margin-top: @yihao-margin;
         font-weight: 600;
     }
 
     >section {
-        padding-bottom: @erhao-padding;
-        border-bottom: @sanhao-border solid #fff8f8;
+        padding-bottom: @sihao-padding;
+        border-bottom: @yihao-border solid @erhao-border-color;
     }
 
     nav {
         display: flex;
         justify-content: space-around;
         font-weight: 600;
-        margin-top: @sihao-margin;
+        margin-top: @yihao-margin;
 
 
         a {
-            border-bottom: @sanhao-border solid transparent;
+            border-bottom: @yihao-border solid transparent;
 
             &:hover {
-                border-bottom: @sanhao-border solid @sanhao-border-color;
+                border-bottom: @yihao-border solid @yihao-border-color;
             }
         }
     }
 
     .zhanghao {
-        margin-top: @sihao-margin;
+        margin-top: @yihao-margin;
 
 
         ul {
             display: flex;
 
             li:nth-last-child(2) {
-                padding-right: @wuhao-padding;
+                padding-right: @sihao-padding;
             }
 
             img {
-                width: @erhao-width;
+                width: @sanhao-width;
                 height: @erhao-height;
                 border-radius: 50%;
             }
         }
 
         button {
-            border: @sanhao-border solid @sihao-border-color;
-            background: @qihao-white-bgc;
+            border: @yihao-border solid @yihao-border-color;
+            background: @sihao-green-bgc;
             border-radius: @yihao-border-radius;
-            padding: @erhao-padding;
+            padding: @sihao-padding;
             font-weight: 600;
-            margin-top: @sihao-margin;
+            margin-top: @yihao-margin;
         }
     }
 
     .changgui {
         #font-setting {
-            width: @wuohao-width;
+            width: @liuhao-width;
         }
 
         .time-box {
@@ -198,13 +198,13 @@ const times = ref([
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding-top: @erhao-padding;
+            padding-top: @sihao-padding;
 
             button {
-                border: @sanhao-border solid @sihao-border-color;
-                background: @qihao-white-bgc;
-                border-radius: @sihao-border-radius;
-                padding: @erhao-padding;
+                border: @yihao-border solid @yihao-border-color;
+                background: @sihao-green-bgc;
+                border-radius: @yihao-border-radius;
+                padding: @sihao-padding;
             }
         }
 

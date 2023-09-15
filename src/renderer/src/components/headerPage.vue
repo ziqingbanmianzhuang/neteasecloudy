@@ -73,14 +73,14 @@ const maximizeWin = () => {
 
 header.keep-px {
   width: 100%;
-  height: @yihao-height;
+  height: @sanhao-height;
   position: relative;
 
   nav {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    grid-template-rows: @yihao-height;
+    grid-template-rows: @sanhao-height;
 
     h1 {
       justify-self: start;
@@ -90,17 +90,17 @@ header.keep-px {
       font-family: "YinWanZi";
 
       .flower-logo {
-        width: @erhao-width;
+        width: @sanhao-width;
         height: @erhao-height;
         border-radius: 50%;
-        margin: 0 @erhao-margin 0 @erhao-margin;
+        margin: 0 @yihao-margin 0 @yihao-margin;
         vertical-align: middle;
       }
 
       a.keep-px {
-        color: #78AE87;
-        font-size: @yihao-font-size;
-        line-height: @yihao-height;
+        color: @liuhao-font-color;
+        font-size: @sanhao-font-size;
+        line-height: @sanhao-height;
         display: block;
         -webkit-app-region: drag;
 
@@ -114,12 +114,12 @@ header.keep-px {
       z-index: 1;
 
       a.keep-px {
-        width: @sanhao-width;
+        width: @erhao-width;
         height: @sanhao-height;
-        font-size: @erhao-font-size;
-        color: @erhao-font-color;
+        font-size: @yihao-font-size;
+        color: @wuhao-font-color;
         padding: 0 @sanhao-padding;
-        padding-bottom: @sihao-padding;
+        padding-bottom: @liuhao-padding;
         position: relative;
 
         &::before {
@@ -134,7 +134,7 @@ header.keep-px {
         }
 
         &:hover::before {
-          background-color: @erhao-green-bgc;
+          background-color: @wuhao-green-bgc;
         }
       }
     }
@@ -149,9 +149,9 @@ header.keep-px {
 
       li.keep-px {
         display: inline-block;
-        padding: 0 @erhao-padding;
-        font-size: @yihao-font-size;
-        color: @yihao-font-color;
+        padding: 0 @sanhao-padding;
+        font-size: @erhao-font-size;
+        color: @wuhao-font-color;
         -webkit-text-stroke: 1px @yihao-stroke-color;
         cursor: pointer;
       }

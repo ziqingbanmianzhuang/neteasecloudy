@@ -47,8 +47,8 @@ const images = ref([
 .contain {
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
-    border-radius: @yihao-border-radius;
-    padding: @wuhao-padding;
+    border-radius: @erhao-border-radius;
+    padding: @sanhao-padding;
 
     @keyframes backgroundAnimate {
         0% {
@@ -116,9 +116,9 @@ img {
     position: absolute;
     bottom: 50px;
     right: 0px;
-    width: @wuohao-width;
-    height: @sihao-height;
-    border: @yihao-border solid #fff;
+    width: @liuhao-width;
+    height: @wuhao-height;
+    border: @erhao-border solid #fff;
     border-radius: @erhao-border-radius;
     animation: translateAnimate 60s linear 0s infinite both;
     animation-delay: calc(var(--i) * -12s);

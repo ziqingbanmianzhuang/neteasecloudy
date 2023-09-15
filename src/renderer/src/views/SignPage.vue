@@ -68,16 +68,16 @@ const createMyWin = () => {
 
                 a {
                     display: block;
-                    width: @erhao-height;
+                    width: @sanhao-height;
                     height: @erhao-height;
                     background: @shisanhao-blue-bgc;
-                    border-radius: @sanhao-border-radius;
+                    border-radius: @erhao-border-radius;
 
                     &::before {
                         content: "";
                         display: block;
                         height: @erhao-height;
-                        width: @erhao-width;
+                        width: @sanhao-width;
                         border-radius: 50%;
                         background: @sanhao-font-color;
                     }
@@ -92,11 +92,11 @@ const createMyWin = () => {
 
                 input {
                     padding: 0 @wuhao-padding;
-                    margin: @erhao-margin 0;
+                    margin: @yihao-margin 0;
                     height: @erhao-height;
                     background: @shisanhao-blue-bgc;
                     color: @sanhao-font-color;
-                    border-radius: @sihao-border-radius;
+                    border-radius: @erhao-border-radius;
 
                     &::placeholder {
                         color: @shier-font-color;
@@ -108,11 +108,11 @@ const createMyWin = () => {
         button {
             width: @sihao-width;
             height: @erhao-height;
-            border-radius: @sihao-border-radius;
+            border-radius: @erhao-border-radius;
             text-align: center;
-            background: @shisihao-red-color;
+            background: @wuhao-green-bgc;
             color: @qihao-white-bgc;
-            margin-top: @sihao-margin;
+            margin-top: @yihao-margin;
         }
     }
 }

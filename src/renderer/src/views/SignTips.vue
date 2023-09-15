@@ -26,9 +26,9 @@ const switchToSign = () => {
     align-items: center;
 
     button {
-        padding: @erhao-padding;
-        border-radius: @sihao-border-radius;
-        background: @shisihao-red-color;
+        padding: @sihao-padding;
+        border-radius: @erhao-border-radius;
+        background: @wuhao-green-bgc;
         color: @sanhao-font-color;
     }
 }

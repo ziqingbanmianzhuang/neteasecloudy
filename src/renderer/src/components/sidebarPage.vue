@@ -48,15 +48,15 @@ aside {
     img {
       width: 100%;
       aspect-ratio: 1/1;
-      border-radius: @sanhao-border-radius;
+      border-radius: @erhao-border-radius;
       position: absolute;
     }
 
     time:nth-of-type(1) {
       font-family: "YinWanZi";
-      font-size: @yihao-font-size;
+      font-size: @sanhao-font-size;
       writing-mode: vertical-rl;
-      color: #fff;
+      color: @sanhao-font-color;
       transform: translateY(0px);
     }
 
@@ -67,8 +67,8 @@ aside {
       &::before {
         content: "";
         display: block;
-        width: @sanhao-width;
-        height: @sanhao-height;
+        width: @erhao-width;
+        height: @yihao-height;
         position: absolute;
         top: -10px;
         left: -20px;
@@ -80,8 +80,8 @@ aside {
       &::after {
         content: "";
         display: block;
-        width: @sanhao-width;
-        height: @sanhao-height;
+        width: @erhao-width;
+        height: @yihao-height;
         position: absolute;
         bottom: -10px;
         right: -20px;
@@ -92,8 +92,8 @@ aside {
     }
 
     p {
-      font-size: @erhao-font-size;
-      padding: 0 @erhao-padding;
+      font-size: @yihao-font-size;
+      padding: 0 @sanhao-padding;
       color: @sanhao-font-color;
       transform: translateY(0px);
     }
@@ -153,14 +153,14 @@ aside {
     justify-content: space-around;
     align-items: center;
     background-color: @erhao-red-bgc;
-    border-radius: @yihao-border-radius;
-    margin-top: @erhao-margin;
+    border-radius: @erhao-border-radius;
+    margin-top: @yihao-margin;
 
     a {
       color: @sanhao-font-color;
-      font-size: @erhao-font-size;
+      font-size: @yihao-font-size;
       display: block;
-      padding: @liuhao-padding 0;
+      padding: @sanhao-padding 0;
     }
 
     &::before {
@@ -170,10 +170,10 @@ aside {
       position: absolute;
       bottom: 20px;
       right: -10px;
-      background-color: @erhao-green-bgc;
-      border-radius: @yihao-border-radius;
-      box-shadow: 50px 10px 0 @erhao-green-bgc,
-        25px 5px 0 @erhao-green-bgc;
+      background-color: @wuhao-green-bgc;
+      border-radius: @erhao-border-radius;
+      box-shadow: 50px 10px 0@wuhao-green-bgc,
+        25px 5px 0 @wuhao-green-bgc;
 
     }
 
@@ -184,8 +184,8 @@ aside {
       position: absolute;
       bottom: 25px;
       right: -30px;
-      background-color: @erhao-green-bgc;
-      box-shadow: 30px 10px 0 @erhao-green-bgc;
+      background-color: @wuhao-green-bgc;
+      box-shadow: 30px 10px 0 @wuhao-green-bgc;
     }
   }
 }
