@@ -139,6 +139,27 @@ app.whenReady().then(() => {
     // })
 
   })
+  ipcMain.on('createSongWin', (event,options) => {
+    const winMy = new BrowserWindow({
+      width: options.w,
+      height: options.h,
+      // frame: false,
+      // show: false,
+      autoHideMenuBar: true,
+      // ...(process.platform === 'linux' ? { icon } : {}),
+      webPreferences: {
+        preload: join(__dirname, '../preload/index.js'),
+        sandbox: false
+      }
+    })
+    winMy.loadURL(`${process.env['ELECTRON_RENDERER_URL'] as string}/song`)
+    
+    // winMy.loadURL('https://www.houdunren.com')
+    // winMy.webContents.on('did-finish-load', () => {
+    //   winMy.webContents.send('createWinMy', options)
+    // })
+
+  })
   ipcMain.on('closeWin', () => {
     win.close()
   })

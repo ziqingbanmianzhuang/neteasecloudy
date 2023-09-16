@@ -3,34 +3,34 @@
     <header>
       <h1>发现</h1>
       <nav>
-        <a href="#" v-for="(link, index) in links" :key="index">{{ link.name }}</a>
+        <a :href="`#${link.name}`" v-for="(link, index) in links" :key="index">{{ link.name }}</a>
       </nav>
       <i @click="switchToHome">返回</i>
     </header>
     <main>
       <section>
-        <h2>推荐</h2>
+        <h2 id="推荐">推荐</h2>
         <div class="images-box">
-          <i v-for="n in 8" :key="n"></i>
+          <i v-for="n in 8" :key="n" @click="createSongWin"></i>
           <i></i>
         </div>
       </section>
       <section>
-        <h2>最新</h2>
+        <h2 id="最新">最新</h2>
         <div class="images-box">
-          <i v-for="n in 4" :key="n"></i>
+          <i v-for="n in 4" :key="n" @click="createSongWin"></i>
         </div>
       </section>
       <section>
-        <h2>榜单</h2>
+        <h2 id="榜单">榜单</h2>
         <div class="images-box">
           <i v-for="n in 10" :key="n"></i>
         </div>
       </section>
-      <section>
+      <section id="歌手">
         <h2>歌手</h2>
         <div class="images-box">
-          <i v-for="tag in tags" :key="tag['--deg']" :style="{ '--deg': tag['--deg'] }"></i>
+          <i v-for="tag in tags" :key="tag['--deg']" :style="{ '--deg': tag['--deg'] }" @click="createSongWin"></i>
         </div>
       </section>
     </main>
@@ -44,6 +44,16 @@ import { ref } from 'vue'
 const switchToHome = () => {
   router.push('/')
 }
+//创建播放歌曲的窗口
+// 创建唱歌播放窗口
+const createSongWin = () => {
+  const options = {
+    w: 400,
+    h: 800
+  }
+  window.api.createSongWin(options)
+}
+
 // 保存导航链接的对象数组
 const links = ref([
   { name: '推荐' },

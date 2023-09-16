@@ -5,7 +5,7 @@
             <a href="" @click="switchToMyLisIndex">返回</a>
         </nav>
         <ul>
-            <li v-for="(li) in lis" :key="li.id">
+            <li v-for="(li) in lis" :key="li.id" @click="switchSong">
                 <a href="">{{ li.id }}</a>
                 <aside>
                     <h3>{{ li.songName }}</h3>
@@ -115,6 +115,18 @@ const lis = ref([
         isLove: false
     },
 ])
+// 创建唱歌播放窗口
+// const createSongWin = () => {
+//     const options = {
+//         w: 400,
+//         h: 800
+//     }
+//     window.api.createSongWin(options)
+// }
+// 跳转唱歌播放接口
+const switchSong = () => {
+    router.push('/song')
+}
 </script>
 
 <style lang="less" scoped>

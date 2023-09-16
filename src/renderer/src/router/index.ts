@@ -1,6 +1,9 @@
 import * as VueRouter from 'vue-router'
 // 引入组件
 import Find from '../views/findPage.vue'
+import Song from '../views/SongPage/index.vue'
+import SongGeci from '../views/SongPage/GeciPage/index.vue'
+import SongPinglun from '../views/SongPage/PinglunPage/index.vue'
 import About from '../views/AboutPage.vue'
 import My from '../views/MyPage/inde.vue'
 import LisContentIndex from '../views/MyPage/LisContentPage/index.vue'
@@ -32,6 +35,21 @@ const routes = [
     ]
   },
   { path: '/find', component: Find },
+  {
+    path: '/song', component: Song,
+    children: [
+      {
+        path:'geci',component:SongGeci
+      },
+      {
+        path:'',component:SongGeci
+      },
+      {
+        path:'pinglun',component:SongPinglun
+      },
+
+    ]
+  },
   { path: '/about', component: About },
   { path: '/sign', component: SignPage },
   { path: '/setting', component: Setting },

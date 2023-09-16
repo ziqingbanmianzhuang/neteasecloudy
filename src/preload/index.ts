@@ -26,6 +26,10 @@ const api = {
   createMyInfoWin: (options) => {
     ipcRenderer.send('createMyInfoWin', options)
   },
+  createSongWin: (options) => {
+    ipcRenderer.send('createSongWin',options)
+    
+  }
   }
 
 
