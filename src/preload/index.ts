@@ -22,9 +22,13 @@ const api = {
   maximizeWin: (page) => {
     ipcRenderer.send('maximizeWin',page)
     
+  },
+  createMyInfoWin: (options) => {
+    ipcRenderer.send('createMyInfoWin', options)
+  },
   }
 
-}
+
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
