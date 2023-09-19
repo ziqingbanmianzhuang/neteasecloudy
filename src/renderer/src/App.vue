@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import instance from './api/instance'
+onMounted(() => {
+    instance.getInfo().then(res => {
+        console.log(res);
 
+    })
+
+
+})
 
 </script>
 <template>
