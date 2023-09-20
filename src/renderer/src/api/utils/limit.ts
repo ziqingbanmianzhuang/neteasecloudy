@@ -1,7 +1,7 @@
 // import axios from 'axios'
 // import { Apis } from '../index'
 //  3.支持接口限流
-const limitNum = 1 //每秒1个请求
+const limitNum = 5 //每秒1个请求
 const interval = 5000//1秒
 let tokens = limitNum
 setInterval(() => { tokens = limitNum }, interval)

@@ -8,10 +8,13 @@
                     <h1>注册</h1>
                 </header>
                 <form action="">
-                    <input type="text" placeholder="your name">
-                    <input type="text" placeholder="your password">
-                    <input type="text" placeholder="your password again">
+                    <input type="text" v-model="name" placeholder="your name">
+                    <input type="text" v-model="password" placeholder="your password">
+                    <input type="text" v-model="name" placeholder="your password again">
+                    <input type="text" v-model.number="phone" placeholder="your phone">
+                    <input type="text" v-model.number="captcha" placeholder="your captcha">
                 </form>
+                <button @click="sendCaptcha">发送验证码</button>
                 <button @click="createMyWin">确定</button>
             </section>
         </div>
@@ -19,13 +22,45 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import instance from '../api/instance'
+import Apis from '../api/Apis'
+let name = ref('')
+let password = ref('')
+let phone = ref(0)
+let captcha = ref(0)
 const createMyWin = () => {
+    // if (!name.value || !password.value || !phone.value || !captcha.value) return;
+    // instance.signUp({ params: { phone: phone.value, captcha: captcha.value, password: password.value, nickname: name.value } }).then(res => {
+    //     console.log('signup', res);
+    // }).catch(err => {
+    //     return Apis.reqMiddleware[0].onRejected(err)
+    // }).then(res => {
+    //     console.log(res);
+
+    // }, err => {
+    //     console.log(err);
+
+    // })
     const options = {
         h: 800,
         w: 400
     }
     window.api.createWinMy(options)
     localStorage.setItem('isLogin', 'true')
+}
+const sendCaptcha = () => {
+    instance.sendCaptcha({ params: { phone: phone.value } }).then(res => {
+        console.log('sendCaptcha', res);
+    }).catch(err => {
+        return Apis.reqMiddleware[0].onRejected(err)
+    }).then(res => {
+        console.log(res);
+
+    }, err => {
+        console.log(err);
+
+    })
 }
 </script>
 

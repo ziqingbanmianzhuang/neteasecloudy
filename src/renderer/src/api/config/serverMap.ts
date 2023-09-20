@@ -2,25 +2,25 @@
 export default {
     baseServer: {
         baseMap: {
-            localprod: 'https://www.abibliadigital.com.br',
-            prod: 'https://www.abibliadigital.com.br',
-            stage: 'https://www.abibliadigital.com.br',
-            test: 'https://www.abibliadigital.com.br',
-            dev: 'https://www.abibliadigital.com.br',
-            local: 'https://www.abibliadigital.com.br',
-            baseURL: 'https://www.abibliadigital.com.br'
+            localprod: 'http://localhost:3000/',
+            prod: 'http://localhost:3000/',
+            stage: 'http://localhost:3000/',
+            test: 'http://localhost:3000/',
+            dev: 'http://localhost:3000/',
+            local: 'http://localhost:3000/',
+            baseURL: 'http://localhost:3000/'
         },
         default:true
     },
     'api-test': {
         baseMap: {
-            localprod: 'https://www.abibliadigital.com.br',
-            prod: 'https://www.abibliadigital.com.br',
-            stage: 'https://www.abibliadigital.com.br',
-            test: 'https://www.abibliadigital.com.br',
-            dev: 'https://www.abibliadigital.com.br',
-            local: 'https://www.abibliadigital.com.br',
-            baseURL: 'https://www.abibliadigital.com.br'
+            localprod: 'http://localhost:3000/',
+            prod: 'http://localhost:3000/',
+            stage: 'http://localhost:3000/',
+            test: 'http://localhost:3000/',
+            dev: 'http://localhost:3000/',
+            local: 'http://localhost:3000/',
+            baseURL: 'http://localhost:3000/'
         },
         default:false
     }

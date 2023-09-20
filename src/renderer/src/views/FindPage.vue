@@ -11,20 +11,25 @@
       <section>
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
-          <i v-for="n in 8" :key="n" @click="createSongWin"></i>
-          <i></i>
+          <i v-for="song in relatedCommendedSong" :key="song.name" @click="createSongWin" :style="{
+            '--name': `'${song.name}'`
+          }">
+            <!-- {{ song.name }} -->
+          </i>
         </div>
       </section>
       <section>
         <h2 id="最新">最新</h2>
         <div class="images-box">
-          <i v-for="n in 4" :key="n" @click="createSongWin"></i>
+          <i v-for="n in 10" :key="n" @click="createSongWin"></i>
         </div>
       </section>
       <section>
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
-          <i v-for="n in 10" :key="n"></i>
+          <i v-for="top in topSong" :key="top.id" :style="{
+            '--name': `'${top.name}'`
+          }"></i>
         </div>
       </section>
       <section id="歌手">
@@ -39,7 +44,90 @@
 
 <script setup lang="ts">
 import router from '@renderer/router';
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
+import instance from '../api/instance'
+import Apis from '../api/Apis'
+import { log } from 'console';
+// 在组件挂载阶段获取相关的推荐歌单
+//存储相关推荐歌单的数据
+let relatedCommendedSong = ref([])
+//存储榜单歌曲
+let topSong = ref([])
+//存储热门歌手
+let hotSings = ref([])
+onBeforeMount(async () => {
+  //获取推荐歌单
+  instance.getRelativeRecommendedSongs({ params: { id: 1 } }).then(res => {
+    relatedCommendedSong.value = res.data.playlists
+    console.log(111111111, relatedCommendedSong.value);
+  }).catch(err => {
+    return Apis.reqMiddleware[0].onRejected(err)
+  }).then(res => {
+    console.log(res);
+
+  }, err => {
+    console.log(err);
+
+  })
+  // 获取歌单分类
+  let songType = ''
+  await instance.getSongsType().then(res => {
+    console.log('type', res.data.sub[9].name);
+    songType = res.data.sub[1].name
+  }).catch(err => {
+    return Apis.reqMiddleware[0].onRejected(err)
+  }).then(res => {
+    console.log(res);
+
+  }, err => {
+    console.log(err);
+
+  })
+  // 获取最新的歌单
+  instance.getRelativeLatestSongs({ params: { order: 'new', cat: songType, limit: 50, offset: 1 } }).then(res => {
+    console.log('last', res);
+
+  }).catch(err => {
+    return Apis.reqMiddleware[0].onRejected(err)
+  }).then(res => {
+    console.log(res);
+
+  }, err => {
+    console.log(err);
+
+  })
+  //获取榜单歌曲
+  instance.getTopSongs({ params: { id: 2809577409 } }).then(res => {
+
+    topSong.value = res.data.playlist.tracks.slice(0, 10)
+    console.log('top', topSong);
+  }).catch(err => {
+    return Apis.reqMiddleware[0].onRejected(err)
+  }).then(res => {
+    console.log(res);
+
+  }, err => {
+    console.log(err);
+
+  })
+  //获取歌手列表
+  instance.getSingList({ params: { limit: 4, offset: 1 } }).then(res => {
+    hotSings = res.data.artists
+    console.log('sing', hotSings);
+
+  }).catch(err => {
+    return Apis.reqMiddleware[0].onRejected(err)
+  }).then(res => {
+    console.log(res);
+
+  }, err => {
+    console.log(err);
+
+  })
+
+})
+
+
 // 跳转home页面
 const switchToHome = () => {
   router.push('/')
@@ -145,7 +233,7 @@ const tags = ref([
 
 
           &::after {
-            content: "你的名字 12345678  1234567890 12345";
+            content: var(--name);
             color: @sanhao-font-color;
             font-size: @yihao-font-size;
             text-align: center;
@@ -157,7 +245,7 @@ const tags = ref([
           }
 
           &::before {
-            content: "你的名字";
+            content: '你的名字';
             color: @sanhao-font-color;
             font-size: @yihao-font-size;
             text-align: center;
@@ -260,7 +348,7 @@ const tags = ref([
         }
 
         &::before {
-          content: "ove is painful";
+          content: var(--name);
           display: block;
           position: absolute;
           bottom: 0px;
