@@ -1,17 +1,26 @@
 import axios from 'axios'
+import  createReqInterceptor from './interceptors/createReqInterceptor'
+import createResInterceptor from './interceptors/createResInterceptor'
 //类Apis
- class Apis {
+ export class Apis {
     public common
     public serverMap
     public apiMap
     public instance
     public baseURL
     public axiosInstance
-    static resMiddleware
-    static reqMiddleware
+    static resMiddleware:any = []
+    static reqMiddleware: any = []
+     
+
 
     constructor(serverMap, apiMap, common) {
         this.axiosInstance = axios.create(common)
+        //在axios实例创建之后请求发起之前给实例添加拦截器
+        //添加请求拦截器
+        createReqInterceptor(this.axiosInstance)
+        //添加响应拦截器
+        createResInterceptor(this.axiosInstance)
         this.serverMap = serverMap
         this.apiMap = apiMap
         this.baseURL = this.getBaseURL()
@@ -50,6 +59,22 @@ import axios from 'axios'
     public get(url,config) {
         config = { ...config, method: 'GET' };
         return this.request(url,config)
+     }
+     public post(url,config) {
+        config = { ...config, method: 'POST' };
+        return this.request(url,config)
+     }
+     public put(url,config) {
+        config = { ...config, method: 'PUT' };
+        return this.request(url,config)
+     }
+     public delete(url,config) {
+        config = { ...config, method: 'DELETE' };
+        return this.request(url,config)
+     }
+     public patch(url,config) {
+        config = { ...config, method: 'PATCH' };
+        return this.request(url,config)
     }
     public request(url,config) {
         const rest = config.rest || {}
@@ -76,6 +101,7 @@ import axios from 'axios'
 }
 //暴露创建api实例的createInstace函数
 export default function createInstace(serverMap, apiMap, common) {
+    // 在创建实例之前,
     const apis = new Apis(serverMap, apiMap, common)
-    return apis.instance
+    return apis
 }

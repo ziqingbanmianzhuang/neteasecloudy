@@ -1,17 +1,26 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import instance from './api/instance'
-onMounted(() => {
+import Apis from './api/Apis'
+const getBooks = () => {
     instance.getInfo().then(res => {
         console.log(res);
+
+    }).catch(err => {
+        return Apis.reqMiddleware[0].onRejected(err)
+    }).then(res => {
+        console.log(res);
+
+    }, err => {
+        console.log(err);
 
     })
 
 
-})
+}
 
 </script>
 <template>
+    <button @click="getBooks">请求books</button>
     <router-view></router-view>
 </template>
 
