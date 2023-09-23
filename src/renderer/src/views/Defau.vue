@@ -31,9 +31,11 @@ const switchToComponent = (to) => {
 @import "../assets/css/variable/index.less";
 
 .container {
-    width: calc(100vw - 100px);
+    // inline-size: calc(100vw - 100px);
+    inline-size: calc(100vh - 100px);
     margin: @sihao-margin;
-    height: calc(100vh - 100px);
+    // block-size: calc(100vh - 100px);
+    block-size: calc(100vw - 100px);
     background-color: @yihao-red-bgc;
     border-radius: @erhao-border-radius;
 }
@@ -41,8 +43,8 @@ const switchToComponent = (to) => {
 .main {
     display: flex;
     justify-content: space-evenly;
-    margin-top: @sihao-margin;
-    width: calc(100vw - 100px);
-    height: calc(100vh - 200px);
+    margin-block-start: @sihao-margin;
+    inline-size: calc(100vh - 100px);
+    block-size: calc(100vw - 200px);
 }
 </style>

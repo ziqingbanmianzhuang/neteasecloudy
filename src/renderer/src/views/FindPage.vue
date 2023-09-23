@@ -162,26 +162,32 @@ const tags = ref([
 @import "../assets/css/variable/index.less";
 
 .container-box {
-  width: 95vw;
+  inline-size: 95vh;
+  block-size: 100vw;
   border-radius: @yihao-border-radius;
-  margin: 0 auto;
+  // margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
   color: @erhao-font-color;
   background-color: @yihao-red-bgc;
 
   header {
-    height: @sanhao-height;
+    block-size: @sanhao-height;
     display: flex;
     align-items: center;
 
     h1 {
       flex: 2;
-      padding-left: @sanhao-padding;
+      // padding-left: @sanhao-padding;
+      padding-inline-start: @sanhao-padding;
     }
 
     i {
       display: block;
-      text-align: right;
-      padding-right: @sanhao-padding;
+      text-align: end;
+      // padding-right: @sanhao-padding;
+      padding-inline-end: @sanhao-padding;
+
       flex: 1;
       cursor: pointer;
       ;
@@ -202,10 +208,14 @@ const tags = ref([
 
   main {
     section {
+      block-size: @qihao-height;
+
       h2 {
         font-size: @erhao-font-size;
         font-weight: normal;
-        padding-bottom: @sanhao-padding;
+        // padding-bottom: @sanhao-padding;
+        padding-block-end: @sanhao-padding;
+
       }
 
       display: flex;
@@ -222,8 +232,8 @@ const tags = ref([
         justify-content: space-around;
 
         i {
-          width: 60px;
-          height: 180px;
+          inline-size: 60px;
+          block-size: 180px;
           border-radius: @erhao-border-radius;
           display: block;
           position: relative;
@@ -239,8 +249,9 @@ const tags = ref([
             text-align: center;
             display: block;
             position: absolute;
-            top: -100px;
-            width: 80px;
+            // top: -100px;
+            inset-block-start: -100px;
+            inline-size: 80px;
             transition: all 0.3s;
           }
 
@@ -251,9 +262,10 @@ const tags = ref([
             text-align: center;
             display: block;
             position: absolute;
-            bottom: 0;
-            width: 60px;
-            height: 40px;
+            // bottom: 0;
+            inset-block-end: 0px;
+            inline-size: 60px;
+            block-size: 40px;
             line-height: 40px;
             background: @sihao-font-color;
             transition: all 0.3s;
@@ -262,16 +274,18 @@ const tags = ref([
         }
 
         i:hover {
-          width: 80px;
+          inline-size: 80px;
           border-radius: @erhao-border-radius;
 
           &::before {
-            width: 80px;
-            bottom: -60px;
+            inline-size: 80px;
+            // bottom: -60px;
+            inset-block-end: -60px;
           }
 
           &:after {
-            top: 80px;
+            // top: 80px;
+            inset-block-start: 80px;
           }
         }
 
@@ -287,8 +301,8 @@ const tags = ref([
 
         i {
           display: block;
-          width: 120px;
-          height: 140px;
+          inline-size: 120px;
+          block-size: 140px;
           border-radius: @erhao-border-radius;
           // overflow-x: hidden;
           position: relative;
@@ -300,15 +314,16 @@ const tags = ref([
             display: block;
             position: absolute;
             color: @sihao-font-color;
-            width: 100%;
+            inline-size: 100%;
             text-align: center;
-            bottom: 10px;
+            // bottom: 10px;
+            inset-block-end: 10px;
             transition: all 0.3s;
 
           }
 
           &:hover {
-            height: 120px;
+            block-size: 120px;
 
             &::before {
               transform: translateY(calc(100% + 10px));
@@ -328,22 +343,25 @@ const tags = ref([
 
       i {
         display: block;
-        width: 120px;
-        height: 120px;
+        inline-size: 120px;
+        block-size: 120px;
         border-radius: @erhao-border-radius;
         background: url('../public/images/flower-logo.jpg') center/cover no-repeat;
-        margin-bottom: @yihao-margin;
+        // margin-bottom: @yihao-margin;
+        margin-block-end: @yihao-margin;
         position: relative;
 
         &::after {
           content: "l";
           position: absolute;
-          bottom: 0px;
+          // bottom: 0px;
+          inset-block-end: 0px;
           transform: translateY(calc(100% + 5px));
           font-size: @yihao-font-size;
           color: @sihao-font-color;
-          left: 0px;
-          width: 20px;
+          // left: 0px;
+          inset-inline-start: 0px;
+          inline-size: 20px;
 
         }
 
@@ -351,10 +369,12 @@ const tags = ref([
           content: var(--name);
           display: block;
           position: absolute;
-          bottom: 0px;
+          // bottom: 0px;
+          inset-block-end: 0px;
           font-size: @yihao-font-size;
-          width: 100%;
-          left: 10px;
+          inline-size: 100%;
+          // left: 10px;
+          inset-inline-start: 10px;
           transform: translateY(calc(100% + 5px));
           text-align: center;
         }
@@ -363,7 +383,7 @@ const tags = ref([
     }
 
     section:nth-child(4) {
-      width: 100%;
+      inline-size: 100%;
 
       .images-box {
         display: flex;
@@ -371,8 +391,8 @@ const tags = ref([
 
         i {
           display: block;
-          width: 150px;
-          height: 200px;
+          inline-size: 150px;
+          block-size: 200px;
           border-radius: @erhao-border-radius;
           background: url(../public/images/home-2.jpg) center/cover no-repeat;
           transform: rotate(calc(var(--deg) * 10deg));

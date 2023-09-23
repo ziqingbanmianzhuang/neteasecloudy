@@ -72,12 +72,12 @@ const maximizeWin = () => {
 @import "../assets/css/variable/index.less";
 
 header.keep-px {
-  width: 100%;
-  height: @sanhao-height;
+  inline-size: 100%;
+  block-size: @sanhao-height;
   position: relative;
 
   nav {
-    height: 100%;
+    block-size: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-template-rows: @sanhao-height;
@@ -90,10 +90,12 @@ header.keep-px {
       font-family: "YinWanZi";
 
       .flower-logo {
-        width: @sanhao-width;
-        height: @erhao-height;
+        inline-size: @sanhao-width;
+        block-size: @erhao-height;
         border-radius: 50%;
-        margin: 0 @yihao-margin 0 @yihao-margin;
+        // margin: 0 @yihao-margin 0 @yihao-margin;
+        margin-block: 0;
+        margin-inline: @yihao-margin;
         vertical-align: middle;
       }
 
@@ -114,22 +116,24 @@ header.keep-px {
       z-index: 1;
 
       a.keep-px {
-        width: @erhao-width;
-        height: @sanhao-height;
+        inline-size: @erhao-width;
+        block-size: @sanhao-height;
         font-size: @yihao-font-size;
         color: @wuhao-font-color;
-        padding: 0 @sanhao-padding;
-        padding-bottom: @liuhao-padding;
+        // padding: 0 @sanhao-padding;
+        padding-block: 0;
+        padding-inline: @sanhao-padding;
+        padding-block-end: @liuhao-padding;
         position: relative;
 
         &::before {
           content: '';
           display: block;
-          height: 2px;
-          width: @sihao-width;
+          block-size: 2px;
+          inline-size: @sihao-width;
           position: absolute;
-          bottom: 10px;
-          left: 7px;
+          inset-block-end: 10px;
+          inset-inline-start: 7px;
           background-color: @transparent-bgc;
         }
 
@@ -142,14 +146,16 @@ header.keep-px {
     ul {
       font-family: "YinWanZi";
       position: absolute;
-      top: 0px;
-      right: 10px;
+      inset-block-start: 0px;
+      inset-inline-end: 10px;
       // justify-self: end;
       text-align: center;
 
       li.keep-px {
         display: inline-block;
-        padding: 0 @sanhao-padding;
+        // padding: 0 @sanhao-padding;
+        padding-inline: @sanhao-padding;
+        padding-block-end: @liuhao-padding;
         font-size: @erhao-font-size;
         color: @wuhao-font-color;
         -webkit-text-stroke: 1px @yihao-stroke-color;

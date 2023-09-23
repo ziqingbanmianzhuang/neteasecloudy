@@ -21,23 +21,35 @@
 <style lang="less" scoped>
 @import "../assets/css/variable/index.less";
 
-@media screen and (min-width:0px) {
+// @media screen and (min-width:0px) {
+//   aside {
+//     display: none;
+//   }
+// }
+
+// @media screen and (min-width:1000px) {
+//   aside {
+//     display: block;
+//     width: calc(20vw - 40px);
+//   }
+// }
+@media screen and (min-height:0px) {
   aside {
     display: none;
   }
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-height:500px) {
   aside {
     display: block;
-    width: calc(20vw - 40px);
+    inline-size: calc(20vh - 40px);
   }
 }
 
 aside {
   .date-box {
     color: @sanhao-font-color;
-    width: 100%;
+    inline-size: 100%;
     aspect-ratio: 1/1;
     display: flex;
     flex-direction: column;
@@ -46,7 +58,7 @@ aside {
     position: relative;
 
     img {
-      width: 100%;
+      inline-size: 100%;
       aspect-ratio: 1/1;
       border-radius: @erhao-border-radius;
       position: absolute;
@@ -67,33 +79,43 @@ aside {
       &::before {
         content: "";
         display: block;
-        width: @erhao-width;
-        height: @yihao-height;
+        inline-size: @erhao-width;
+        block-size: @yihao-height;
         position: absolute;
-        top: -10px;
-        left: -20px;
+        inset-block-start: -10px;
+        inset-inline-start: -20px;
         border-width: @erhao-border;
         border-style: solid;
-        border-color: @yihao-border-color transparent transparent @yihao-border-color;
+        // border-color: @yihao-border-color transparent transparent @yihao-border-color;
+        border-block-start-color: @yihao-border-color;
+        border-block-end-color: transparent;
+        border-inline-end-color: transparent;
+        border-inline-start-color: @yihao-border-color;
       }
 
       &::after {
         content: "";
         display: block;
-        width: @erhao-width;
-        height: @yihao-height;
+        inline-size: @erhao-width;
+        block-size: @yihao-height;
         position: absolute;
-        bottom: -10px;
-        right: -20px;
+        inset-block-end: -10px;
+        inset-inline-end: -20px;
         border-width: @erhao-border;
         border-style: solid;
-        border-color: transparent @yihao-border-color @yihao-border-color transparent;
+        // border-color: transparent @yihao-border-color @yihao-border-color transparent;
+        border-block-start-color: transparent;
+        border-block-end-color: @yihao-border-color;
+        border-inline-end-color: @yihao-border-color ;
+        border-inline-start-color: transparent;
       }
     }
 
     p {
       font-size: @yihao-font-size;
-      padding: 0 @sanhao-padding;
+      // padding: 0 @sanhao-padding;
+      padding-block: 0;
+      padding-inline: @sanhao-padding;
       color: @sanhao-font-color;
       transform: translateY(0px);
     }
@@ -147,29 +169,31 @@ aside {
 
   .tools-box {
     position: relative;
-    width: calc(100% - 70px);
+    inline-size: calc(100% - 70px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-color: @erhao-red-bgc;
     border-radius: @erhao-border-radius;
-    margin-top: @yihao-margin;
+    margin-block-start: @yihao-margin;
 
     a {
       color: @sanhao-font-color;
       font-size: @yihao-font-size;
       display: block;
-      padding: @sanhao-padding 0;
+      // padding: @sanhao-padding 0;
+      padding-block: @sanhao-padding;
+      padding-inline: 0;
     }
 
     &::before {
       content: "";
-      width: 11px;
-      height: 11px;
+      inline-size: 11px;
+      block-size: 11px;
       position: absolute;
-      bottom: 20px;
-      right: -10px;
+      inset-block-end: 20px;
+      inset-inline-end: -10px;
       background-color: @wuhao-green-bgc;
       border-radius: @erhao-border-radius;
       box-shadow: 50px 10px 0@wuhao-green-bgc,
@@ -179,11 +203,11 @@ aside {
 
     &::after {
       content: "";
-      width: 30px;
-      height: 2px;
+      inline-size: 30px;
+      block-size: 2px;
       position: absolute;
-      bottom: 25px;
-      right: -30px;
+      inset-block-end: 25px;
+      inset-inline-end: -30px;
       background-color: @wuhao-green-bgc;
       box-shadow: 30px 10px 0 @wuhao-green-bgc;
     }

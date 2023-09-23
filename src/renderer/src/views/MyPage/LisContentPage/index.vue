@@ -28,7 +28,7 @@ const switchToMyLis = (name) => {
 
 
 .mys-box {
-    height: @qihao-height;
+    block-size: @qihao-height;
 
     ul {
         display: flex;
@@ -38,11 +38,15 @@ const switchToMyLis = (name) => {
         color: @wuhao-font-color;
 
         li {
-            height: @sanhao-height;
+            block-size: @sanhao-height;
             line-height: @sanhao-height;
-            width: 80%;
-            padding: 0 @liuhao-padding;
-            margin: @yihao-margin 0;
+            inline-size: 80%;
+            // padding: 0 @liuhao-padding;
+            padding-block: 0;
+            padding-inline: @liuhao-padding;
+            // margin: @yihao-margin 0;
+            margin-block: @yihao-margin;
+            margin-inline: 0;
             text-align: center;
             border-radius: @yihao-border-radius;
             box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.1),

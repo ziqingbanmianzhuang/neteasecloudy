@@ -1,10 +1,10 @@
 <template>
     <section class="contain">
+        <div v-if="isLogin" class="popdialog">
+            <content-page></content-page>
+        </div>
     </section>
     <img :src="image.src" alt="" v-for="(image) in  images  " :key="image['---i']" :style="{ '--i': image['--i'] }">
-    <div v-if="isLogin" class="popdialog">
-        <content-page></content-page>
-    </div>
 </template>
 
 <script setup lang="ts">
@@ -27,24 +27,42 @@ const images = ref([
 <style lang="less" scoped>
 @import "../assets/css/variable/index.less";
 
-@media screen and (min-width:0px) {
+// @media screen and (min-width:0px) {
+//     .contain {
+//         inline-size: calc(100vw - 100px);
+//     }
+// }
+
+// @media screen and (min-width:1000px) {
+//     .contain {
+//         inline-size: calc(80vw - 100px);
+//     }
+// }
+@media screen and (min-height:0px) {
     .contain {
-        width: calc(100vw - 100px);
+        inline-size: calc(100vh - 100px);
     }
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-height:1000px) {
     .contain {
-        width: calc(80vw - 100px);
+        inline-size: calc(80vh - 100px);
     }
 }
 
-.popdialog {
-    position: absolute;
-    top: 200px;
-}
+
+
 
 .contain {
+    position: relative;
+
+    .popdialog {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
     border-radius: @erhao-border-radius;
@@ -114,10 +132,10 @@ const images = ref([
 
 img {
     position: absolute;
-    bottom: 50px;
-    right: 0px;
-    width: @liuhao-width;
-    height: @wuhao-height;
+    inset-block-end: 50px;
+    inset-inline-end: 0px;
+    inline-size: @liuhao-width;
+    block-size: @wuhao-height;
     border: @erhao-border solid #fff;
     border-radius: @erhao-border-radius;
     animation: translateAnimate 60s linear 0s infinite both;

@@ -32,8 +32,8 @@ export default {
         url:'/captcha/sent'
     },
     //注册
-    signUp: {
+    signIn: {
         method: 'get',
-        url:'/register/cellphone'
+        url:'/login/cellphone'
     }
 }

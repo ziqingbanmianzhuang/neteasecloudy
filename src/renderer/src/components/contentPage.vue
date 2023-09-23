@@ -34,15 +34,26 @@ const cancelSign = () => {
 </script>
 
 <style lang="less" scoped>
-@media screen and (min-width:0px) {
+// @media screen and (min-width:0px) {
+//   .contain-box {
+//     width: calc(100vw - 400px);
+//   }
+// }
+
+// @media screen and (min-width:1000px) {
+//   .contain-box {
+//     width: calc(80vw - 400px);
+//   }
+// }
+@media screen and (min-height:0px) {
   .contain-box {
-    width: calc(100vw - 400px);
+    inline-size: calc(100vh - 400px);
   }
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-height:1000px) {
   .contain-box {
-    width: calc(80vw - 400px);
+    inline-size: calc(80vh - 400px);
   }
 }
 
@@ -60,7 +71,8 @@ const cancelSign = () => {
     font-size: 50px;
     font-family: "YinWanZi";
     text-align: center;
-    margin-top: 30px;
+    // margin-top: 30px;
+    margin-block-start: 30px;
   }
 
   p {
@@ -68,21 +80,26 @@ const cancelSign = () => {
     font-size: 20px;
     font-family: "YinWanZi";
     text-indent: 40px;
-    margin-top: 50px;
+    // margin-top: 50px;
+    margin-block-start: 50px;
   }
 
   .login-cancel-button {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    // margin-top: 50px;
+    margin-block-start: 50px;
+
 
     button {
       font-size: 18px;
-      width: 100px;
-      height: 50px;
+      inline-size: 100px;
+      block-size: 50px;
       border-radius: 10px;
       box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-      margin: 0 30px;
+      // margin: 0 30px;
+      margin-block: 0px;
+      margin-inline: 30px;
     }
 
     button:nth-of-type(1) {

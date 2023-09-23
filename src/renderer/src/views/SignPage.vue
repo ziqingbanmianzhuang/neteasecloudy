@@ -8,11 +8,11 @@
                     <h1>注册</h1>
                 </header>
                 <form action="">
-                    <input type="text" v-model="name" placeholder="your name">
+                    <!-- <input type="text" v-model="name" placeholder="your name"> -->
                     <input type="text" v-model="password" placeholder="your password">
-                    <input type="text" v-model="name" placeholder="your password again">
+                    <input type="text" v-model="password" placeholder="your password again">
                     <input type="text" v-model.number="phone" placeholder="your phone">
-                    <input type="text" v-model.number="captcha" placeholder="your captcha">
+                    <!-- <input type="text" v-model.number="captcha" placeholder="your captcha"> -->
                 </form>
                 <button @click="sendCaptcha">发送验证码</button>
                 <button @click="createMyWin">确定</button>
@@ -49,9 +49,23 @@ const createMyWin = () => {
     window.api.createWinMy(options)
     localStorage.setItem('isLogin', 'true')
 }
-const sendCaptcha = () => {
-    instance.sendCaptcha({ params: { phone: phone.value } }).then(res => {
-        console.log('sendCaptcha', res);
+// const sendCaptcha = () => {
+//     instance.sendCaptcha({ params: { phone: phone.value } }).then(res => {
+//         console.log('sendCaptcha', res);
+//     }).catch(err => {
+//         return Apis.reqMiddleware[0].onRejected(err)
+//     }).then(res => {
+//         console.log(res);
+
+//     }, err => {
+//         console.log(err);
+
+//     })
+// }
+//登录
+const signIn = () => {
+    instance.signIn({ params: { phone: phone.value, password: password.value } }).then(res => {
+        console.log('sgnIn', res);
     }).catch(err => {
         return Apis.reqMiddleware[0].onRejected(err)
     }).then(res => {
@@ -68,8 +82,8 @@ const sendCaptcha = () => {
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    width: 100vw;
-    height: 100vh;
+    inline-size: 100vh;
+    block-size: 100vw;
     background: url('../public/images/sign.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
@@ -78,21 +92,21 @@ const sendCaptcha = () => {
     color: @sanhao-font-color;
 
     .sign-box {
-        width: 70vw;
-        height: 70vh;
+        inline-size: 70vh;
+        block-size: 70vw;
         border: 13px @wuhao-border-color solid;
 
         .info-box {
-            width: 40vw;
-            height: calc(70vh - 26px);
+            inline-size: 40vh;
+            block-size: calc(70vw - 26px);
             background: @shiyihao-blue-bgc;
-            float: right;
+            float: inline-end;
             text-align: center;
 
             header {
-                height: 80px;
+                block-size: 80px;
                 background: @shierhao-blue-bgc;
-                transform: translateY(-13px);
+                transform: translateX(-13px);
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -103,16 +117,16 @@ const sendCaptcha = () => {
 
                 a {
                     display: block;
-                    width: @sanhao-height;
-                    height: @erhao-height;
+                    inline-size: @sanhao-height;
+                    block-size: @erhao-height;
                     background: @shisanhao-blue-bgc;
                     border-radius: @erhao-border-radius;
 
                     &::before {
                         content: "";
                         display: block;
-                        height: @erhao-height;
-                        width: @sanhao-width;
+                        block-size: @erhao-height;
+                        inline-size: @sanhao-width;
                         border-radius: 50%;
                         background: @sanhao-font-color;
                     }
@@ -126,9 +140,13 @@ const sendCaptcha = () => {
                 text-align: center;
 
                 input {
-                    padding: 0 @wuhao-padding;
-                    margin: @yihao-margin 0;
-                    height: @erhao-height;
+                    // padding: 0 @wuhao-padding;
+                    padding-inline: @wuhao-padding;
+                    padding-block: 0;
+                    // margin: @yihao-margin 0;
+                    margin-block: @yihao-margin;
+                    margin-inline: 0;
+                    block-size: @erhao-height;
                     background: @shisanhao-blue-bgc;
                     color: @sanhao-font-color;
                     border-radius: @erhao-border-radius;
@@ -141,13 +159,13 @@ const sendCaptcha = () => {
         }
 
         button {
-            width: @sihao-width;
-            height: @erhao-height;
+            inline-size: @sihao-width;
+            block-size: @erhao-height;
             border-radius: @erhao-border-radius;
             text-align: center;
             background: @wuhao-green-bgc;
             color: @qihao-white-bgc;
-            margin-top: @yihao-margin;
+            margin-block-start: @yihao-margin;
         }
     }
 }

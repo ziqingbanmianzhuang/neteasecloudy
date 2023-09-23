@@ -138,7 +138,7 @@ const switchSong = () => {
     nav {
         display: flex;
         justify-content: space-between;
-        height: 50px;
+        block-size: 50px;
 
         a {
             color: @shisan-font-color;
@@ -146,29 +146,36 @@ const switchSong = () => {
 
         h2 {
             color: @qihao-font-color;
-            padding-bottom: @sanhao-padding;
+            // padding-bottom: @sanhao-padding;
+            padding-block-end: @sanhao-padding ;
         }
     }
 
     ul {
-        border-top: 1px solid @erhao-border-color;
-        margin-top: yihao-margin;
-        height: 300px;
+        border-block-start: 1px solid @erhao-border-color;
+        // margin-top: yihao-margin;
+        margin-block-start: @yihao-margin;
+        block-size: 300px;
         overflow: auto;
 
         li {
-            margin: @yihao-margin 0;
+            // margin: @yihao-margin 0;
+            margin-block: @yihao-margin;
+            margin-inline: 0;
             display: flex;
             align-items: center;
             position: relative;
 
             a {
-                padding-right: @sanhao-padding;
+                // padding-right: @sanhao-padding;
+                padding-inline-end: @sanhao-padding;
                 color: @qihao-font-color;
             }
 
             aside {
-                padding-left: @sanhao-padding;
+                // padding-left: @sanhao-padding;
+                padding-inline-start: @sanhao-padding;
+
 
                 h3 {
                     color: @shiyi-font-color;
@@ -183,7 +190,8 @@ const switchSong = () => {
                 i:nth-of-type(1) {
                     color: @jiuhao-font-color;
                     font-size: @sihao-font-size;
-                    padding-right: @sanhao-padding;
+                    // padding-right: @sanhao-padding;
+                    padding-inline-end: @sanhao-padding;
                     font-family: 'Courier New', Courier, monospace;
 
                 }
@@ -194,12 +202,18 @@ const switchSong = () => {
             footer {
                 position: absolute;
                 right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
+                // top: 50%;
+                inset-block-start: 50%;
+                // transform: translateY(-50%);
+                transform: translateX(-50%);
                 color: @yihao-border-color;
 
                 i:nth-child(1) {
-                    padding-right: @sanhao-padding;
+                    // padding-right: @sanhao-padding;
+                    padding-inline-end: @sanhao-padding;
+
+
+
                 }
             }
         }

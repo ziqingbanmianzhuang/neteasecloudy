@@ -29,11 +29,14 @@ const switchToMy = () => {
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    margin: 0 @yihao-margin;
+    // margin: 0 @yihao-margin;
+    margin-block: 0;
+    margin-inline: @yihao-margin;
 
     .return {
         position: fixed;
-        right: 10px;
+        // right: 10px;
+        inset-inline-end: 10px;
     }
 
     h1 {
@@ -56,7 +59,11 @@ const switchToMy = () => {
             color: @qihao-white-bgc;
             border-radius: @yihao-border-radius;
             font-size: @sanhao-font-size;
-            margin: @erhao-margin @yihao-margin 0 0;
+            // margin: @yihao-margin 0 0;
+            margin-block-start: @erhao-margin ;
+            margin-block-end: 0;
+            margin-inline: 0;
+
         }
     }
 }

@@ -8,6 +8,8 @@ function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 670,
+    // height: 1200,
+    // width:670,
     frame: false,
     show: false,
     autoHideMenuBar: true,

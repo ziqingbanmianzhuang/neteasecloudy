@@ -17,8 +17,8 @@ const switchToSign = () => {
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    width: 100vw;
-    height: 100vh;
+    inline-size: 100vh;
+    block-size: 100vw;
     font-family: "YinWanZi";
     display: flex;
     flex-direction: column;

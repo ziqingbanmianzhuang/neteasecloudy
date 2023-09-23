@@ -45,25 +45,30 @@ const createMyInfoWin = () => {
 
 .container-box {
     overflow: hidden;
-    width: 100vw;
+    inline-size: 100vh;
     font-family: "YinWanZi";
 
 
 
     .bgc-box {
         position: fixed;
-        width: 100vw;
-        top: 0;
-        left: 0;
+        inline-size: 100vh;
+        // top: 0;
+        inset-block-start: 0;
+        // left: 0;
+        inset-inline-start: 0;
         z-index: -1;
-        height: @liuhao-height;
+        block-size: @liuhao-height;
         background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vw 200px no-repeat;
     }
 
     .info-box {
-        height: @liuhao-height;
-        width: 80%;
-        margin: 180px auto 0px;
+        block-size: @liuhao-height;
+        inline-size: 80%;
+        // margin: 180px auto 0px;
+        margin-block-start: 180px;
+        margin-block-end: 0px;
+        margin-inline: auto;
         border-radius: @yihao-border-radius;
         box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3),
             -3px -3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -90,7 +95,7 @@ const createMyInfoWin = () => {
             }
 
             .avatar-box {
-                width: 100px;
+                inline-size: 100px;
                 aspect-ratio: 1/1;
                 border-radius: 50%;
                 background: @shihao-white-bgc;
@@ -101,12 +106,14 @@ const createMyInfoWin = () => {
     }
 
     .tool-box {
-        width: 80vw;
-        height: @sihao-height;
+        inline-size: 80vh;
+        block-size: @sihao-height;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin: 0 auto;
+        // margin: 0 auto;
+        margin-block: 0;
+        margin-inline: auto;
 
         .iconfont {
             font-family: 'iconfont';

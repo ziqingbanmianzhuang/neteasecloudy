@@ -56,36 +56,40 @@ const contacts = ref([
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    width: 100vw;
-    height: 100vh;
+    inline-size: 100vh;
+    block-size: 100vw;
     overflow: hidden;
     position: relative;
     color: @jiuhao-font-color;
     text-align: center;
 
     section:nth-child(1) {
-        width: 60vw;
-        height: 30vh;
+        inline-size: 60vh;
+        block-size: 30vh;
         background: @sanhao-red-bgc;
         position: absolute;
-        left: 0;
+        // left: 0;
+        inset-inline-start: 0;
 
         i {
             display: block;
             color: @qihao-font-color;
             position: fixed;
-            top: 0;
-            left: 20px;
+            // top: 0;
+            inset-block-start: 0;
+            // left: 20px;
+            inset-inline-start: 20px;
             cursor: pointer;
         }
     }
 
     section:nth-child(2) {
-        width: 40vw;
-        height: 45vh;
+        inline-size: 40vh;
+        block-size: 45vw;
         background: @bahao-white-bg;
         position: absolute;
-        right: 0;
+        // right: 0;
+        inset-inline-end: 0;
 
         h1 {
             font-weight: normal;
@@ -97,7 +101,8 @@ const contacts = ref([
         }
 
         button {
-            margin-top: @yihao-margin;
+            margin-block-start: @yihao-margin;
+            // margin-top: @yihao-margin;
             border: @yihao-border solid @yihao-border-color;
             color: @liuhao-font-color;
             border-radius: @yihao-border-radius;
@@ -111,10 +116,13 @@ const contacts = ref([
         }
 
         nav {
-            margin-top: @yihao-margin;
+            // margin-top: @yihao-margin;
+            margin-block-start: @yihao-margin;
+
 
             a {
-                padding-right: @sanhao-padding;
+                // padding-right: @sanhao-padding;
+                padding-inline-end: @sanhao-padding;
                 color: @liuhao-font-color;
                 font-family: 'YinWanZi';
             }
@@ -122,13 +130,15 @@ const contacts = ref([
     }
 
     section:nth-child(3) {
-        width: 70vw;
-        height: 70vh;
+        inline-size: 70vh;
+        block-size: 70vw;
         background: @sihao-green-bgc;
         position: absolute;
-        bottom: 0;
-        text-align-last: left;
-        padding-left: @sanhao-padding;
+        // bottom: 0;
+        inset-block-end: 0;
+        text-align: start;
+        // padding-left: @sanhao-padding;
+        padding-inline-start: @sanhao-padding;
 
         h1 {
             color: @sanhao-font-color;
@@ -141,17 +151,20 @@ const contacts = ref([
     }
 
     section:nth-child(4) {
-        width: 80vw;
-        height: 60vh;
+        inline-size: 80vh;
+        block-size: 60vw;
         background: @liuhao-red-bgc;
         position: absolute;
-        bottom: 0;
-        right: 0;
+        // bottom: 0;
+        inset-block-end: 0;
+        // right: 0;
+        inset-inline-end: 0;
         transform: translate(130px, 100px) rotate(-30deg);
         color: @sanhao-font-color;
 
         h2 {
-            margin-top: @sanhao-margin;
+            // margin-top: @sanhao-margin;
+            margin-block-start: @sanhao-margin;
             font-size: 80px;
         }
 
