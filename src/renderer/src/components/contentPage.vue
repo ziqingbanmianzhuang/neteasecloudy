@@ -36,24 +36,24 @@ const cancelSign = () => {
 <style lang="less" scoped>
 // @media screen and (min-width:0px) {
 //   .contain-box {
-//     width: calc(100vw - 400px);
+//     width: calc(100vb - 400px);
 //   }
 // }
 
 // @media screen and (min-width:1000px) {
 //   .contain-box {
-//     width: calc(80vw - 400px);
+//     width: calc(80vb - 400px);
 //   }
 // }
 @media screen and (min-height:0px) {
   .contain-box {
-    inline-size: calc(100vh - 400px);
+    inline-size: calc(100vi - 400px);
   }
 }
 
 @media screen and (min-height:1000px) {
   .contain-box {
-    inline-size: calc(80vh - 400px);
+    inline-size: calc(80vi - 400px);
   }
 }
 

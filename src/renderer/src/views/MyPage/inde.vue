@@ -45,21 +45,21 @@ const createMyInfoWin = () => {
 
 .container-box {
     overflow: hidden;
-    inline-size: 100vh;
+    inline-size: 100vi;
     font-family: "YinWanZi";
 
 
 
     .bgc-box {
         position: fixed;
-        inline-size: 100vh;
+        inline-size: 100vi;
         // top: 0;
         inset-block-start: 0;
         // left: 0;
         inset-inline-start: 0;
         z-index: -1;
         block-size: @liuhao-height;
-        background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vw 200px no-repeat;
+        background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vb 200px no-repeat;
     }
 
     .info-box {
@@ -106,7 +106,7 @@ const createMyInfoWin = () => {
     }
 
     .tool-box {
-        inline-size: 80vh;
+        inline-size: 80vi;
         block-size: @sihao-height;
         display: flex;
         justify-content: space-around;

@@ -212,7 +212,7 @@ const times = ref([
         }
 
         .time-box {
-            inline-size: 40vh;
+            inline-size: 40vi;
             display: flex;
             justify-content: space-around;
             align-items: center;

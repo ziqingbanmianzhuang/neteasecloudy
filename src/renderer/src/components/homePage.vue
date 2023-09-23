@@ -29,24 +29,24 @@ const images = ref([
 
 // @media screen and (min-width:0px) {
 //     .contain {
-//         inline-size: calc(100vw - 100px);
+//         inline-size: calc(100vb - 100px);
 //     }
 // }
 
 // @media screen and (min-width:1000px) {
 //     .contain {
-//         inline-size: calc(80vw - 100px);
+//         inline-size: calc(80vb - 100px);
 //     }
 // }
 @media screen and (min-height:0px) {
     .contain {
-        inline-size: calc(100vh - 100px);
+        inline-size: calc(100vi - 100px);
     }
 }
 
 @media screen and (min-height:1000px) {
     .contain {
-        inline-size: calc(80vh - 100px);
+        inline-size: calc(80vi - 100px);
     }
 }
 

@@ -68,19 +68,25 @@ const switchToChat = (name) => {
 
 
     nav {
-        height: 40px;
-        width: calc(100vw - 20px);
+        block-size: 40px;
+        inline-size: calc(100vi - 20px);
         background-color: @erhao-red-bgc;
-        border-top-left-radius: @erhao-border-radius;
-        border-top-right-radius: @erhao-border-radius;
+        border-start-start-radius: @erhao-border-radius;
+        border-start-end-radius: @erhao-border-radius;
 
         input {
-            width: calc(25vw - 10px);
-            margin: @yihao-margin 0 0 @yihao-margin ;
-            height: 20px;
+            inline-size: calc(25vi - 10px);
+            // margin: @yihao-margin 0 0 @yihao-margin ;
+            margin-block-start: @yihao-margin ;
+            margin-block-end: 0;
+            margin-inline-start: @yihao-margin ;
+            margin-inline-end: 0;
+
+            block-size: 20px;
             border-radius: @yihao-border-radius;
             color: @shiyi-font-color;
-            padding-left: @erhao-padding;
+            // padding-left: @erhao-padding;
+            padding-inline-start: @erhao-padding;
 
             &::placeholder {
                 color: @shiyi-font-color;
@@ -94,32 +100,39 @@ const switchToChat = (name) => {
         display: flex;
 
         .li-box {
-            height: calc(100vh - 40px);
+            block-size: calc(100vb - 40px);
             overflow: auto;
-            width: 25vw;
+            inline-size: 25vi;
             margin: 0;
 
             li {
-                height: 60px;
-                width: 25vw;
+                block-size: 60px;
+                inline-size: 25vi;
                 display: flex;
                 align-items: center;
-                border-right: 1px solid @sihao-font-color;
-                padding-right: @sanhao-padding;
+                // border-right: 1px solid @sihao-font-color;
+                border-inline-end: 1px solid @sihao-font-color;
+                padding-inline-end: @sanhao-padding;
                 position: relative;
-                margin: erhao-margin 0;
+                // margin: erhao-margin 0;
+                margin-block: @erhao-margin ;
+                margin-inline: 0;
 
             }
 
             li.active {
-                border-left: 1px solid @sihao-font-color;
+                // border-left: 1px solid @sihao-font-color;
+                border-inline-start: 1px solid @sihao-font-color;
             }
 
             img {
-                height: 50px;
+                block-size: 50px;
                 aspect-ratio: 1/1;
                 border-radius: 50%;
-                margin: 0 @yihao-margin;
+                // margin: 0 @yihao-margin;
+                margin-block: 0;
+                margin-inline: @erhao-margin;
+
             }
 
             aside {
@@ -137,8 +150,10 @@ const switchToChat = (name) => {
 
                 i {
                     position: absolute;
-                    right: 10px;
-                    top: 50%;
+                    // right: 10px;
+                    inset-inline-end: 10px;
+                    // top: 50%;
+                    inset-block-start: 50%;
                     transform: translateY(-50%);
                     color: @wuhao-font-color;
                     font-size: 15px;
@@ -152,7 +167,7 @@ const switchToChat = (name) => {
         }
 
         .chat-box {
-            width: calc(75vw - 30px);
+            inline-size: calc(75vi - 30px);
         }
 
 

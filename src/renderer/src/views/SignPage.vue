@@ -82,8 +82,8 @@ const signIn = () => {
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    inline-size: 100vh;
-    block-size: 100vw;
+    inline-size: 100vi;
+    block-size: 100vb;
     background: url('../public/images/sign.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
@@ -92,13 +92,13 @@ const signIn = () => {
     color: @sanhao-font-color;
 
     .sign-box {
-        inline-size: 70vh;
-        block-size: 70vw;
+        inline-size: 70vi;
+        block-size: 70vb;
         border: 13px @wuhao-border-color solid;
 
         .info-box {
-            inline-size: 40vh;
-            block-size: calc(70vw - 26px);
+            inline-size: 40vi;
+            block-size: calc(70vb - 26px);
             background: @shiyihao-blue-bgc;
             float: inline-end;
             text-align: center;

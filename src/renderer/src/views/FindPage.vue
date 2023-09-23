@@ -162,8 +162,8 @@ const tags = ref([
 @import "../assets/css/variable/index.less";
 
 .container-box {
-  inline-size: 95vh;
-  block-size: 100vw;
+  inline-size: 95vi;
+  block-size: 100vb;
   border-radius: @yihao-border-radius;
   // margin: 0 auto;
   margin-block: 0;

@@ -56,16 +56,16 @@ const contacts = ref([
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    inline-size: 100vh;
-    block-size: 100vw;
+    inline-size: 100vi;
+    block-size: 100vb;
     overflow: hidden;
     position: relative;
     color: @jiuhao-font-color;
     text-align: center;
 
     section:nth-child(1) {
-        inline-size: 60vh;
-        block-size: 30vh;
+        inline-size: 60vi;
+        block-size: 30vi;
         background: @sanhao-red-bgc;
         position: absolute;
         // left: 0;
@@ -84,8 +84,8 @@ const contacts = ref([
     }
 
     section:nth-child(2) {
-        inline-size: 40vh;
-        block-size: 45vw;
+        inline-size: 40vi;
+        block-size: 45vb;
         background: @bahao-white-bg;
         position: absolute;
         // right: 0;
@@ -130,8 +130,8 @@ const contacts = ref([
     }
 
     section:nth-child(3) {
-        inline-size: 70vh;
-        block-size: 70vw;
+        inline-size: 70vi;
+        block-size: 70vb;
         background: @sihao-green-bgc;
         position: absolute;
         // bottom: 0;
@@ -151,8 +151,8 @@ const contacts = ref([
     }
 
     section:nth-child(4) {
-        inline-size: 80vh;
-        block-size: 60vw;
+        inline-size: 80vi;
+        block-size: 60vb;
         background: @liuhao-red-bgc;
         position: absolute;
         // bottom: 0;

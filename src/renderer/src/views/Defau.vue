@@ -32,10 +32,10 @@ const switchToComponent = (to) => {
 
 .container {
     // inline-size: calc(100vw - 100px);
-    inline-size: calc(100vh - 100px);
+    inline-size: calc(100vi - 100px);
     margin: @sihao-margin;
     // block-size: calc(100vh - 100px);
-    block-size: calc(100vw - 100px);
+    block-size: calc(100vb - 100px);
     background-color: @yihao-red-bgc;
     border-radius: @erhao-border-radius;
 }
@@ -44,7 +44,7 @@ const switchToComponent = (to) => {
     display: flex;
     justify-content: space-evenly;
     margin-block-start: @sihao-margin;
-    inline-size: calc(100vh - 100px);
-    block-size: calc(100vw - 200px);
+    inline-size: calc(100vi - 100px);
+    block-size: calc(100vb - 200px);
 }
 </style>

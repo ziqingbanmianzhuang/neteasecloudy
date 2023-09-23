@@ -21,8 +21,8 @@
 @import "../../../assets/css/variable/index.less";
 
 .container-chat-box {
-    width: calc(75vw - 30px);
-    height: calc(100vh - 40px);
+    inline-size: calc(75vi - 30px);
+    block-size: calc(100vb - 40px);
     transform: translateX(10px);
     text-align: center;
 
@@ -30,42 +30,48 @@
         font-size: 30px;
         font-family: "YinWanZi";
         color: @jiuhao-font-color;
-        margin-top: yihao-margin;
+        margin-block-start: yihao-margin;
+        // margin-top: yihao-margin;
 
 
     }
 
     .show-chat {
-        width: 100%;
-        height: 400px;
-        border-bottom: 1px solid @sihao-font-color;
+        inline-size: 100%;
+        block-size: 400px;
+        // border-bottom: 1px solid @sihao-font-color;
+        border-block-end: 1px solid @sihao-font-color;
         overflow: auto;
     }
 
     .chat-box {
-        width: 100%;
-        height: calc(100vh - 440px);
+        inline-size: 100%;
+        block-size: calc(100vb - 440px);
 
         textarea {
-            padding-top: @sanhao-padding;
-            width: 100%;
-            height: 100%;
+            // padding-top: @sanhao-padding;
+            padding-block-start: @sanhao-padding;
+            inline-size: 100%;
+            block-size: 100%;
             color: @wuhao-font-color;
         }
 
         .button-group {
             position: absolute;
-            right: 10px;
-            bottom: 20px;
+            // right: 10px;
+            inset-inline-end: 10px;
+            // bottom: 20px;
+            inset-block-end: 20px;
 
             button {
                 background: @erhao-red-bgc;
-                width: 50px;
-                height: 30px;
+                inline-size: 50px;
+                block-size: 30px;
                 padding: @sanhao-padding;
                 border-radius: @yihao-border-radius;
                 color: @qihao-white-bgc;
-                margin-right: @yihao-margin;
+                // margin-right: @yihao-margin;
+                margin-inline-end: @yihao-margin;
             }
         }
     }

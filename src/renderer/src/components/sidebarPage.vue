@@ -30,7 +30,7 @@
 // @media screen and (min-width:1000px) {
 //   aside {
 //     display: block;
-//     width: calc(20vw - 40px);
+//     width: calc(20vb - 40px);
 //   }
 // }
 @media screen and (min-height:0px) {
@@ -42,7 +42,7 @@
 @media screen and (min-height:500px) {
   aside {
     display: block;
-    inline-size: calc(20vh - 40px);
+    inline-size: calc(20vi - 40px);
   }
 }
 
