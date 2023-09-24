@@ -137,6 +137,11 @@ img {
     inline-size: @liuhao-width;
     block-size: @wuhao-height;
     border: @erhao-border solid #fff;
+    // object-view-box: inset(-0%);
+    object-view-box: inset(20% 20% 30% 20%);
+    object-fit: cover;
+
+
     border-radius: @erhao-border-radius;
     animation: translateAnimate 60s linear 0s infinite both;
     animation-delay: calc(var(--i) * -12s);

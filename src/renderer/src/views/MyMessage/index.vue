@@ -126,12 +126,15 @@ const switchToChat = (name) => {
             }
 
             img {
+
                 block-size: 50px;
                 aspect-ratio: 1/1;
                 border-radius: 50%;
                 // margin: 0 @yihao-margin;
                 margin-block: 0;
                 margin-inline: @erhao-margin;
+                object-view-box: inset(5% 5% 5% 5%);
+                object-fit: cover;
 
             }
 

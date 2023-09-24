@@ -62,6 +62,11 @@ aside {
       aspect-ratio: 1/1;
       border-radius: @erhao-border-radius;
       position: absolute;
+      object-view-box: inset(0% 0% 10% 0%);
+      object-fit: cover;
+
+
+
     }
 
     time:nth-of-type(1) {

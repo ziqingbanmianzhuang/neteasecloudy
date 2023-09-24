@@ -59,7 +59,7 @@ const createMyInfoWin = () => {
         inset-inline-start: 0;
         z-index: -1;
         block-size: @liuhao-height;
-        background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vb 200px no-repeat;
+        background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vi 200px no-repeat;
     }
 
     .info-box {
@@ -99,6 +99,9 @@ const createMyInfoWin = () => {
                 aspect-ratio: 1/1;
                 border-radius: 50%;
                 background: @shihao-white-bgc;
+                object-view-box: inset(10% 10% 10% 10%);
+                object-fit: cover;
+
             }
         }
 
