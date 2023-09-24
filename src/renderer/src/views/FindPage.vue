@@ -130,7 +130,17 @@ onBeforeMount(async () => {
 
 // 跳转home页面
 const switchToHome = () => {
-  router.push('/')
+  // UI层面的状态过度
+  if (!document.startViewTransition) {
+    router.push('/')
+
+  }
+  document.startViewTransition(() => {
+    console.log('trandiotion');
+
+    router.push('/')
+
+  })
 }
 //创建播放歌曲的窗口
 // 创建唱歌播放窗口

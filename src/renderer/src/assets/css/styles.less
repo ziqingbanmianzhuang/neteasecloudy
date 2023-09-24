@@ -1,10 +1,47 @@
+// 浏览器创建的伪元素控制UI过渡的具体效果
+::view-transition-old(root) {
+    animation: animateView 0.3s ease-in-out reverse;
+
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    mix-blend-mode: normal;
+}
+
+@keyframes animateView {
+    0% {
+        opacity: 0;
+        // block-size: 0vb;
+        
+        transform: scaleX(0) translateY(100vb);
+        transform-origin: bottom right;
+    }
+
+    100% {
+        // block-size: 100vb;
+        inline-size: 100vi;
+        opacity: 1;
+        transform: scaleX(100vi) translateY(0vb);
+        transform-origin: bottom right;
+    }
+}
+
+::view-transition-new(root) {
+    animation: animateView 0.3s ease-in-out;
+}
+::view-transition-new(dialog) {
+    animation: animateView 0.3s ease-in-out;
+}
 * {
     box-sizing: border-box;
 }
 html{
     // writing-mode:vertical-lr;
     writing-mode:horizontal-tb;
+    scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
     display: none; /* Chrome Safari */
   }

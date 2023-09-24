@@ -54,6 +54,7 @@ const images = ref([
 
 
 .contain {
+
     position: relative;
 
     .popdialog {

@@ -68,7 +68,17 @@ import router from '@renderer/router';
 import { ref } from 'vue'
 // 跳转home
 const switchToHome = () => {
-    router.push('/')
+    // UI层面的状态过度
+    if (!document.startViewTransition) {
+        router.push('/')
+
+    }
+    document.startViewTransition(() => {
+        console.log('trandiotion');
+
+        router.push('/')
+
+    })
 }
 // 保存工具栏的链接的对象数组
 const links = ref([

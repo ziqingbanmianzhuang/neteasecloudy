@@ -10,10 +10,10 @@
       <h2>
         <a ref="" class="keep-px" @click="judgeIsLogin">我的</a>
         <!-- // 通知父级跳转Find路由页面 -->
-        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/find')">发现</a>
-        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/setting')">设置</a>
+        <a ref="" class="keep-px" @click="switchToComponent('/find')">发现</a>
+        <a ref="" class="keep-px" @click="switchToComponent('/setting')">设置</a>
         <!-- // 通知父级跳转About路由页面 -->
-        <a ref="" class="keep-px" @click="$emit('switchToComponent', '/about')">关于</a>
+        <a ref="" class="keep-px" @click="switchToComponent('/about')">关于</a>
       </h2>
       <div></div>
       <ul>
@@ -27,6 +27,12 @@
 </template>
 
 <script setup lang="ts">
+import { defineEmits } from 'vue';
+const emit = defineEmits(['switchToComponent'])
+// 导航跳转函数,触发父级导航跳转
+const switchToComponent = (path) => {
+  emit('switchToComponent', path)
+}
 localStorage.setItem('isLogin', 'false')
 //判断是否登录
 const judgeIsLogin = () => {

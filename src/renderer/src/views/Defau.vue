@@ -21,14 +21,29 @@ import sidebarPage from '../components/sidebarPage.vue';
 import homePage from '../components/homePage.vue';
 // 引入路由器
 import router from '../router/index'
+import { log } from 'console';
 // 跳转组件方法的封装
 const switchToComponent = (to) => {
-    router.push(to)
+    // router.push(to)
+
+    // UI层面的状态过度
+    if (!document.startViewTransition) {
+        router.push(to)
+    }
+    document.startViewTransition(() => {
+        console.log('trandiotion');
+
+        router.push(to)
+    })
+
 }
+
+
 </script>
 
 <style lang="less" scoped>
 @import "../assets/css/variable/index.less";
+
 
 .container {
     // inline-size: calc(100vw - 100px);
