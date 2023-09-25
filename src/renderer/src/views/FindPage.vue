@@ -173,7 +173,7 @@ const tags = ref([
 
 .container-box {
   inline-size: 95vi;
-  block-size: 100vb;
+  // block-size: 100vb;
   border-radius: @yihao-border-radius;
   // margin: 0 auto;
   margin-block: 0;
@@ -217,8 +217,14 @@ const tags = ref([
   }
 
   main {
+    // height: calc(100vb - @sanhao-height);
+    // overflow-y: scroll;
+    // scroll-snap-type: y mandatory;
+
     section {
+      // scroll-snap-align: start;
       block-size: @qihao-height;
+      // block-size: 700px;
 
       h2 {
         font-size: @erhao-font-size;
@@ -229,9 +235,9 @@ const tags = ref([
       }
 
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       flex-direction: column;
-      padding: @sanhao-padding;
+
     }
 
     section:nth-child(1) {

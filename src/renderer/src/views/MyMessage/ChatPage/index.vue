@@ -28,7 +28,7 @@
 
     h1 {
         font-size: 30px;
-        font-family: "YinWanZi";
+        font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
         color: @jiuhao-font-color;
         margin-block-start: yihao-margin;
         // margin-top: yihao-margin;

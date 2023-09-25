@@ -88,7 +88,7 @@ const signIn = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'YinWanZi';
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     color: @sanhao-font-color;
 
     .sign-box {

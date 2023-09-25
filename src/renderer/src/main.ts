@@ -6,6 +6,9 @@ import { createApp } from 'vue'
 import {createPinia} from 'pinia'
 import App from './App.vue'
 
+// 引入全局字体配置文件
+import loadBackFonts from './assets/fonts/font.js'
+loadBackFonts()
 // 引入router
 import router from './router'
 // 创建pinia实例(根)并传递给应用

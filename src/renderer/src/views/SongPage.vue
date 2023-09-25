@@ -40,7 +40,7 @@ const switchToMy = () => {
     }
 
     h1 {
-        font-family: "YinWanZi";
+        font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
         color: @jiuhao-font-color;
 
 

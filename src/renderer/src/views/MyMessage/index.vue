@@ -100,6 +100,7 @@ const switchToChat = (name) => {
         display: flex;
 
         .li-box {
+            overscroll-behavior: none;
             block-size: calc(100vb - 40px);
             overflow: auto;
             inline-size: 25vi;
@@ -143,7 +144,7 @@ const switchToChat = (name) => {
                 h2 {
                     font-size: 20px;
                     color: @sihao-font-color;
-                    font-family: "YinWanZi";
+                    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
                 }
 
                 p {

@@ -1,3 +1,4 @@
+@import "./variable/index.less";
 // 浏览器创建的伪元素控制UI过渡的具体效果
 ::view-transition-old(root) {
     animation: animateView 0.3s ease-in-out reverse;
@@ -36,15 +37,43 @@
 * {
     box-sizing: border-box;
 }
+:root{
+    scrollbar-gutter: stable both-edges; 
+    // 仅仅firefox支持
+    // scrollbar-width: thin;
+    // scrollbar-color:#007 #bada55;
+}
 html{
     // writing-mode:vertical-lr;
     writing-mode:horizontal-tb;
     scroll-behavior: smooth;
+   
 }
 
 ::-webkit-scrollbar {
-    display: none; /* Chrome Safari */
+    // display: none; /* Chrome Safari */
+    width: @yihao-width;
   }
+  ::-webkit-scrollbar-button {
+
+  }
+  ::-webkit-scrollbar-thumb {
+    background: @sihao-green-bgc;
+    border-radius:@erhao-border-radius;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: @sihao-green-bgc;
+    border-radius:@erhao-border-radius;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: @sihao-green-bgc;
+    border-radius:@erhao-border-radius;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius:@erhao-border-radius;
+  }
+
 body {
     margin:0;
 } 

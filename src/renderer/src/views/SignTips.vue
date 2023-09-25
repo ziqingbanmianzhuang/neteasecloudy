@@ -19,7 +19,7 @@ const switchToSign = () => {
 .container-box {
     inline-size: 100vi;
     block-size: 100vb;
-    font-family: "YinWanZi";
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;

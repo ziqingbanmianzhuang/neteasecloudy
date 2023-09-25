@@ -152,6 +152,7 @@ const switchSong = () => {
     }
 
     ul {
+        overscroll-behavior: none;
         border-block-start: 1px solid @erhao-border-color;
         // margin-top: yihao-margin;
         margin-block-start: @yihao-margin;

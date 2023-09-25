@@ -134,7 +134,7 @@ const contacts = ref([
                 // padding-right: @sanhao-padding;
                 padding-inline-end: @sanhao-padding;
                 color: @liuhao-font-color;
-                font-family: 'YinWanZi';
+                font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
             }
         }
     }
@@ -179,7 +179,7 @@ const contacts = ref([
         }
 
         p {
-            font-family: 'YinWanZi';
+            font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
             font-size: 60px;
 
         }

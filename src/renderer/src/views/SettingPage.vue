@@ -3,9 +3,9 @@
         <h1>设置</h1>
         <i @click="switchToHome">返回</i>
         <nav>
-            <a href="#" v-for="(link) in links" :key="link.name">{{ link.name }}</a>
+            <a :href="`#${link.name}`" v-for="(link) in links" :key="link.name">{{ link.name }}</a>
         </nav>
-        <section class="zhanghao">
+        <section class="zhanghao" id="账号">
             <ul>
                 <li><img v-for="(image) in images" alt="" :key="image.src" :src="image.src"></li>
                 <li>
@@ -15,7 +15,7 @@
             </ul>
             <button>修改个人信息</button>
         </section>
-        <section class="changgui">
+        <section class="changgui" id="常规">
             <h1>常规</h1>
             <h2>字体选择</h2>
             <select name="" id="font-setting">
@@ -54,7 +54,7 @@
             </section>
 
         </section>
-        <section class="bofang">
+        <section class="bofang" id="播放">
             <h1>播放</h1>
             <h2>高清屏幕适配</h2>
             <label><input type="radio" name="gaoqing">最小化到系统托盘</label>
@@ -128,7 +128,7 @@ const times = ref([
 @import "../assets/css/variable/index.less";
 
 .container-box {
-    font-family: 'YinWanZi';
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     // padding-left: @liuhao-padding;
     padding-inline-start: @liuhao-padding;
 

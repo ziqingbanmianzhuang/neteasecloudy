@@ -70,7 +70,7 @@ const cancelSign = () => {
   h2 {
     color: #78AE87;
     font-size: 50px;
-    font-family: "YinWanZi";
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-align: center;
     // margin-top: 30px;
     margin-block-start: 30px;
@@ -79,7 +79,7 @@ const cancelSign = () => {
   p {
     color: #fff;
     font-size: 20px;
-    font-family: "YinWanZi";
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-indent: 40px;
     // margin-top: 50px;
     margin-block-start: 50px;

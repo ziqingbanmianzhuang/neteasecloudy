@@ -71,7 +71,7 @@ aside {
     }
 
     time:nth-of-type(1) {
-      font-family: "YinWanZi";
+      font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       font-size: @sanhao-font-size;
       writing-mode: vertical-rl;
       color: @sanhao-font-color;

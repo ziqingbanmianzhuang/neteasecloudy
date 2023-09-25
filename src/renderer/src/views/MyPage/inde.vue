@@ -43,10 +43,12 @@ const createMyInfoWin = () => {
 <style lang="less" scoped>
 @import "../../assets/css/variable/index.less";
 
+
 .container-box {
-    overflow: hidden;
+    // overflow: hidden;
     inline-size: 100vi;
-    font-family: "YinWanZi";
+    block-size: 100vb;
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
 
 

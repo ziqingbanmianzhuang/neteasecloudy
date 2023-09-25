@@ -93,7 +93,9 @@ header.keep-px {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: "YinWanZi";
+      font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
+
 
       .flower-logo {
         inline-size: @sanhao-width;
@@ -150,7 +152,7 @@ header.keep-px {
     }
 
     ul {
-      font-family: "YinWanZi";
+      font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       position: absolute;
       inset-block-start: 0px;
       inset-inline-end: 10px;
@@ -169,5 +171,10 @@ header.keep-px {
       }
     }
   }
+}
+
+//FontsAPI备用字体回退
+.fonts-loaded h1 {
+  font-family: "YinWanZi" !important;
 }
 </style>

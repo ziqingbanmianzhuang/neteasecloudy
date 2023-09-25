@@ -1,4 +1,13 @@
 @font-face {
     font-family: "YinWanZi";
     src: url("./font.ttf") format("truetype");
+    font-display: swap;
 }
+/*
+application examples of fontAPI
+p{
+    font-family:"Helvetica","Arial",sans-serif;
+}
+.fonts-loaded p{
+    font-family: "YinWanZi";
+} */
