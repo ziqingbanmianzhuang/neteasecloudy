@@ -1,10 +1,11 @@
 <template>
-    <section class="contain">
+    <section class="contain animation">
         <div v-if="isLogin" class="popdialog">
             <content-page></content-page>
         </div>
     </section>
-    <img :src="image.src" alt="" v-for="(image) in  images  " :key="image['---i']" :style="{ '--i': image['--i'] }">
+    <img :src="image.src" alt="" v-for="(image) in  images  " :key="image['---i']" :style="{ '--i': image['--i'] }"
+        class="animation">
 </template>
 
 <script setup lang="ts">
@@ -68,6 +69,7 @@ const images = ref([
     animation-delay: 0.7s;
     border-radius: @erhao-border-radius;
     padding: @sanhao-padding;
+    background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
 
     @keyframes backgroundAnimate {
         0% {

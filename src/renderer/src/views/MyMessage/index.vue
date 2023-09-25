@@ -28,12 +28,12 @@ import router from '@renderer/router';
 import { ref } from 'vue'
 // 聊天列表数据
 const lis = ref([
-    { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]', time: '昨天', active: true },
-    { id: 2, avatar: '/src/public/images/sign.jpg', name: '张三丰', lastinfo: '[图片]', time: '昨天' },
-    { id: 3, avatar: '/src/public/images/sign.jpg', name: '龙啸天', lastinfo: '[图片]', time: '昨天' },
-    { id: 4, avatar: '/src/public/images/sign.jpg', name: '镇四海', lastinfo: '[图片]', time: '昨天' },
-    { id: 5, avatar: '/src/public/images/sign.jpg', name: '胡巴', lastinfo: '[图片]', time: '昨天' },
-    { id: 6, avatar: '/src/public/images/sign.jpg', name: '欧阳娜娜', lastinfo: '[图片]', time: '昨天' },
+    { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: true },
+    { id: 2, avatar: '/src/public/images/sign.jpg', name: '张三丰', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
+    { id: 3, avatar: '/src/public/images/sign.jpg', name: '龙啸天', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
+    { id: 4, avatar: '/src/public/images/sign.jpg', name: '镇四海', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
+    { id: 5, avatar: '/src/public/images/sign.jpg', name: '胡巴', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
+    { id: 6, avatar: '/src/public/images/sign.jpg', name: '欧阳娜娜', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
     { id: 7, avatar: '/src/public/images/sign.jpg', name: '张飞', lastinfo: '[图片]', time: '昨天' },
     { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
     { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
@@ -150,6 +150,15 @@ const switchToChat = (name) => {
                 p {
                     color: @wuhao-font-color;
                     font-size: 15px;
+                    display: block;
+                    inline-size: 70px;
+                    // white-space: nowrap;
+                    // overflow: hidden;
+                    // text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
                 }
 
                 i {

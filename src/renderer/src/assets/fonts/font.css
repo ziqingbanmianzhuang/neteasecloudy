@@ -3,6 +3,21 @@
     src: url("./font.ttf") format("truetype");
     font-display: swap;
 }
+/* 自定义调色板,一般用于彩色字体 */
+/* @font-palette-values --default {
+    font-family:"YinWanZi";
+    base-palette:9;
+    //重置调色板颜色
+    override-colors:
+    0 #000,
+    1 #000,
+    2 #000,
+    3 #000
+} */
+/* 使用调色板 */
+/* .example {
+    font-palette:--default;
+} */
 /*
 application examples of fontAPI
 p{
