@@ -3,7 +3,7 @@
     <header>
       <h1>发现</h1>
       <nav>
-        <a :href="`#${link.name}`" v-for="(link, index) in links" :key="index">{{ link.name }}</a>
+        <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
       </nav>
       <i @click="switchToHome">返回</i>
     </header>
@@ -11,8 +11,8 @@
       <section>
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
-          <i v-for="song in relatedCommendedSong" :key="song.name" @click="createSongWin" :style="{
-            '--name': `'${song.name}'`
+          <i v-for="([key, value]) in relatedCommendedSong" :key="value.name" @click="createSongWin" :style="{
+            '--name': `'${value.name}'`
           }">
             <!-- {{ song.name }} -->
           </i>
@@ -27,8 +27,8 @@
       <section>
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
-          <i v-for="top in topSong" :key="top.id" :style="{
-            '--name': `'${top.name}'`
+          <i v-for="([key, value]) in topSong" :key="value.id" :style="{
+            '--name': `'${value.name}'`
           }">
 
           </i>
@@ -37,7 +37,8 @@
       <section id="歌手">
         <h2>歌手</h2>
         <div class="images-box">
-          <i v-for="tag in tags" :key="tag['--deg']" :style="{ '--deg': tag['--deg'] }" @click="createSongWin"></i>
+          <i v-for="([key, value]) in tags" :key="value['--deg']" :style="{ '--deg': value['--deg'] }"
+            @click="createSongWin"></i>
         </div>
       </section>
     </main>
@@ -46,22 +47,25 @@
 
 <script setup lang="ts">
 import router from '@renderer/router';
-import { ref, onBeforeMount } from 'vue'
+import { reactive, onBeforeMount } from 'vue'
 import instance from '../api/instance'
 import Apis from '../api/Apis'
 import { log } from 'console';
 // 在组件挂载阶段获取相关的推荐歌单
 //存储相关推荐歌单的数据
-let relatedCommendedSong = ref([])
+let relatedCommendedSong = reactive(new Map([]))
 //存储榜单歌曲
-let topSong = ref([])
+let topSong = reactive(new Map([]))
 //存储热门歌手
-let hotSings = ref([])
+let hotSings = reactive(new Map([]))
 onBeforeMount(async () => {
   //获取推荐歌单
   instance.getRelativeRecommendedSongs({ params: { id: 1 } }).then(res => {
-    relatedCommendedSong.value = res.data.playlists
-    console.log(111111111, relatedCommendedSong.value);
+    // relatedCommendedSong = res.data.playlists
+    res.data.playlists.forEach(item => {
+      relatedCommendedSong.set(item.id, item)
+    });
+    console.log(111111111, relatedCommendedSong);
   }).catch(err => {
     return Apis.reqMiddleware[0].onRejected(err)
   }).then(res => {
@@ -101,7 +105,10 @@ onBeforeMount(async () => {
   //获取榜单歌曲
   instance.getTopSongs({ params: { id: 2809577409 } }).then(res => {
 
-    topSong.value = res.data.playlist.tracks.slice(0, 10)
+    // topSong.value = res.data.playlist.tracks.slice(0, 10)
+    res.data.playlist.tracks.slice(0, 10).forEach((item) => {
+      topSong.set(item.id, item);
+    })
     console.log('top', topSong);
   }).catch(err => {
     return Apis.reqMiddleware[0].onRejected(err)
@@ -114,7 +121,10 @@ onBeforeMount(async () => {
   })
   //获取歌手列表
   instance.getSingList({ params: { limit: 4, offset: 1 } }).then(res => {
-    hotSings = res.data.artists
+    // hotSings = res.data.artists
+    res.data.artists.forEach(item => {
+      hotSings.set(item.id, item)
+    });
     console.log('sing', hotSings);
 
   }).catch(err => {
@@ -154,19 +164,20 @@ const createSongWin = () => {
   window.api.createSongWin(options)
 }
 
-// 保存导航链接的对象数组
-const links = ref([
-  { name: '推荐' },
-  { name: '最新' },
-  { name: '榜单' },
-  { name: '歌手' },
-])
-// 保存四张旋转图像的角度值的对象数组
-const tags = ref([
-  { '--deg': -2 },
-  { '--deg': -1 },
-  { '--deg': 1 },
-  { '--deg': 2 },
+// 保存导航链接的map对象
+const links = reactive(new Map([
+  ['nav1', { name: '推荐' }],
+  ['nav2', { name: '最新' }],
+  ['nav3', { name: '榜单' }],
+  ['nav4', { name: '歌手' }],
+
+]))
+// 保存四张旋转图像的角度值的Mpa对象
+const tags = reactive([
+  ['song1', { '--deg': -2 }],
+  ['song2', { '--deg': -1 }],
+  ['song3', { '--deg': 1 }],
+  ['song4', { '--deg': 2 }],
 ])
 </script>
 

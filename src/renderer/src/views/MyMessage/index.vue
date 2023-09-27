@@ -5,12 +5,13 @@
         </nav>
         <section class="main-box">
             <section class="li-box">
-                <li v-for="(li) in lis" :key="li.id" :class="li.active ? 'active' : ''" @click="switchToChat(li.name)">
-                    <img :src="li.avatar" alt="">
+                <li v-for="([key, value]) in lis" :key="key" :class="value.active ? 'active' : ''"
+                    @click="switchToChat(value.name)">
+                    <img :src="value.avatar" alt="">
                     <aside>
-                        <h2>{{ li.name }}</h2>
-                        <p>{{ li.lastinfo }}</p>
-                        <i>{{ li.time }}</i>
+                        <h2>{{ value.name }}</h2>
+                        <p>{{ value.lastinfo }}</p>
+                        <i>{{ value.time }}</i>
                     </aside>
                 </li>
 
@@ -25,30 +26,27 @@
 
 <script setup lang="ts">
 import router from '@renderer/router';
-import { ref } from 'vue'
-// 聊天列表数据
-const lis = ref([
-    { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: true },
-    { id: 2, avatar: '/src/public/images/sign.jpg', name: '张三丰', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
-    { id: 3, avatar: '/src/public/images/sign.jpg', name: '龙啸天', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
-    { id: 4, avatar: '/src/public/images/sign.jpg', name: '镇四海', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
-    { id: 5, avatar: '/src/public/images/sign.jpg', name: '胡巴', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
-    { id: 6, avatar: '/src/public/images/sign.jpg', name: '欧阳娜娜', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天' },
-    { id: 7, avatar: '/src/public/images/sign.jpg', name: '张飞', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-    { id: 8, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]', time: '昨天' },
-])
+import { reactive } from 'vue'
+//存储列表聊天数据的Map对象
+const lis = reactive(new Map([
+    ['id1', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: true }],
+    ['id2', { id: 1, avatar: '/src/public/images/sign.jpg', name: '张三丰', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id3', { id: 1, avatar: '/src/public/images/sign.jpg', name: '龙啸天', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id4', { id: 1, avatar: '/src/public/images/sign.jpg', name: '镇四海', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id5', { id: 1, avatar: '/src/public/images/sign.jpg', name: '欧阳娜娜', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id6', { id: 1, avatar: '/src/public/images/sign.jpg', name: '张飞', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id7', { id: 1, avatar: '/src/public/images/sign.jpg', name: '妮妮', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id8', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id9', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id10', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id11', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id12', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id13', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id14', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id15', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id16', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+    ['id17', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
+]))
 // 跳转到聊天二级页面
 const switchToChat = (name) => {
     router.push({

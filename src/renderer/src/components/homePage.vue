@@ -4,25 +4,35 @@
             <content-page></content-page>
         </div>
     </section>
-    <img :src="image.src" alt="" v-for="(image) in  images  " :key="image['---i']" :style="{ '--i': image['--i'] }"
+    <img :src="value.src" alt="" v-for="([key, value]) in  images  " :key="key" :style="{ '--i': value['--i'] }"
         class="animation">
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
 // 引入contentpage组件
 import contentPage from './contentPage.vue'
 // 是否登录
 const isLogin = localStorage.getItem('isLogin')
-// 保存images数据的数组对象
-const images = ref([
-    // 这里要用/src这种形式的绝对路径,不能用../public这种相对路径,否则图片无法渲染
-    { src: '/src/public/images/home-5.jpg', '--i': 1 },
-    { src: '/src/public/images/home-4.jpg', '--i': 2 },
-    { src: '/src/public/images/home-3.jpg', '--i': 3 },
-    { src: '/src/public/images/home-2.jpg', '--i': 4 },
-    { src: '/src/public/images/home-1.jpg', '--i': 5 },
-])
+// 保存images数据的map对象,具有极快的查找速度，对于键值对存储循环增删的时候是更好的选择
+const images = reactive(
+    new Map([
+        ['images-5', { src: '/src/public/images/home-5.jpg', '--i': 1 }],
+        ['images-4', { src: '/src/public/images/home-4.jpg', '--i': 2 }],
+        ['images-3', { src: '/src/public/images/home-3.jpg', '--i': 3 }],
+        ['images-2', { src: '/src/public/images/home-2.jpg', '--i': 4 }],
+        ['images-1', { src: '/src/public/images/home-1.jpg', '--i': 5 }],
+
+    ])
+)
+// reactive([
+//     // 这里要用/src这种形式的绝对路径,不能用../public这种相对路径,否则图片无法渲染
+//     { src: '/src/public/images/home-5.jpg', '--i': 1 },
+//     { src: '/src/public/images/home-4.jpg', '--i': 2 },
+//     { src: '/src/public/images/home-3.jpg', '--i': 3 },
+//     { src: '/src/public/images/home-2.jpg', '--i': 4 },
+//     { src: '/src/public/images/home-1.jpg', '--i': 5 },
+// ])
 </script>
 
 <style lang="less" scoped>

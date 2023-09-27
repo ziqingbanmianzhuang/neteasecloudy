@@ -10,11 +10,7 @@
             <label><input type="radio" name="upgrade">自动更新</label>
             <label><input type="radio" name="upgrade">有新版本的时候提醒我</label>
             <nav>
-                <a href="#">官网</a>
-                <a href="#">管理规则</a>
-                <a href="#">服务条款</a>
-                <a href="#">隐私政策</a>
-                <a href="#">儿童隐私政策</a>
+                <a href="#" v-for="([key, value]) in navLinks" :key="key"> {{ value.link }}</a>
             </nav>
         </section>
         <section>
@@ -22,8 +18,8 @@
             <p>if you have any question or want anything else ,please contact with us by:
             </p>
             <ul>
-                <li v-for="(contact, index) in contacts" :key="index">
-                    {{ contact.info }}
+                <li v-for="( [key, value] ) in  contacts " :key="key">
+                    {{ value.info }}
                 </li>
             </ul>
         </section>
@@ -35,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
 // 引入路由
 import router from '@renderer/router';
 // 跳转home页面
@@ -52,12 +48,21 @@ const switchToHome = () => {
 
     })
 }
-// 保存联系方式的对象数组
-const contacts = ref([
-    { info: '邮箱:1387545' },
-    { info: 'github:47545859586' },
-    { info: '微信:13dfdhf' },
-])
+// 存储导航链接的Map对象数组
+const navLinks = reactive(new Map([
+    ['official', { link: '官网' }],
+    ['rule', { link: '管理规则' }],
+    ['service', { link: '服务条款' }],
+    ['privacy', { link: '隐私政策' }],
+    ['child', { link: '儿童隐私政策' }]
+]))
+// 保存联系方式的Map对象数组
+const contacts = reactive(new Map([
+    ['email', { info: '邮箱:1387545' }],
+    ['github', { info: 'github:47545859586' }],
+    ['wechat', { info: '微信:13dfdhf' }]
+]))
+
 
 
 </script>

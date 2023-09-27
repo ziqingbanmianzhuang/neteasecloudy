@@ -2,21 +2,23 @@
 <template>
     <section class="mys-box">
         <ul>
-            <li v-for="(my) in mys" :key="my.name" @click="switchToMyLis(my.name)">{{ my.name }}</li>
+            <li v-for="([key, value]) in mys" :key="key" @click="switchToMyLis(value.name)">{{ value.name }}</li>
         </ul>
     </section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive } from 'vue'
 import router from './../../../router/index'
 // 保存我的xx的列表数据
-const mys = ref([
-    { name: '我的历史' },
-    { name: '我的收藏' },
-    { name: '我的关注' },
-    { name: '我的歌单' },
-])
+const mys = reactive(new Map(
+    [
+        ['history', { name: '我的历史' }],
+        ['love', { name: '我的收藏' }],
+        ['follow', { name: '我的关注' }],
+        ['lis', { name: '我的歌单' }],
+    ]
+))
 // 跳转mylis二级页面
 const switchToMyLis = (name) => {
     router.push({ path: '/my/mylis', query: { name } })
