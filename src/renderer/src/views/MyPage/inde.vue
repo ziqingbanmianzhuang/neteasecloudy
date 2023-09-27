@@ -3,7 +3,7 @@
         <section class="bgc-box"></section>
         <section class="info-box">
             <aside>
-                <img src="../../public/images/my-2.jpg" alt="" class="avatar-box">
+                <img class="avatar-box" src="../../public/images/my-2.jpg" alt="">
                 <h1>半面妆</h1>
                 <nav>
                     <a href="">16关注</a>
@@ -41,7 +41,7 @@ const createMyInfoWin = () => {
 }
 </script>
 <style lang="less" scoped>
-@import "../../assets/css/variable/index.less";
+@import "../../assets/styles/variable.less";
 
 
 .container-box {
@@ -55,25 +55,21 @@ const createMyInfoWin = () => {
     .bgc-box {
         position: fixed;
         inline-size: 100vi;
-        // top: 0;
         inset-block-start: 0;
-        // left: 0;
         inset-inline-start: 0;
         z-index: -1;
         block-size: @liuhao-height;
-        background: @shihao-white-bgc url('../../public/images/my-1.jpg') center/100vi 200px no-repeat;
+        background: @shihao-white-bgc url("../../public/images/my-1.jpg") center/100vi 200px no-repeat;
     }
 
     .info-box {
         block-size: @liuhao-height;
         inline-size: 80vi;
-        // margin: 180px auto 0px;
-        margin-block-start: 180px;
-        margin-block-end: 0px;
+        margin-block-start: 180px 0;
         margin-inline: auto;
         border-radius: @yihao-border-radius;
-        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3),
-            -3px -3px 3px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .3),
+            -3px -3px 3px 0 rgba(0, 0, 0, .1);
 
         aside {
             display: flex;
@@ -116,7 +112,6 @@ const createMyInfoWin = () => {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        // margin: 0 auto;
         margin-block: 0;
         margin-inline: auto;
 

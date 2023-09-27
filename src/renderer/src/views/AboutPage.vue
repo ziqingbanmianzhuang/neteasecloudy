@@ -7,8 +7,8 @@
             <h1>关于音/丸/子</h1>
             <p>当前版本:1.0.0</p>
             <button>检查更新</button>
-            <label><input type="radio" name="upgrade">自动更新</label>
-            <label><input type="radio" name="upgrade">有新版本的时候提醒我</label>
+            <label><input name="upgrade" type="radio">自动更新</label>
+            <label><input name="upgrade" type="radio">有新版本的时候提醒我</label>
             <nav>
                 <a href="#" v-for="([key, value]) in navLinks" :key="key"> {{ value.link }}</a>
             </nav>
@@ -68,7 +68,7 @@ const contacts = reactive(new Map([
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 .container-box {
     inline-size: 100vi;
@@ -83,16 +83,13 @@ const contacts = reactive(new Map([
         block-size: 30vi;
         background: @sanhao-red-bgc;
         position: absolute;
-        // left: 0;
         inset-inline-start: 0;
 
         i {
             display: block;
             color: @qihao-font-color;
             position: fixed;
-            // top: 0;
             inset-block-start: 0;
-            // left: 20px;
             inset-inline-start: 20px;
             cursor: pointer;
         }
@@ -103,7 +100,6 @@ const contacts = reactive(new Map([
         block-size: 45vb;
         background: @bahao-white-bg;
         position: absolute;
-        // right: 0;
         inset-inline-end: 0;
 
         h1 {
@@ -117,7 +113,6 @@ const contacts = reactive(new Map([
 
         button {
             margin-block-start: @yihao-margin;
-            // margin-top: @yihao-margin;
             border: @yihao-border solid @yihao-border-color;
             color: @liuhao-font-color;
             border-radius: @yihao-border-radius;
@@ -131,12 +126,10 @@ const contacts = reactive(new Map([
         }
 
         nav {
-            // margin-top: @yihao-margin;
             margin-block-start: @yihao-margin;
 
 
             a {
-                // padding-right: @sanhao-padding;
                 padding-inline-end: @sanhao-padding;
                 color: @liuhao-font-color;
                 font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
@@ -149,10 +142,8 @@ const contacts = reactive(new Map([
         block-size: 70vb;
         background: @sihao-green-bgc;
         position: absolute;
-        // bottom: 0;
         inset-block-end: 0;
         text-align: start;
-        // padding-left: @sanhao-padding;
         padding-inline-start: @sanhao-padding;
 
         h1 {
@@ -165,7 +156,7 @@ const contacts = reactive(new Map([
             color: @shisan-font-color;
             margin-inline-start: @sanhao-padding;
 
-            &::marker {
+            ::marker {
                 content: " ♥";
                 color: #fff;
             }
@@ -177,15 +168,12 @@ const contacts = reactive(new Map([
         block-size: 60vb;
         background: @liuhao-red-bgc;
         position: absolute;
-        // bottom: 0;
         inset-block-end: 0;
-        // right: 0;
         inset-inline-end: 0;
         transform: translate(130px, 100px) rotate(-30deg);
         color: @sanhao-font-color;
 
         h2 {
-            // margin-top: @sanhao-margin;
             margin-block-start: @sanhao-margin;
             font-size: 80px;
         }

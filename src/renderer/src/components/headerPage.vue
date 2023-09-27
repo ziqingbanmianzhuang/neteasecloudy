@@ -5,15 +5,15 @@
       <!-- 元定义导航链接集合。 -->
       <h1>
         <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="">
-        <a href="" class="keep-px">音丸子</a>
+        <a class="keep-px" href="">音丸子</a>
       </h1>
       <h2>
-        <a ref="" class="keep-px" @click="judgeIsLogin">我的</a>
+        <a class="keep-px" ref="" @click="judgeIsLogin">我的</a>
         <!-- // 通知父级跳转Find路由页面 -->
-        <a ref="" class="keep-px" @click="switchToComponent('/find')">发现</a>
-        <a ref="" class="keep-px" @click="switchToComponent('/setting')">设置</a>
+        <a class="keep-px" ref="" @click="switchToComponent('/find')">发现</a>
+        <a class="keep-px" ref="" @click="switchToComponent('/setting')">设置</a>
         <!-- // 通知父级跳转About路由页面 -->
-        <a ref="" class="keep-px" @click="switchToComponent('/about')">关于</a>
+        <a class="keep-px" ref="" @click="switchToComponent('/about')">关于</a>
       </h2>
       <div></div>
       <ul>
@@ -75,7 +75,7 @@ const maximizeWin = () => {
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 header.keep-px {
   inline-size: 100%;
@@ -101,7 +101,6 @@ header.keep-px {
         inline-size: @sanhao-width;
         block-size: @erhao-height;
         border-radius: 50%;
-        // margin: 0 @yihao-margin 0 @yihao-margin;
         margin-block: 0;
         margin-inline: @yihao-margin;
         vertical-align: middle;
@@ -128,13 +127,11 @@ header.keep-px {
         block-size: @sanhao-height;
         font-size: @yihao-font-size;
         color: @wuhao-font-color;
-        // padding: 0 @sanhao-padding;
-        padding-block: 0;
         padding-inline: @sanhao-padding;
-        padding-block-end: @liuhao-padding;
+        padding-block: 0 @liuhao-padding;
         position: relative;
 
-        &::before {
+        ::before {
           content: '';
           display: block;
           block-size: 2px;
@@ -145,7 +142,7 @@ header.keep-px {
           background-color: @transparent-bgc;
         }
 
-        &:hover::before {
+        :hover::before {
           background-color: @wuhao-green-bgc;
         }
       }
@@ -154,14 +151,12 @@ header.keep-px {
     ul {
       font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       position: absolute;
-      inset-block-start: 0px;
+      inset-block-start: 0;
       inset-inline-end: 10px;
-      // justify-self: end;
       text-align: center;
 
       li.keep-px {
         display: inline-block;
-        // padding: 0 @sanhao-padding;
         padding-inline: @sanhao-padding;
         padding-block-end: @liuhao-padding;
         font-size: @erhao-font-size;
@@ -173,7 +168,7 @@ header.keep-px {
   }
 }
 
-//FontsAPI备用字体回退
+/* FontsAPI备用字体回退 */
 .fonts-loaded h1 {
   font-family: "YinWanZi" !important;
 }

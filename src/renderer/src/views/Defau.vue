@@ -42,14 +42,12 @@ const switchToComponent = (to) => {
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 
 .container {
-    // inline-size: calc(100vw - 100px);
     inline-size: calc(100vi - 100px);
     margin: @sihao-margin;
-    // block-size: calc(100vh - 100px);
     block-size: calc(100vb - 100px);
     background-color: @yihao-red-bgc;
     border-radius: @erhao-border-radius;

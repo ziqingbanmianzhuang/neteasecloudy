@@ -1,5 +1,5 @@
-@import "./variable/index.less";
-// 浏览器创建的伪元素控制UI过渡的具体效果
+@import "./variable.less";
+/* 浏览器创建的伪元素控制UI过渡的具体效果 */
 ::view-transition-old(root) {
     animation: animateView 0.3s ease-in-out reverse;
 
@@ -39,13 +39,13 @@
 }
 :root{
     scrollbar-gutter: stable both-edges; 
-    // 仅仅firefox支持
+    /* // 仅仅firefox支持
     // scrollbar-width: thin;
     // scrollbar-color:#007 #bada55;
 
     // color-scheme,使用操作系统的亮色或者深色配色方案渲染元素
     color-scheme:light!important;//两个值表示由系统来决定,支持的比较少，有表单滚动条以及css系统颜色
-    // color-scheme:dark;//一个值表示就与系统配色无关了
+    // color-scheme:dark;//一个值表示就与系统配色无关了 */
 }
 html{
     // writing-mode:vertical-lr;
@@ -99,10 +99,10 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
 }
 button {
-    border:none;
+    border:0;
 }
 input {
-    border:none;
+    border:0;
     outline:none;
 }
 p {
@@ -115,14 +115,14 @@ textarea {
 
 
 
-// 媒体查询辅助功能
-// 检测系统是否开启动画减弱
+ /* 媒体查询辅助功能 */
+ /* 检测系统是否开启动画减弱 */
 @media (prefers-reduced-motion:reduce){
     .animation {
         animation: none !important;
     }
 }
-// 检测系统的颜色模式
+ /* 检测系统的颜色模式 */
 @media (prefers-color-scheme:dark) {
     body{
         background-color: #000 !important;
@@ -143,7 +143,7 @@ textarea {
         color:#000 !important;
     }
 }
-//检测系统的对比度
+/* 检测系统的对比度 */
 @media (prefers-contrast:less){
     body{
         color:#ccc !important;
@@ -170,7 +170,7 @@ textarea {
         outline:2px solid black;
     }
 }
-//检测系统的透明度
+/* 检测系统的透明度 */
 @media (prefers-reduced-transparency:reduce){
         body {
             background-color: #222  !important;

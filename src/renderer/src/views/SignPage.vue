@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import instance from '../api/instance'
-import Apis from '../api/Apis'
+import Apis from '../api/apis'
 let name = ref('')
 let password = ref('')
 let phone = ref(0)
@@ -79,12 +79,12 @@ const signIn = () => {
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 .container-box {
     inline-size: 100vi;
     block-size: 100vb;
-    background: url('../public/images/sign.jpg') center/cover no-repeat;
+    background: url("../public/images/sign.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +122,7 @@ const signIn = () => {
                     background: @shisanhao-blue-bgc;
                     border-radius: @erhao-border-radius;
 
-                    &::before {
+                    ::before {
                         content: "";
                         display: block;
                         block-size: @erhao-height;
@@ -140,10 +140,8 @@ const signIn = () => {
                 text-align: center;
 
                 input {
-                    // padding: 0 @wuhao-padding;
                     padding-inline: @wuhao-padding;
                     padding-block: 0;
-                    // margin: @yihao-margin 0;
                     margin-block: @yihao-margin;
                     margin-inline: 0;
                     block-size: @erhao-height;
@@ -151,7 +149,7 @@ const signIn = () => {
                     color: @sanhao-font-color;
                     border-radius: @erhao-border-radius;
 
-                    &::placeholder {
+                    ::placeholder {
                         color: @shier-font-color;
                     }
                 }

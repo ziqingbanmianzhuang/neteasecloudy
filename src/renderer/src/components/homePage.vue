@@ -1,11 +1,11 @@
 <template>
     <section class="contain animation">
-        <div v-if="isLogin" class="popdialog">
+        <div class="pop-dialog" v-if="isLogin">
             <content-page></content-page>
         </div>
     </section>
-    <img :src="value.src" alt="" v-for="([key, value]) in  images  " :key="key" :style="{ '--i': value['--i'] }"
-        class="animation">
+    <img :style="{ '--i': value['--i'] }" class="animation" :src="value.src" alt="" v-for="([key, value]) in  images  "
+        :key="key">
 </template>
 
 <script setup lang="ts">
@@ -36,7 +36,7 @@ const images = reactive(
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 @media screen and (min-width:0px) {
     .contain {
@@ -71,7 +71,7 @@ const images = reactive(
     margin-inline: 10px;
     margin-block-end: 10px;
 
-    .popdialog {
+    .pop-dialog {
         position: absolute;
         inset-block-start: 50%;
         inset-inline-start: 50%;
@@ -81,63 +81,63 @@ const images = reactive(
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
     border-radius: @erhao-border-radius;
-    background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
+    background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
 
     @keyframes backgroundAnimate {
         0% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
         }
 
         19.5% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
         }
 
         20% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-2.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-2.jpg") center/cover no-repeat fixed;
 
 
         }
 
         39.5% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-2.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-2.jpg") center/cover no-repeat fixed;
 
 
         }
 
         40% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-3.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-3.jpg") center/cover no-repeat fixed;
 
         }
 
         59.5% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-3.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-3.jpg") center/cover no-repeat fixed;
 
         }
 
 
 
         60% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-4.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-4.jpg") center/cover no-repeat fixed;
 
         }
 
         79.5% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-4.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-4.jpg") center/cover no-repeat fixed;
 
         }
 
         80% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-5.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-5.jpg") center/cover no-repeat fixed;
 
         }
 
         99.5% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-5.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-5.jpg") center/cover no-repeat fixed;
 
         }
 
         100% {
-            background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
+            background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
 
         }
     }
@@ -148,13 +148,10 @@ const images = reactive(
 img {
     position: absolute;
     inset-block-end: 50px;
-    inset-inline-end: 0px;
-    // inline-size: @liuhao-width;
-    // block-size: @wuhao-height;
+    inset-inline-end: 0;
     inline-size: 10vi;
     aspect-ratio: 1 / 1;
     border: @erhao-border solid #fff;
-    // object-view-box: inset(-0%);
     object-view-box: inset(20% 20% 30% 20%);
     object-fit: cover;
 
@@ -245,7 +242,7 @@ img {
 
     100% {
         z-index: 1;
-        transform: translateX(0px);
+        transform: translateX(0);
         opacity: 1;
     }
 }

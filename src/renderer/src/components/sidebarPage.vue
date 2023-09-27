@@ -19,7 +19,7 @@
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 @media screen and (min-width:0px) {
   aside {
@@ -77,14 +77,14 @@ aside {
       font-size: @sanhao-font-size;
       writing-mode: vertical-rl;
       color: @sanhao-font-color;
-      transform: translateY(0px);
+      transform: translateY(0);
     }
 
     time:nth-of-type(2) {
-      transform: translateY(0px);
+      transform: translateY(0);
       font-size: @erhao-font-size;
 
-      &::before {
+      ::before {
         content: "";
         display: block;
         inline-size: @erhao-width;
@@ -94,14 +94,13 @@ aside {
         inset-inline-start: -20px;
         border-width: @erhao-border;
         border-style: solid;
-        // border-color: @yihao-border-color transparent transparent @yihao-border-color;
         border-block-start-color: @yihao-border-color;
         border-block-end-color: transparent;
         border-inline-end-color: transparent;
         border-inline-start-color: @yihao-border-color;
       }
 
-      &::after {
+      ::after {
         content: "";
         display: block;
         inline-size: @erhao-width;
@@ -111,7 +110,6 @@ aside {
         inset-inline-end: -20px;
         border-width: @erhao-border;
         border-style: solid;
-        // border-color: transparent @yihao-border-color @yihao-border-color transparent;
         border-block-start-color: transparent;
         border-block-end-color: @yihao-border-color;
         border-inline-end-color: @yihao-border-color ;
@@ -121,11 +119,10 @@ aside {
 
     p {
       font-size: @yihao-font-size;
-      // padding: 0 @sanhao-padding;
       padding-block: 0;
       padding-inline: @sanhao-padding;
       color: @sanhao-font-color;
-      transform: translateY(0px);
+      transform: translateY(0);
     }
 
     @keyframes animateTranslate {
@@ -134,11 +131,11 @@ aside {
       }
 
       50% {
-        transform: translateY(0px);
+        transform: translateY(0);
       }
 
       100% {
-        transform: translateY(0px);
+        transform: translateY(0);
       }
     }
 
@@ -150,27 +147,27 @@ aside {
 
       50% {
         color: @sanhao-font-color;
-        transform: translateY(0px);
+        transform: translateY(0);
       }
 
       100% {
         color: @sanhao-font-color;
-        transform: translateY(0px);
+        transform: translateY(0);
       }
     }
 
-    &:hover {
+    :hover {
       time:nth-of-type(1) {
-        animation: animateTranslate 1s ease-out 0.01s 1;
+        animation: animateTranslate 1s ease-out .01s 1;
       }
 
       time:nth-of-type(2) {
-        animation: animateTranslate 1s ease-out 0.05s 1;
+        animation: animateTranslate 1s ease-out .05s 1;
       }
 
       p {
         transition: opacity 1s ease-out;
-        animation: animateOpacity 1s ease-out 0.1s 1;
+        animation: animateOpacity 1s ease-out .1s 1;
       }
     }
   }
@@ -190,7 +187,6 @@ aside {
       color: @sanhao-font-color;
       font-size: @yihao-font-size;
       display: list-item;
-      // padding: @sanhao-padding 0;
       padding-block: @sanhao-padding;
       padding-inline: 0;
     }
@@ -200,7 +196,7 @@ aside {
       color: @jiuhao-font-color;
     }
 
-    &::before {
+    ::before {
       content: "";
       inline-size: 11px;
       block-size: 11px;
@@ -214,7 +210,7 @@ aside {
 
     }
 
-    &::after {
+    ::after {
       content: "";
       inline-size: 30px;
       block-size: 2px;

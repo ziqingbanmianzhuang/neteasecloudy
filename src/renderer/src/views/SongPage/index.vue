@@ -1,6 +1,6 @@
 <template>
     <div class="container-box">
-        <a href="" @click="switchToMy" class="return">返回</a>
+        <a class="return" href="" @click="switchToMy">返回</a>
         <h1>简单</h1>
         <aside>
             <i>歌手:鬼卞</i>
@@ -30,7 +30,7 @@ const switchToWords = (words) => {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/css/variable/index.less";
+@import "../../assets/styles/variable.less";
 
 .container-box {
     margin: 0 @yihao-margin;

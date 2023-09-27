@@ -11,9 +11,8 @@
       <section>
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
-          <i v-for="([key, value]) in relatedCommendedSong" :key="value.name" @click="createSongWin" :style="{
-            '--name': `'${value.name}'`
-          }">
+          <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in relatedCommendedSong" :key="value.name"
+            @click="createSongWin">
             <!-- {{ song.name }} -->
           </i>
         </div>
@@ -27,9 +26,7 @@
       <section>
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
-          <i v-for="([key, value]) in topSong" :key="value.id" :style="{
-            '--name': `'${value.name}'`
-          }">
+          <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong" :key="value.id">
 
           </i>
         </div>
@@ -37,7 +34,7 @@
       <section id="歌手">
         <h2>歌手</h2>
         <div class="images-box">
-          <i v-for="([key, value]) in tags" :key="value['--deg']" :style="{ '--deg': value['--deg'] }"
+          <i :style="{ '--deg': value['--deg'] }" v-for="([key, value]) in tags" :key="value['--deg']"
             @click="createSongWin"></i>
         </div>
       </section>
@@ -49,8 +46,7 @@
 import router from '@renderer/router';
 import { reactive, onBeforeMount } from 'vue'
 import instance from '../api/instance'
-import Apis from '../api/Apis'
-import { log } from 'console';
+import Apis from '../api/apis'
 // 在组件挂载阶段获取相关的推荐歌单
 //存储相关推荐歌单的数据
 let relatedCommendedSong = reactive(new Map([]))
@@ -177,18 +173,16 @@ const tags = reactive([
   ['song1', { '--deg': -2 }],
   ['song2', { '--deg': -1 }],
   ['song3', { '--deg': 1 }],
-  ['song4', { '--deg': 2 }],
+  ['songg4', { '--deg': 2 }],
 ])
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 .container-box {
   inline-size: 95vi;
-  // block-size: 100vb;
   border-radius: @yihao-border-radius;
-  // margin: 0 auto;
   margin-block: 0;
   margin-inline: auto;
   color: @erhao-font-color;
@@ -201,14 +195,12 @@ const tags = reactive([
 
     h1 {
       flex: 2;
-      // padding-left: @sanhao-padding;
       padding-inline-start: @sanhao-padding;
     }
 
     i {
       display: block;
       text-align: end;
-      // padding-right: @sanhao-padding;
       padding-inline-end: @sanhao-padding;
 
       flex: 1;
@@ -230,19 +222,12 @@ const tags = reactive([
   }
 
   main {
-    // height: calc(100vb - @sanhao-height);
-    // overflow-y: scroll;
-    // scroll-snap-type: y mandatory;
-
     section {
-      // scroll-snap-align: start;
       block-size: @qihao-height;
-      // block-size: 700px;
 
       h2 {
         font-size: @erhao-font-size;
         font-weight: normal;
-        // padding-bottom: @sanhao-padding;
         padding-block-end: @sanhao-padding;
 
       }
@@ -268,10 +253,10 @@ const tags = reactive([
           position: relative;
           transition: all 0.3s;
           overflow: hidden;
-          background: url('../public/images/date.jpg') center/cover no-repeat;
+          background: url("../public/images/date.jpg") center/cover no-repeat;
 
 
-          &::after {
+          ::after {
             content: var(--name);
             color: @sanhao-font-color;
             font-size: @yihao-font-size;
@@ -284,14 +269,13 @@ const tags = reactive([
             transition: all 0.3s;
           }
 
-          &::before {
+          ::before {
             content: '你的名字';
             color: @sanhao-font-color;
             font-size: @yihao-font-size;
             text-align: center;
             display: block;
             position: absolute;
-            // bottom: 0;
             inset-block-end: 0px;
             inline-size: 60px;
             block-size: 40px;
@@ -306,14 +290,12 @@ const tags = reactive([
           inline-size: 80px;
           border-radius: @erhao-border-radius;
 
-          &::before {
+          ::before {
             inline-size: 80px;
-            // bottom: -60px;
             inset-block-end: -60px;
           }
 
-          &:after {
-            // top: 80px;
+          :after {
             inset-block-start: 80px;
           }
         }
@@ -333,28 +315,26 @@ const tags = reactive([
           inline-size: 120px;
           block-size: 140px;
           border-radius: @erhao-border-radius;
-          // overflow-x: hidden;
           position: relative;
           transition: all 0.3s;
-          background: url('../public/images/my-2.jpg') center/cover no-repeat;
+          background: url("../public/images/my-2.jpg") center/cover no-repeat;
 
-          &::before {
+          ::before {
             content: "love  is painful xxxx";
             display: block;
             position: absolute;
             color: @sihao-font-color;
             inline-size: 100%;
             text-align: center;
-            // bottom: 10px;
             inset-block-end: 10px;
             transition: all 0.3s;
 
           }
 
-          &:hover {
+          :hover {
             block-size: 120px;
 
-            &::before {
+            ::before {
               transform: translateY(calc(100% + 10px));
             }
           }
@@ -375,22 +355,19 @@ const tags = reactive([
         inline-size: 120px;
         block-size: 120px;
         border-radius: @erhao-border-radius;
-        background: url('../public/images/flower-logo.jpg') center/cover no-repeat;
-        // margin-bottom: @yihao-margin;
+        background: url("../public/images/flower-logo.jpg") center/cover no-repeat;
         margin-block-end: @yihao-margin;
         position: relative;
 
 
 
-        &::before {
+        ::before {
           content: var(--name);
           display: block;
           position: absolute;
-          // bottom: 0px;
           inset-block-end: 0px;
           font-size: @yihao-font-size;
           inline-size: 100%;
-          // left: 10px;
           inset-inline-start: 10px;
           transform: translateY(calc(100% + 5px));
           text-align: center;
@@ -415,12 +392,12 @@ const tags = reactive([
           inline-size: 150px;
           block-size: 200px;
           border-radius: @erhao-border-radius;
-          background: url(../public/images/home-2.jpg) center/cover no-repeat;
+          background: url("../public/images/home-2.jpg") center/cover no-repeat;
           transform: rotate(calc(var(--deg) * 10deg));
           transform-origin: 50%;
         }
 
-        &::before {
+        ::before {
           content: "";
           display: block;
         }

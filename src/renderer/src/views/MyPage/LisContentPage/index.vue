@@ -26,7 +26,7 @@ const switchToMyLis = (name) => {
 </script>
 
 <style lang="less" scoped>
-@import "../../../assets/css/variable/index.less";
+@import "../../../assets/styles/variable.less";
 
 
 .mys-box {
@@ -43,16 +43,14 @@ const switchToMyLis = (name) => {
             block-size: @sanhao-height;
             line-height: @sanhao-height;
             inline-size: 80%;
-            // padding: 0 @liuhao-padding;
             padding-block: 0;
             padding-inline: @liuhao-padding;
-            // margin: @yihao-margin 0;
             margin-block: @yihao-margin;
             margin-inline: 0;
             text-align: center;
             border-radius: @yihao-border-radius;
-            box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.1),
-                -1px -1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, .1),
+                -1px -1px 3px 0 rgba(0, 0, 0, .1);
 
         }
     }

@@ -130,7 +130,7 @@ const switchSong = () => {
 </script>
 
 <style lang="less" scoped>
-@import "../../../assets/css/variable/index.less";
+@import "../../../assets/styles/variable.less";
 
 .container-box {
     padding: @qihao-padding;
@@ -146,7 +146,6 @@ const switchSong = () => {
 
         h2 {
             color: @qihao-font-color;
-            // padding-bottom: @sanhao-padding;
             padding-block-end: @sanhao-padding ;
         }
     }
@@ -154,13 +153,11 @@ const switchSong = () => {
     ul {
         overscroll-behavior: none;
         border-block-start: 1px solid @erhao-border-color;
-        // margin-top: yihao-margin;
         margin-block-start: @yihao-margin;
         block-size: 300px;
         overflow: auto;
 
         li {
-            // margin: @yihao-margin 0;
             margin-block: @yihao-margin;
             margin-inline: 0;
             display: flex;
@@ -168,13 +165,11 @@ const switchSong = () => {
             position: relative;
 
             a {
-                // padding-right: @sanhao-padding;
                 padding-inline-end: @sanhao-padding;
                 color: @qihao-font-color;
             }
 
             aside {
-                // padding-left: @sanhao-padding;
                 padding-inline-start: @sanhao-padding;
 
 
@@ -191,7 +186,6 @@ const switchSong = () => {
                 i:nth-of-type(1) {
                     color: @jiuhao-font-color;
                     font-size: @yihao-font-size;
-                    // padding-right: @sanhao-padding;
                     padding-inline-end: @sanhao-padding;
                     font-family: 'Courier New', Courier, monospace;
 
@@ -203,14 +197,11 @@ const switchSong = () => {
             footer {
                 position: absolute;
                 right: 10px;
-                // top: 50%;
                 inset-block-start: 50%;
-                // transform: translateY(-50%);
                 transform: translateX(-50%);
                 color: @yihao-border-color;
 
                 i:nth-child(1) {
-                    // padding-right: @sanhao-padding;
                     padding-inline-end: @sanhao-padding;
 
 

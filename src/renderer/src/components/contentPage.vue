@@ -35,7 +35,7 @@ const cancelSign = () => {
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 @media screen and (min-width:0px) {
   .contain-box {
@@ -64,7 +64,7 @@ const cancelSign = () => {
 // }
 
 .contain-box {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, .3);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -77,8 +77,6 @@ const cancelSign = () => {
     font-size: 50px;
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-align: center;
-    // margin-top: 30px;
-    // margin-block-start: 30px;
   }
 
   p {
@@ -86,15 +84,11 @@ const cancelSign = () => {
     font-size: 20px;
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-indent: 40px;
-    // margin-top: 50px;
-    // margin-block-start: 50px;
   }
 
   .login-cancel-button {
     display: flex;
     justify-content: center;
-    // margin-top: 50px;
-    // margin-block-start: 50px;
 
 
     button {
@@ -102,8 +96,7 @@ const cancelSign = () => {
       inline-size: 100px;
       block-size: 50px;
       border-radius: 10px;
-      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-      // margin: 0 30px;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, .2);
       margin-block: 0px;
       margin-inline: 30px;
     }

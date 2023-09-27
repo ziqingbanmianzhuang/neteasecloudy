@@ -5,7 +5,7 @@
         </nav>
         <section class="main-box">
             <section class="li-box">
-                <li v-for="([key, value]) in lis" :key="key" :class="value.active ? 'active' : ''"
+                <li :class="value.active ? 'active' : ''" v-for="([key, value]) in lis" :key="key"
                     @click="switchToChat(value.name)">
                     <img :src="value.avatar" alt="">
                     <aside>
@@ -58,7 +58,7 @@ const switchToChat = (name) => {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/css/variable/index.less";
+@import "../../assets/styles/variable.less";
 
 .container-box {
     margin: @yihao-margin;
@@ -77,19 +77,14 @@ const switchToChat = (name) => {
 
         input {
             inline-size: 250px;
-            // margin: @yihao-margin 0 0 @yihao-margin ;
-            margin-block-start: @yihao-margin ;
-            margin-block-end: 0;
-            margin-inline-start: @yihao-margin ;
-            margin-inline-end: 0;
-
+            margin-block-start: @yihao-margin 0;
+            margin-inline-start: @yihao-margin 0;
             block-size: 20px;
             border-radius: @yihao-border-radius;
             color: @shiyi-font-color;
-            // padding-left: @erhao-padding;
             padding-inline-start: @erhao-padding;
 
-            &::placeholder {
+            ::placeholder {
                 color: @shiyi-font-color;
             }
 
@@ -129,7 +124,6 @@ const switchToChat = (name) => {
                 block-size: 50px;
                 aspect-ratio: 1/1;
                 border-radius: 50%;
-                // margin: 0 @yihao-margin;
                 margin-block: 0;
                 margin-inline: @yihao-margin;
                 object-view-box: inset(5% 5% 5% 5%);
@@ -150,9 +144,6 @@ const switchToChat = (name) => {
                     font-size: 15px;
                     display: block;
                     inline-size: 70px;
-                    // white-space: nowrap;
-                    // overflow: hidden;
-                    // text-overflow: ellipsis;
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -161,9 +152,7 @@ const switchToChat = (name) => {
 
                 i {
                     position: absolute;
-                    // right: 10px;
                     inset-inline-end: 10px;
-                    // top: 50%;
                     inset-block-start: 50%;
                     transform: translateY(-50%);
                     color: @wuhao-font-color;

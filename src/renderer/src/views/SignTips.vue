@@ -14,7 +14,7 @@ const switchToSign = () => {
 </script>
 
 <style lang="less" scoped>
-@import "../assets/css/variable/index.less";
+@import "../assets/styles/variable.less";
 
 .container-box {
     inline-size: 100vi;
