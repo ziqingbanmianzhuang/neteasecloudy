@@ -156,7 +156,14 @@ const contacts = ref([
         }
 
         ul li {
+            display: list-item;
             color: @shisan-font-color;
+            margin-inline-start: @sanhao-padding;
+
+            &::marker {
+                content: " ♥";
+                color: #fff;
+            }
         }
     }
 

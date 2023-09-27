@@ -35,36 +35,41 @@ const cancelSign = () => {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/css/variable/index.less";
+
+@media screen and (min-width:0px) {
+  .contain-box {
+    inline-size: calc(100vi - 120px);
+    block-size: calc(100vb - 220px);
+  }
+}
+
+@media screen and (min-width:1000px) {
+  .contain-box {
+    inline-size: calc(80vi - 120px);
+    block-size: calc(100vb - 220px);
+  }
+}
+
 // @media screen and (min-width:0px) {
-//   .contain-box {
-//     width: calc(100vb - 400px);
-//   }
+//     .contain {
+//         inline-size: calc(100vi - 120px);
+//     }
 // }
 
 // @media screen and (min-width:1000px) {
-//   .contain-box {
-//     width: calc(80vb - 400px);
-//   }
+//     .contain {
+//         inline-size: calc(80vi - 120px);
+//     }
 // }
-@media screen and (min-height:0px) {
-  .contain-box {
-    inline-size: calc(100vi - 400px);
-  }
-}
-
-@media screen and (min-height:1000px) {
-  .contain-box {
-    inline-size: calc(80vi - 400px);
-  }
-}
 
 .contain-box {
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: @erhao-border-radius;
+  padding: @wuhao-padding;
   overflow: auto;
 
   h2 {
@@ -73,7 +78,7 @@ const cancelSign = () => {
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-align: center;
     // margin-top: 30px;
-    margin-block-start: 30px;
+    // margin-block-start: 30px;
   }
 
   p {
@@ -82,14 +87,14 @@ const cancelSign = () => {
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     text-indent: 40px;
     // margin-top: 50px;
-    margin-block-start: 50px;
+    // margin-block-start: 50px;
   }
 
   .login-cancel-button {
     display: flex;
     justify-content: center;
     // margin-top: 50px;
-    margin-block-start: 50px;
+    // margin-block-start: 50px;
 
 
     button {

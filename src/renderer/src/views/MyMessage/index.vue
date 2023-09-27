@@ -64,6 +64,9 @@ const switchToChat = (name) => {
 
 .container-box {
     margin: @yihao-margin;
+    block-size: calc(100vb - calc(2 * @yihao-margin));
+    inline-size: calc(100vi - calc(2 * @yihao-margin));
+    overflow-x: hidden;
     border-radius: @erhao-border-radius;
 
 
@@ -75,7 +78,7 @@ const switchToChat = (name) => {
         border-start-end-radius: @erhao-border-radius;
 
         input {
-            inline-size: calc(25vi - 10px);
+            inline-size: 250px;
             // margin: @yihao-margin 0 0 @yihao-margin ;
             margin-block-start: @yihao-margin ;
             margin-block-end: 0;
@@ -101,39 +104,36 @@ const switchToChat = (name) => {
 
         .li-box {
             overscroll-behavior: none;
-            block-size: calc(100vb - 40px);
-            overflow: auto;
-            inline-size: 25vi;
+            block-size: calc(100vb - 40px - calc(2 * @yihao-margin));
+            overflow-y: auto;
+            overflow-x: hidden;
+            inline-size: 280px;
             margin: 0;
+            border-inline-end: 1px solid @sihao-font-color;
 
             li {
                 block-size: 60px;
-                inline-size: 25vi;
+                inline-size: 260px;
                 display: flex;
                 align-items: center;
-                // border-right: 1px solid @sihao-font-color;
-                border-inline-end: 1px solid @sihao-font-color;
                 padding-inline-end: @sanhao-padding;
                 position: relative;
-                // margin: erhao-margin 0;
                 margin-block: @erhao-margin ;
                 margin-inline: 0;
 
             }
 
             li.active {
-                // border-left: 1px solid @sihao-font-color;
                 border-inline-start: 1px solid @sihao-font-color;
             }
 
             img {
-
                 block-size: 50px;
                 aspect-ratio: 1/1;
                 border-radius: 50%;
                 // margin: 0 @yihao-margin;
                 margin-block: 0;
-                margin-inline: @erhao-margin;
+                margin-inline: @yihao-margin;
                 object-view-box: inset(5% 5% 5% 5%);
                 object-fit: cover;
 
@@ -180,7 +180,7 @@ const switchToChat = (name) => {
         }
 
         .chat-box {
-            inline-size: calc(75vi - 30px);
+            block-size: calc(100vb - calc(2 * @yihao-margin) - 50px);
         }
 
 

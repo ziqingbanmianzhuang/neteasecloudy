@@ -184,13 +184,13 @@ const switchSong = () => {
 
                 i:nth-of-type(2) {
                     color: @qihao-font-color;
-                    font-size: @sihao-font-size;
+                    font-size: @yihao-font-size;
 
                 }
 
                 i:nth-of-type(1) {
                     color: @jiuhao-font-color;
-                    font-size: @sihao-font-size;
+                    font-size: @yihao-font-size;
                     // padding-right: @sanhao-padding;
                     padding-inline-end: @sanhao-padding;
                     font-family: 'Courier New', Courier, monospace;

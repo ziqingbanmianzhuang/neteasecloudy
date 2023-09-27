@@ -29,7 +29,9 @@
         <div class="images-box">
           <i v-for="top in topSong" :key="top.id" :style="{
             '--name': `'${top.name}'`
-          }"></i>
+          }">
+
+          </i>
         </div>
       </section>
       <section id="歌手">
@@ -367,19 +369,7 @@ const tags = ref([
         margin-block-end: @yihao-margin;
         position: relative;
 
-        &::after {
-          content: "l";
-          position: absolute;
-          // bottom: 0px;
-          inset-block-end: 0px;
-          transform: translateY(calc(100% + 5px));
-          font-size: @yihao-font-size;
-          color: @sihao-font-color;
-          // left: 0px;
-          inset-inline-start: 0px;
-          inline-size: 20px;
 
-        }
 
         &::before {
           content: var(--name);
@@ -393,7 +383,11 @@ const tags = ref([
           inset-inline-start: 10px;
           transform: translateY(calc(100% + 5px));
           text-align: center;
+
+
         }
+
+
       }
 
     }

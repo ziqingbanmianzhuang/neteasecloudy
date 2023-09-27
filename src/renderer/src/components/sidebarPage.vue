@@ -21,32 +21,34 @@
 <style lang="less" scoped>
 @import "../assets/css/variable/index.less";
 
-// @media screen and (min-width:0px) {
-//   aside {
-//     display: none;
-//   }
-// }
-
-// @media screen and (min-width:1000px) {
-//   aside {
-//     display: block;
-//     width: calc(20vb - 40px);
-//   }
-// }
-@media screen and (min-height:0px) {
+@media screen and (min-width:0px) {
   aside {
     display: none;
   }
 }
 
-@media screen and (min-height:500px) {
+@media screen and (min-width:1000px) {
   aside {
     display: block;
-    inline-size: calc(20vi - 40px);
+    width: calc(20vi - 40px);
   }
 }
 
+// @media screen and (min-height:0px) {
+//   aside {
+//     display: none;
+//   }
+// }
+
+// @media screen and (min-height:500px) {
+//   aside {
+//     display: block;
+//     inline-size: calc(20vi - 40px);
+//   }
+// }
+
 aside {
+  margin-inline-end: 10px;
 
   .date-box {
     color: @sanhao-font-color;
@@ -187,10 +189,15 @@ aside {
     a {
       color: @sanhao-font-color;
       font-size: @yihao-font-size;
-      display: block;
+      display: list-item;
       // padding: @sanhao-padding 0;
       padding-block: @sanhao-padding;
       padding-inline: 0;
+    }
+
+    a::marker {
+      content: "♥ ";
+      color: @jiuhao-font-color;
     }
 
     &::before {

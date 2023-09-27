@@ -28,28 +28,29 @@ const images = ref([
 <style lang="less" scoped>
 @import "../assets/css/variable/index.less";
 
-// @media screen and (min-width:0px) {
-//     .contain {
-//         inline-size: calc(100vb - 100px);
-//     }
-// }
-
-// @media screen and (min-width:1000px) {
-//     .contain {
-//         inline-size: calc(80vb - 100px);
-//     }
-// }
-@media screen and (min-height:0px) {
+@media screen and (min-width:0px) {
     .contain {
-        inline-size: calc(100vi - 100px);
+        inline-size: calc(100vi - 120px);
     }
 }
 
-@media screen and (min-height:1000px) {
+@media screen and (min-width:1000px) {
     .contain {
-        inline-size: calc(80vi - 100px);
+        inline-size: calc(80vi - 120px);
     }
 }
+
+// @media screen and (min-height:0px) {
+//     .contain {
+//         inline-size: calc(100vi - 120px);
+//     }
+// }
+
+// @media screen and (min-height:1000px) {
+//     .contain {
+//         inline-size: calc(80vi - 120px);
+//     }
+// }
 
 
 
@@ -57,6 +58,8 @@ const images = ref([
 .contain {
 
     position: relative;
+    margin-inline: 10px;
+    margin-block-end: 10px;
 
     .popdialog {
         position: absolute;
@@ -68,7 +71,6 @@ const images = ref([
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
     border-radius: @erhao-border-radius;
-    padding: @sanhao-padding;
     background: rgba(0, 0, 0, 0.03) url(../public/images/home-1.jpg) center/cover no-repeat fixed;
 
     @keyframes backgroundAnimate {
@@ -137,8 +139,10 @@ img {
     position: absolute;
     inset-block-end: 50px;
     inset-inline-end: 0px;
-    inline-size: @liuhao-width;
-    block-size: @wuhao-height;
+    // inline-size: @liuhao-width;
+    // block-size: @wuhao-height;
+    inline-size: 10vi;
+    aspect-ratio: 1 / 1;
     border: @erhao-border solid #fff;
     // object-view-box: inset(-0%);
     object-view-box: inset(20% 20% 30% 20%);

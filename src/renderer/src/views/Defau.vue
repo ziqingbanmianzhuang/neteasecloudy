@@ -57,7 +57,7 @@ const switchToComponent = (to) => {
 
 .main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-block-start: @sihao-margin;
     inline-size: calc(100vi - 100px);
     block-size: calc(100vb - 200px);

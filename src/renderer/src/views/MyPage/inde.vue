@@ -45,8 +45,8 @@ const createMyInfoWin = () => {
 
 
 .container-box {
-    // overflow: hidden;
-    inline-size: 100vi;
+    overflow-x: hidden;
+    inline-size: calc(100vi - 10px);
     block-size: 100vb;
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
@@ -66,7 +66,7 @@ const createMyInfoWin = () => {
 
     .info-box {
         block-size: @liuhao-height;
-        inline-size: 80%;
+        inline-size: 80vi;
         // margin: 180px auto 0px;
         margin-block-start: 180px;
         margin-block-end: 0px;
@@ -84,16 +84,16 @@ const createMyInfoWin = () => {
             color: #78ae87;
 
             h1 {
-                font-size: 60px;
+                font-size: 30px;
             }
 
             p {
-                font-size: 45px;
+                font-size: 20px;
             }
 
             nav a {
                 color: @jiuhao-font-color;
-                font-size: 38px;
+                font-size: 15px;
             }
 
             .avatar-box {
@@ -123,7 +123,7 @@ const createMyInfoWin = () => {
         .iconfont {
             font-family: 'iconfont';
             color: @wuhao-font-color;
-            font-size: 120px;
+            font-size: 40px;
         }
     }
 

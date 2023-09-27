@@ -2,7 +2,7 @@
     <div class="container-chat-box">
         <h1>{{ $route.query.name }}</h1>
         <section class="show-chat"></section>
-        <section class="chat-box">
+        <section class="chat-text-area">
             <textarea name="" id="" cols="30" rows="10"></textarea>
             <section class="button-group">
                 <button>关闭</button>
@@ -21,16 +21,17 @@
 @import "../../../assets/css/variable/index.less";
 
 .container-chat-box {
-    inline-size: calc(75vi - 30px);
-    block-size: calc(100vb - 40px);
-    transform: translateX(10px);
+    inline-size: calc(100vi - 300px);
+    block-size: calc(100vb - calc(2 * @yihao-margin) - 50px);
+    // overflow: hidden;
     text-align: center;
 
     h1 {
         font-size: 30px;
+        block-size: 50px;
         font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
         color: @jiuhao-font-color;
-        margin-block-start: yihao-margin;
+        margin-block-start: @yihao-margin;
         // margin-top: yihao-margin;
 
 
@@ -44,15 +45,17 @@
         overflow: auto;
     }
 
-    .chat-box {
+    .chat-text-area {
         inline-size: 100%;
-        block-size: calc(100vb - 440px);
+        block-size: calc(100vb - calc(2 * @yihao-margin) - 500px);
+        position: relative;
+        overflow: hidden;
 
         textarea {
             // padding-top: @sanhao-padding;
             padding-block-start: @sanhao-padding;
             inline-size: 100%;
-            block-size: 100%;
+            block-size: calc(100vb - 500px - calc(2 * @yihao-margin));
             color: @wuhao-font-color;
         }
 
