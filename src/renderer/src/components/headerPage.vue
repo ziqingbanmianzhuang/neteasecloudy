@@ -78,67 +78,88 @@ const maximizeWin = () => {
 @import "../assets/styles/variable.less";
 
 header.keep-px {
-  inline-size: 100%;
-  block-size: @sanhao-height;
   position: relative;
 
+  inline-size: 100%;
+  block-size: @sanhao-height;
+
   nav {
-    block-size: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-template-rows: @sanhao-height;
 
+    block-size: 100%;
+
+
     h1 {
-      justify-self: start;
       display: flex;
       justify-content: center;
+      justify-self: start;
       align-items: center;
+
       font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
 
 
       .flower-logo {
+        margin-inline: @yihao-margin;
+        margin-block: 0;
+        border-radius: 50%;
         inline-size: @sanhao-width;
         block-size: @erhao-height;
-        border-radius: 50%;
-        margin-block: 0;
-        margin-inline: @yihao-margin;
+
         vertical-align: middle;
       }
 
       a.keep-px {
-        color: @liuhao-font-color;
+        display: block;
+
         font-size: @sanhao-font-size;
         line-height: @sanhao-height;
-        display: block;
+
+        color: @liuhao-font-color;
+
         -webkit-app-region: drag;
+
+
 
       }
     }
 
     h2 {
-      text-align: center;
-      background-color: @yihao-red-bgc;
       position: relative;
       z-index: 1;
 
+      text-align: center;
+
+      background-color: @yihao-red-bgc;
+
+
       a.keep-px {
-        inline-size: @erhao-width;
-        block-size: @sanhao-height;
-        font-size: @yihao-font-size;
-        color: @wuhao-font-color;
+        position: relative;
+
         padding-inline: @sanhao-padding;
         padding-block: 0 @liuhao-padding;
-        position: relative;
+        inline-size: @erhao-width;
+        block-size: @sanhao-height;
+
+        font-size: @yihao-font-size;
+
+        color: @wuhao-font-color;
+
 
         ::before {
           content: '';
           display: block;
-          block-size: 2px;
-          inline-size: @sihao-width;
+
           position: absolute;
           inset-block-end: 10px;
           inset-inline-start: 7px;
+
+
+          inline-size: @sihao-width;
+          block-size: 2px;
+
           background-color: @transparent-bgc;
         }
 
@@ -149,19 +170,24 @@ header.keep-px {
     }
 
     ul {
-      font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       position: absolute;
       inset-block-start: 0;
       inset-inline-end: 10px;
+
+      font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       text-align: center;
 
       li.keep-px {
         display: inline-block;
+
         padding-inline: @sanhao-padding;
         padding-block-end: @liuhao-padding;
+
         font-size: @erhao-font-size;
+
         color: @wuhao-font-color;
         -webkit-text-stroke: 1px @yihao-stroke-color;
+
         cursor: pointer;
       }
     }

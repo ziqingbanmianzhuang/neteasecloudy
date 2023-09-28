@@ -68,6 +68,7 @@ const images = reactive(
 .contain {
 
     position: relative;
+
     margin-inline: 10px;
     margin-block-end: 10px;
 
@@ -75,13 +76,17 @@ const images = reactive(
         position: absolute;
         inset-block-start: 50%;
         inset-inline-start: 50%;
+
+        background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
+
+
         transform: translate(-50%, -50%);
     }
 
     animation: backgroundAnimate 60s linear 0s infinite both;
     animation-delay: 0.7s;
     border-radius: @erhao-border-radius;
-    background: rgba(0, 0, 0, .03) url("../public/images/home-1.jpg") center/cover no-repeat fixed;
+
 
     @keyframes backgroundAnimate {
         0% {
@@ -149,14 +154,15 @@ img {
     position: absolute;
     inset-block-end: 50px;
     inset-inline-end: 0;
+
+    border: @erhao-border solid #fff;
+    border-radius: @erhao-border-radius;
     inline-size: 10vi;
     aspect-ratio: 1 / 1;
-    border: @erhao-border solid #fff;
     object-view-box: inset(20% 20% 30% 20%);
     object-fit: cover;
 
 
-    border-radius: @erhao-border-radius;
     animation: translateAnimate 60s linear 0s infinite both;
     animation-delay: calc(var(--i) * -12s);
 }

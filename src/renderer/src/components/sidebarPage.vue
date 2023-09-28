@@ -51,20 +51,25 @@ aside {
   margin-inline-end: 10px;
 
   .date-box {
-    color: @sanhao-font-color;
-    inline-size: 100%;
-    aspect-ratio: 1/1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    inline-size: 100%;
+    aspect-ratio: 1/1;
+
     position: relative;
 
+    color: @sanhao-font-color;
+
+
     img {
+      position: absolute;
+
+      border-radius: @erhao-border-radius;
       inline-size: 100%;
       aspect-ratio: 1/1;
-      border-radius: @erhao-border-radius;
-      position: absolute;
       object-view-box: inset(0% 0% 10% 0%);
       object-fit: cover;
 
@@ -73,55 +78,72 @@ aside {
     }
 
     time:nth-of-type(1) {
+      writing-mode: vertical-rl;
+
       font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
       font-size: @sanhao-font-size;
-      writing-mode: vertical-rl;
+
       color: @sanhao-font-color;
+
       transform: translateY(0);
     }
 
     time:nth-of-type(2) {
-      transform: translateY(0);
       font-size: @erhao-font-size;
+
+      transform: translateY(0);
 
       ::before {
         content: "";
         display: block;
-        inline-size: @erhao-width;
-        block-size: @yihao-height;
+
         position: absolute;
         inset-block-start: -10px;
         inset-inline-start: -20px;
+
         border-width: @erhao-border;
         border-style: solid;
         border-block-start-color: @yihao-border-color;
-        border-block-end-color: transparent;
         border-inline-end-color: transparent;
+        border-block-end-color: transparent;
         border-inline-start-color: @yihao-border-color;
+        inline-size: @erhao-width;
+        block-size: @yihao-height;
+
+
       }
 
       ::after {
         content: "";
         display: block;
-        inline-size: @erhao-width;
-        block-size: @yihao-height;
+
         position: absolute;
         inset-block-end: -10px;
         inset-inline-end: -20px;
+
         border-width: @erhao-border;
         border-style: solid;
         border-block-start-color: transparent;
-        border-block-end-color: @yihao-border-color;
         border-inline-end-color: @yihao-border-color ;
+        border-block-end-color: @yihao-border-color;
         border-inline-start-color: transparent;
+
+
+        inline-size: @erhao-width;
+        block-size: @yihao-height;
+
+
       }
     }
 
     p {
-      font-size: @yihao-font-size;
-      padding-block: 0;
       padding-inline: @sanhao-padding;
+      padding-block: 0;
+
+      font-size: @yihao-font-size;
+
       color: @sanhao-font-color;
+
       transform: translateY(0);
     }
 
@@ -173,22 +195,29 @@ aside {
   }
 
   .tools-box {
-    position: relative;
-    inline-size: calc(100% - 70px);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: @erhao-red-bgc;
-    border-radius: @erhao-border-radius;
+
+    position: relative;
+
     margin-block-start: @yihao-margin;
+    border-radius: @erhao-border-radius;
+    inline-size: calc(100% - 70px);
+
+    background-color: @erhao-red-bgc;
 
     a {
-      color: @sanhao-font-color;
-      font-size: @yihao-font-size;
       display: list-item;
-      padding-block: @sanhao-padding;
+
       padding-inline: 0;
+      padding-block: @sanhao-padding;
+
+      font-size: @yihao-font-size;
+
+      color: @sanhao-font-color;
+
     }
 
     a::marker {
@@ -198,13 +227,17 @@ aside {
 
     ::before {
       content: "";
-      inline-size: 11px;
-      block-size: 11px;
+
       position: absolute;
       inset-block-end: 20px;
       inset-inline-end: -10px;
-      background-color: @wuhao-green-bgc;
+
       border-radius: @erhao-border-radius;
+      inline-size: 11px;
+      block-size: 11px;
+
+      background-color: @wuhao-green-bgc;
+
       box-shadow: 50px 10px 0@wuhao-green-bgc,
         25px 5px 0 @wuhao-green-bgc;
 
@@ -212,12 +245,16 @@ aside {
 
     ::after {
       content: "";
-      inline-size: 30px;
-      block-size: 2px;
+
       position: absolute;
       inset-block-end: 25px;
       inset-inline-end: -30px;
+
+      inline-size: 30px;
+      block-size: 2px;
+
       background-color: @wuhao-green-bgc;
+
       box-shadow: 30px 10px 0 @wuhao-green-bgc;
     }
   }

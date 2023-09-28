@@ -46,16 +46,19 @@ const switchToComponent = (to) => {
 
 
 .container {
-    inline-size: calc(100vi - 100px);
     margin: @sihao-margin;
-    block-size: calc(100vb - 100px);
-    background-color: @yihao-red-bgc;
     border-radius: @erhao-border-radius;
+    inline-size: calc(100vi - 100px);
+    block-size: calc(100vb - 100px);
+
+    background-color: @yihao-red-bgc;
+
 }
 
 .main {
     display: flex;
     justify-content: space-between;
+
     margin-block-start: @sihao-margin;
     inline-size: calc(100vi - 100px);
     block-size: calc(100vb - 200px);

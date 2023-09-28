@@ -23,35 +23,44 @@
 .container-chat-box {
     inline-size: calc(100vi - 300px);
     block-size: calc(100vb - calc(2 * @yihao-margin) - 50px);
+
     text-align: center;
 
     h1 {
-        font-size: 30px;
-        block-size: 50px;
-        font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
-        color: @jiuhao-font-color;
         margin-block-start: @yihao-margin;
+        block-size: 50px;
+
+        font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+        font-size: 30px;
+
+        color: @jiuhao-font-color;
+
 
 
     }
 
     .show-chat {
+        overflow: auto;
+
+        border-block-end: 1px solid @sihao-font-color;
         inline-size: 100%;
         block-size: 400px;
-        border-block-end: 1px solid @sihao-font-color;
-        overflow: auto;
     }
 
     .chat-text-area {
+        overflow: hidden;
+
+        position: relative;
+
         inline-size: 100%;
         block-size: calc(100vb - calc(2 * @yihao-margin) - 500px);
-        position: relative;
-        overflow: hidden;
+
 
         textarea {
             padding-block-start: @sanhao-padding;
             inline-size: 100%;
             block-size: calc(100vb - 500px - calc(2 * @yihao-margin));
+
             color: @wuhao-font-color;
         }
 
@@ -61,13 +70,14 @@
             inset-block-end: 20px;
 
             button {
-                background: @erhao-red-bgc;
+                margin-inline-end: @yihao-margin;
+                border-radius: @yihao-border-radius;
+                padding: @sanhao-padding;
                 inline-size: 50px;
                 block-size: 30px;
-                padding: @sanhao-padding;
-                border-radius: @yihao-border-radius;
+
                 color: @qihao-white-bgc;
-                margin-inline-end: @yihao-margin;
+                background: @erhao-red-bgc;
             }
         }
     }

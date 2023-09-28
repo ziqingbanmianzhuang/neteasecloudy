@@ -138,6 +138,7 @@ const switchSong = () => {
     nav {
         display: flex;
         justify-content: space-between;
+
         block-size: 50px;
 
         a {
@@ -145,27 +146,35 @@ const switchSong = () => {
         }
 
         h2 {
-            color: @qihao-font-color;
             padding-block-end: @sanhao-padding ;
+
+            color: @qihao-font-color;
         }
     }
 
     ul {
-        overscroll-behavior: none;
-        border-block-start: 1px solid @erhao-border-color;
-        margin-block-start: @yihao-margin;
-        block-size: 300px;
         overflow: auto;
 
+        margin-block-start: @yihao-margin;
+        border-block-start: 1px solid @erhao-border-color;
+        block-size: 300px;
+
+        overscroll-behavior: none;
+
+
         li {
-            margin-block: @yihao-margin;
-            margin-inline: 0;
             display: flex;
             align-items: center;
+
             position: relative;
+
+            margin-inline: 0;
+            margin-block: @yihao-margin;
+
 
             a {
                 padding-inline-end: @sanhao-padding;
+
                 color: @qihao-font-color;
             }
 
@@ -178,17 +187,19 @@ const switchSong = () => {
                 }
 
                 i:nth-of-type(2) {
-                    color: @qihao-font-color;
                     font-size: @yihao-font-size;
+
+                    color: @qihao-font-color;
 
                 }
 
                 i:nth-of-type(1) {
-                    color: @jiuhao-font-color;
-                    font-size: @yihao-font-size;
                     padding-inline-end: @sanhao-padding;
-                    font-family: 'Courier New', Courier, monospace;
 
+                    font-family: 'Courier New', Courier, monospace;
+                    font-size: @yihao-font-size;
+
+                    color: @jiuhao-font-color;
                 }
 
 
@@ -196,16 +207,16 @@ const switchSong = () => {
 
             footer {
                 position: absolute;
-                right: 10px;
+                inset-inline-end: 10px;
                 inset-block-start: 50%;
-                transform: translateX(-50%);
+
                 color: @yihao-border-color;
+
+                transform: translateX(-50%);
+
 
                 i:nth-child(1) {
                     padding-inline-end: @sanhao-padding;
-
-
-
                 }
             }
         }

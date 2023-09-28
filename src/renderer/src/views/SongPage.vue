@@ -29,8 +29,8 @@ const switchToMy = () => {
 @import "../assets/styles/variable.less";
 
 .container-box {
-    margin-block: 0;
     margin-inline: @yihao-margin;
+    margin-block: 0;
 
     .return {
         position: fixed;
@@ -39,6 +39,7 @@ const switchToMy = () => {
 
     h1 {
         font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
         color: @jiuhao-font-color;
 
 
@@ -47,18 +48,24 @@ const switchToMy = () => {
     aside {
         i {
             font-size: @sihao-font-size;
+
             color: @jiuhao-font-color;
         }
     }
 
     .btn-group {
         button {
-            background: @wuhao-font-color;
-            color: @qihao-white-bgc;
-            border-radius: @yihao-border-radius;
-            font-size: @sanhao-font-size;
-            margin-block-start: @erhao-margin 0;
+
             margin-inline: 0;
+            margin-block-start: @erhao-margin 0;
+            border-radius: @yihao-border-radius;
+
+
+            font-size: @sanhao-font-size;
+
+            color: @qihao-white-bgc;
+            background: @wuhao-font-color;
+
 
         }
     }

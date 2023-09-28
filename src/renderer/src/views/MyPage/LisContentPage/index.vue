@@ -40,15 +40,17 @@ const switchToMyLis = (name) => {
         color: @wuhao-font-color;
 
         li {
-            block-size: @sanhao-height;
-            line-height: @sanhao-height;
-            inline-size: 80%;
-            padding-block: 0;
-            padding-inline: @liuhao-padding;
-            margin-block: @yihao-margin;
             margin-inline: 0;
-            text-align: center;
+            margin-block: @yihao-margin;
             border-radius: @yihao-border-radius;
+            padding-inline: @liuhao-padding;
+            padding-block: 0;
+            inline-size: 80%;
+            block-size: @sanhao-height;
+
+            line-height: @sanhao-height;
+            text-align: center;
+
             box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, .1),
                 -1px -1px 3px 0 rgba(0, 0, 0, .1);
 

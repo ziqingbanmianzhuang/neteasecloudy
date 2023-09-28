@@ -46,28 +46,34 @@ const createMyInfoWin = () => {
 
 .container-box {
     overflow-x: hidden;
+
     inline-size: calc(100vi - 10px);
     block-size: 100vb;
+
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
 
 
     .bgc-box {
         position: fixed;
-        inline-size: 100vi;
         inset-block-start: 0;
         inset-inline-start: 0;
         z-index: -1;
+
+        inline-size: 100vi;
         block-size: @liuhao-height;
+
         background: @shihao-white-bgc url("../../public/images/my-1.jpg") center/100vi 200px no-repeat;
     }
 
     .info-box {
-        block-size: @liuhao-height;
         inline-size: 80vi;
-        margin-block-start: 180px 0;
+        block-size: @liuhao-height;
+
         margin-inline: auto;
+        margin-block-start: 180px 0;
         border-radius: @yihao-border-radius;
+
         box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .3),
             -3px -3px 3px 0 rgba(0, 0, 0, .1);
 
@@ -88,18 +94,19 @@ const createMyInfoWin = () => {
             }
 
             nav a {
-                color: @jiuhao-font-color;
                 font-size: 15px;
+
+                color: @jiuhao-font-color;
             }
 
             .avatar-box {
+                border-radius: 50%;
                 inline-size: 100px;
                 aspect-ratio: 1/1;
-                border-radius: 50%;
-                background: @shihao-white-bgc;
                 object-view-box: inset(10% 10% 10% 10%);
                 object-fit: cover;
 
+                background: @shihao-white-bgc;
             }
         }
 
@@ -107,18 +114,22 @@ const createMyInfoWin = () => {
     }
 
     .tool-box {
-        inline-size: 80vi;
-        block-size: @sihao-height;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-block: 0;
+
         margin-inline: auto;
+        margin-block: 0;
+        inline-size: 80vi;
+        block-size: @sihao-height;
+
+
 
         .iconfont {
             font-family: 'iconfont';
-            color: @wuhao-font-color;
             font-size: 40px;
+
+            color: @wuhao-font-color;
         }
     }
 

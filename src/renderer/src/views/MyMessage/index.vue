@@ -61,28 +61,31 @@ const switchToChat = (name) => {
 @import "../../assets/styles/variable.less";
 
 .container-box {
+    overflow-x: hidden;
+
     margin: @yihao-margin;
+    border-radius: @erhao-border-radius;
     block-size: calc(100vb - calc(2 * @yihao-margin));
     inline-size: calc(100vi - calc(2 * @yihao-margin));
-    overflow-x: hidden;
-    border-radius: @erhao-border-radius;
 
 
     nav {
-        block-size: 40px;
-        inline-size: calc(100vi - 20px);
-        background-color: @erhao-red-bgc;
         border-start-start-radius: @erhao-border-radius;
         border-start-end-radius: @erhao-border-radius;
+        inline-size: calc(100vi - 20px);
+        block-size: 40px;
+
+        background-color: @erhao-red-bgc;
 
         input {
-            inline-size: 250px;
             margin-block-start: @yihao-margin 0;
             margin-inline-start: @yihao-margin 0;
-            block-size: 20px;
-            border-radius: @yihao-border-radius;
-            color: @shiyi-font-color;
             padding-inline-start: @erhao-padding;
+            border-radius: @yihao-border-radius;
+            inline-size: 250px;
+            block-size: 20px;
+
+            color: @shiyi-font-color;
 
             ::placeholder {
                 color: @shiyi-font-color;
@@ -96,24 +99,27 @@ const switchToChat = (name) => {
         display: flex;
 
         .li-box {
-            overscroll-behavior: none;
-            block-size: calc(100vb - 40px - calc(2 * @yihao-margin));
             overflow-y: auto;
             overflow-x: hidden;
-            inline-size: 280px;
+
             margin: 0;
             border-inline-end: 1px solid @sihao-font-color;
+            inline-size: 280px;
+            block-size: calc(100vb - 40px - calc(2 * @yihao-margin));
+
+            overscroll-behavior: none;
 
             li {
-                block-size: 60px;
-                inline-size: 260px;
                 display: flex;
                 align-items: center;
-                padding-inline-end: @sanhao-padding;
-                position: relative;
-                margin-block: @erhao-margin ;
-                margin-inline: 0;
 
+                position: relative;
+
+                margin-inline: 0;
+                margin-block: @erhao-margin ;
+                padding-inline-end: @sanhao-padding;
+                inline-size: 260px;
+                block-size: 60px;
             }
 
             li.active {
@@ -121,11 +127,11 @@ const switchToChat = (name) => {
             }
 
             img {
+                margin-inline: @yihao-margin;
+                margin-block: 0;
+                border-radius: 50%;
                 block-size: 50px;
                 aspect-ratio: 1/1;
-                border-radius: 50%;
-                margin-block: 0;
-                margin-inline: @yihao-margin;
                 object-view-box: inset(5% 5% 5% 5%);
                 object-fit: cover;
 
@@ -134,19 +140,26 @@ const switchToChat = (name) => {
             aside {
 
                 h2 {
-                    font-size: 20px;
-                    color: @sihao-font-color;
                     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+                    font-size: 20px;
+
+                    color: @sihao-font-color;
                 }
 
                 p {
-                    color: @wuhao-font-color;
-                    font-size: 15px;
-                    display: block;
-                    inline-size: 70px;
                     overflow: hidden;
+                    display: block;
+
+                    inline-size: 70px;
+
+
+                    font-size: 15px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+
+
+                    color: @wuhao-font-color;
+
 
                 }
 
@@ -154,10 +167,12 @@ const switchToChat = (name) => {
                     position: absolute;
                     inset-inline-end: 10px;
                     inset-block-start: 50%;
-                    transform: translateY(-50%);
-                    color: @wuhao-font-color;
+
                     font-size: 15px;
 
+                    color: @wuhao-font-color;
+
+                    transform: translateY(-50%);
                 }
 
 

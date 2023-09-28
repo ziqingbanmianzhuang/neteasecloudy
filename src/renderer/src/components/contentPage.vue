@@ -64,26 +64,33 @@ const cancelSign = () => {
 // }
 
 .contain-box {
-  background-color: rgba(0, 0, 0, .3);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: @erhao-border-radius;
-  padding: @wuhao-padding;
   overflow: auto;
 
+  border-radius: @erhao-border-radius;
+  padding: @wuhao-padding;
+
+  background-color: rgba(0, 0, 0, .3);
+
+
   h2 {
-    color: #78AE87;
-    font-size: 50px;
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+    font-size: 50px;
     text-align: center;
+
+    color: #78AE87;
+
   }
 
   p {
-    color: #fff;
-    font-size: 20px;
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+    font-size: 20px;
     text-indent: 40px;
+
+    color: #fff;
+
   }
 
   .login-cancel-button {
@@ -92,23 +99,25 @@ const cancelSign = () => {
 
 
     button {
-      font-size: 18px;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, .2);
+      margin-inline: 30px;
+      margin-block: 0px;
+      border-radius: 10px;
       inline-size: 100px;
       block-size: 50px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 20px rgba(0, 0, 0, .2);
-      margin-block: 0px;
-      margin-inline: 30px;
+
+      font-size: 18px;
+
     }
 
     button:nth-of-type(1) {
-      background-color: #F9B3AB;
       color: #fff;
+      background-color: #F9B3AB;
     }
 
     button:nth-of-type(2) {
-      background-color: #fff;
       color: #F9B3AB;
+      background-color: #fff;
     }
   }
 }

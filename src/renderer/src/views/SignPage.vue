@@ -82,34 +82,46 @@ const signIn = () => {
 @import "../assets/styles/variable.less";
 
 .container-box {
-    inline-size: 100vi;
-    block-size: 100vb;
-    background: url("../public/images/sign.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+
+
+    inline-size: 100vi;
+    block-size: 100vb;
+
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
     color: @sanhao-font-color;
+    background: url("../public/images/sign.jpg") center/cover no-repeat;
+
 
     .sign-box {
+        border: 13px @wuhao-border-color solid;
         inline-size: 70vi;
         block-size: 70vb;
-        border: 13px @wuhao-border-color solid;
 
         .info-box {
+            float: inline-end;
+
             inline-size: 40vi;
             block-size: calc(70vb - 26px);
-            background: @shiyihao-blue-bgc;
-            float: inline-end;
+
             text-align: center;
 
+            background: @shiyihao-blue-bgc;
+
             header {
-                block-size: 80px;
-                background: @shierhao-blue-bgc;
-                transform: translateX(-13px);
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
+
+                block-size: 80px;
+
+                background: @shierhao-blue-bgc;
+
+                transform: translateX(-13px);
+
 
                 h1 {
                     font-weight: normal;
@@ -117,17 +129,22 @@ const signIn = () => {
 
                 a {
                     display: block;
+
+                    border-radius: @erhao-border-radius;
                     inline-size: @sanhao-height;
                     block-size: @erhao-height;
+
                     background: @shisanhao-blue-bgc;
-                    border-radius: @erhao-border-radius;
 
                     ::before {
                         content: "";
+
                         display: block;
-                        block-size: @erhao-height;
-                        inline-size: @sanhao-width;
+
                         border-radius: 50%;
+                        inline-size: @sanhao-width;
+                        block-size: @erhao-height;
+
                         background: @sanhao-font-color;
                     }
                 }

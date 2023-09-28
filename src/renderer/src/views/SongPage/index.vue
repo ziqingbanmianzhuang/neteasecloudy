@@ -42,6 +42,7 @@ const switchToWords = (words) => {
 
     h1 {
         font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
         color: @jiuhao-font-color;
 
 
@@ -50,17 +51,20 @@ const switchToWords = (words) => {
     aside {
         i {
             font-size: @sihao-font-size;
+
             color: @jiuhao-font-color;
         }
     }
 
     .btn-group {
         button {
-            background: @wuhao-font-color;
-            color: @qihao-white-bgc;
-            border-radius: @yihao-border-radius;
-            font-size: @sanhao-font-size;
             margin: @erhao-margin @yihao-margin 0 0;
+            border-radius: @yihao-border-radius;
+
+            font-size: @sanhao-font-size;
+
+            color: @qihao-white-bgc;
+            background: @wuhao-font-color;
         }
     }
 }

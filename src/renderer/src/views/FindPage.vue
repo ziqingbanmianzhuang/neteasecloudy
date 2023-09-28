@@ -181,17 +181,21 @@ const tags = reactive([
 @import "../assets/styles/variable.less";
 
 .container-box {
-  inline-size: 95vi;
-  border-radius: @yihao-border-radius;
-  margin-block: 0;
   margin-inline: auto;
+  margin-block: 0;
+
+  border-radius: @yihao-border-radius;
+  inline-size: 95vi;
+
   color: @erhao-font-color;
   background-color: @yihao-red-bgc;
 
   header {
-    block-size: @sanhao-height;
     display: flex;
     align-items: center;
+
+    block-size: @sanhao-height;
+
 
     h1 {
       flex: 2;
@@ -200,17 +204,18 @@ const tags = reactive([
 
     i {
       display: block;
+      flex: 1;
+
       text-align: end;
+
       padding-inline-end: @sanhao-padding;
 
-      flex: 1;
       cursor: pointer;
-      ;
     }
 
     nav {
-      flex: 4;
       display: flex;
+      flex: 4;
       justify-content: space-around;
       align-items: center;
 
@@ -226,15 +231,16 @@ const tags = reactive([
       block-size: @qihao-height;
 
       h2 {
+        padding-block-end: @sanhao-padding;
+
         font-size: @erhao-font-size;
         font-weight: normal;
-        padding-block-end: @sanhao-padding;
 
       }
 
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
+      justify-content: space-between;
 
     }
 
@@ -246,53 +252,72 @@ const tags = reactive([
         justify-content: space-around;
 
         i {
+          display: block;
+          overflow: hidden;
+
+          position: relative;
+
+          border-radius: @erhao-border-radius;
           inline-size: 60px;
           block-size: 180px;
-          border-radius: @erhao-border-radius;
-          display: block;
-          position: relative;
-          transition: all 0.3s;
-          overflow: hidden;
+
           background: url("../public/images/date.jpg") center/cover no-repeat;
+
+          transition: all 0.3s;
 
 
           ::after {
             content: var(--name);
-            color: @sanhao-font-color;
-            font-size: @yihao-font-size;
-            text-align: center;
+
             display: block;
+
             position: absolute;
             // top: -100px;
             inset-block-start: -100px;
+
             inline-size: 80px;
+
+            font-size: @yihao-font-size;
+            text-align: center;
+
+
+            color: @sanhao-font-color;
+
             transition: all 0.3s;
           }
 
           ::before {
             content: '你的名字';
-            color: @sanhao-font-color;
-            font-size: @yihao-font-size;
-            text-align: center;
+
             display: block;
+
             position: absolute;
             inset-block-end: 0px;
+
             inline-size: 60px;
             block-size: 40px;
+
+            font-size: @yihao-font-size;
             line-height: 40px;
+            text-align: center;
+
+            color: @sanhao-font-color;
+
             background: @sihao-font-color;
+
             transition: all 0.3s;
 
           }
         }
 
         i:hover {
-          inline-size: 80px;
           border-radius: @erhao-border-radius;
+          inline-size: 80px;
 
           ::before {
-            inline-size: 80px;
             inset-block-end: -60px;
+
+            inline-size: 80px;
           }
 
           :after {
@@ -312,21 +337,32 @@ const tags = reactive([
 
         i {
           display: block;
+
+          position: relative;
+
+          border-radius: @erhao-border-radius;
           inline-size: 120px;
           block-size: 140px;
-          border-radius: @erhao-border-radius;
-          position: relative;
-          transition: all 0.3s;
+
           background: url("../public/images/my-2.jpg") center/cover no-repeat;
+
+          transition: all 0.3s;
+
 
           ::before {
             content: "love  is painful xxxx";
+
             display: block;
+
             position: absolute;
-            color: @sihao-font-color;
-            inline-size: 100%;
-            text-align: center;
             inset-block-end: 10px;
+
+            inline-size: 100%;
+
+            text-align: center;
+
+            color: @sihao-font-color;
+
             transition: all 0.3s;
 
           }
@@ -352,25 +388,34 @@ const tags = reactive([
 
       i {
         display: block;
+
+        position: relative;
+
+        margin-block-end: @yihao-margin;
+        border-radius: @erhao-border-radius;
         inline-size: 120px;
         block-size: 120px;
-        border-radius: @erhao-border-radius;
+
         background: url("../public/images/flower-logo.jpg") center/cover no-repeat;
-        margin-block-end: @yihao-margin;
-        position: relative;
 
 
 
         ::before {
           content: var(--name);
+
           display: block;
+
           position: absolute;
           inset-block-end: 0px;
-          font-size: @yihao-font-size;
-          inline-size: 100%;
           inset-inline-start: 10px;
-          transform: translateY(calc(100% + 5px));
+
+          inline-size: 100%;
+
+
+          font-size: @yihao-font-size;
           text-align: center;
+
+          transform: translateY(calc(100% + 5px));
 
 
         }
@@ -389,16 +434,20 @@ const tags = reactive([
 
         i {
           display: block;
+
+          border-radius: @erhao-border-radius;
           inline-size: 150px;
           block-size: 200px;
-          border-radius: @erhao-border-radius;
+
           background: url("../public/images/home-2.jpg") center/cover no-repeat;
+
           transform: rotate(calc(var(--deg) * 10deg));
           transform-origin: 50%;
         }
 
         ::before {
           content: "";
+
           display: block;
         }
       }

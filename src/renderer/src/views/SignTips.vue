@@ -17,19 +17,23 @@ const switchToSign = () => {
 @import "../assets/styles/variable.less";
 
 .container-box {
-    inline-size: 100vi;
-    block-size: 100vb;
-    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    inline-size: 100vi;
+    block-size: 100vb;
+
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
+
     button {
-        padding: @sihao-padding;
         border-radius: @erhao-border-radius;
-        background: @wuhao-green-bgc;
+        padding: @sihao-padding;
+
         color: @sanhao-font-color;
+        background: @wuhao-green-bgc;
     }
 }
 </style>

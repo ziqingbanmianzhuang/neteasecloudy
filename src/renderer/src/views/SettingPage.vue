@@ -129,15 +129,19 @@ const times = reactive(new Map([
 @import "../assets/styles/variable.less";
 
 .container-box {
-    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
     padding-inline-start: @liuhao-padding;
+
+    font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
     >i {
         display: block;
-        color: @jiuhao-font-color;
+
         position: fixed;
         top: 0;
         left: 0;
+
+        color: @jiuhao-font-color;
+
         cursor: pointer;
     }
 
@@ -147,19 +151,23 @@ const times = reactive(new Map([
 
     h2 {
         margin-block-start: @yihao-margin;
+
         font-weight: 600;
     }
 
     >section {
-        padding-block-end: @sihao-padding;
         border-block-end: @yihao-border solid @erhao-border-color;
+        padding-block-end: @sihao-padding;
     }
 
     nav {
         display: flex;
         justify-content: space-around;
-        font-weight: 600;
+
         margin-block-start: @yihao-margin;
+
+        font-weight: 600;
+
 
 
 
@@ -188,19 +196,21 @@ const times = reactive(new Map([
             }
 
             img {
+                border-radius: 50%;
                 inline-size: @sanhao-width;
                 block-size: @erhao-height;
-                border-radius: 50%;
             }
         }
 
         button {
+            margin-block-start: @yihao-margin;
             border-block-end: @yihao-border solid @erhao-border-color;
-            background: @sihao-green-bgc;
             border-radius: @yihao-border-radius;
             padding: @sihao-padding;
+
             font-weight: 600;
-            margin-block-start: @yihao-margin;
+
+            background: @sihao-green-bgc;
 
         }
     }
@@ -211,17 +221,19 @@ const times = reactive(new Map([
         }
 
         .time-box {
-            inline-size: 40vi;
             display: flex;
             justify-content: space-around;
             align-items: center;
+
             padding-block-start: @sihao-padding;
+            inline-size: 40vi;
 
             button {
                 border: @yihao-border solid @yihao-border-color;
-                background: @sihao-green-bgc;
                 border-radius: @yihao-border-radius;
                 padding: @sihao-padding;
+
+                background: @sihao-green-bgc;
             }
         }
 

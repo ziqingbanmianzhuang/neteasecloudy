@@ -71,36 +71,52 @@ const contacts = reactive(new Map([
 @import "../assets/styles/variable.less";
 
 .container-box {
+    overflow: hidden;
+
+    position: relative;
+
     inline-size: 100vi;
     block-size: 100vb;
-    overflow: hidden;
-    position: relative;
-    color: @jiuhao-font-color;
+
     text-align: center;
 
+    color: @jiuhao-font-color;
+
+
     section:nth-child(1) {
-        inline-size: 60vi;
-        block-size: 30vi;
-        background: @sanhao-red-bgc;
         position: absolute;
         inset-inline-start: 0;
 
+        inline-size: 60vi;
+        block-size: 30vi;
+
+        background: @sanhao-red-bgc;
+
+
+
         i {
             display: block;
-            color: @qihao-font-color;
+
             position: fixed;
             inset-block-start: 0;
             inset-inline-start: 20px;
+
+            color: @qihao-font-color;
+
             cursor: pointer;
         }
     }
 
     section:nth-child(2) {
-        inline-size: 40vi;
-        block-size: 45vb;
-        background: @bahao-white-bg;
         position: absolute;
         inset-inline-end: 0;
+
+        inline-size: 40vi;
+        block-size: 45vb;
+
+        background: @bahao-white-bg;
+
+
 
         h1 {
             font-weight: normal;
@@ -114,14 +130,17 @@ const contacts = reactive(new Map([
         button {
             margin-block-start: @yihao-margin;
             border: @yihao-border solid @yihao-border-color;
-            color: @liuhao-font-color;
             border-radius: @yihao-border-radius;
+
+            color: @liuhao-font-color;
             background: @qihao-white-bgc;
         }
 
         label {
             display: block;
+
             font-size: @yihao-font-size;
+
             color: @shisan-font-color;
         }
 
@@ -131,50 +150,63 @@ const contacts = reactive(new Map([
 
             a {
                 padding-inline-end: @sanhao-padding;
-                color: @liuhao-font-color;
+
                 font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
+
+                color: @liuhao-font-color;
             }
         }
     }
 
     section:nth-child(3) {
-        inline-size: 70vi;
-        block-size: 70vb;
-        background: @sihao-green-bgc;
         position: absolute;
         inset-block-end: 0;
-        text-align: start;
+
         padding-inline-start: @sanhao-padding;
+        inline-size: 70vi;
+        block-size: 70vb;
+
+        text-align: start;
+
+        background: @sihao-green-bgc;
 
         h1 {
-            color: @sanhao-font-color;
             font-weight: normal;
+            color: @sanhao-font-color;
         }
 
         ul li {
             display: list-item;
-            color: @shisan-font-color;
+
             margin-inline-start: @sanhao-padding;
+
+            color: @shisan-font-color;
 
             ::marker {
                 content: " ♥";
+
                 color: #fff;
             }
         }
     }
 
     section:nth-child(4) {
-        inline-size: 80vi;
-        block-size: 60vb;
-        background: @liuhao-red-bgc;
         position: absolute;
         inset-block-end: 0;
         inset-inline-end: 0;
-        transform: translate(130px, 100px) rotate(-30deg);
+
+        inline-size: 80vi;
+        block-size: 60vb;
+
         color: @sanhao-font-color;
+        background: @liuhao-red-bgc;
+
+
+        transform: translate(130px, 100px) rotate(-30deg);
 
         h2 {
             margin-block-start: @sanhao-margin;
+
             font-size: 80px;
         }
 
