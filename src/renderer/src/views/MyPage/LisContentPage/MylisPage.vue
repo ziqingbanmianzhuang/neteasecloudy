@@ -27,7 +27,8 @@ import { ref } from 'vue'
 
 const switchToMyLisIndex = () => {
     router.push('/my/index')
-}
+};
+
 // 保存数据的li列表
 const lis = ref([
     {
@@ -114,19 +115,22 @@ const lis = ref([
         songPeople: '张信哲',
         isLove: false
     },
-])
-// 创建唱歌播放窗口
-// const createSongWin = () => {
-//     const options = {
-//         w: 400,
-//         h: 800
-//     }
-//     window.api.createSongWin(options)
-// }
+]);
+
+/* 创建唱歌播放窗口
+const createSongWin = () => {
+    const options = {
+        w: 400,
+        h: 800
+    }
+    window.api.createSongWin(options)
+} */
+
 // 跳转唱歌播放接口
 const switchSong = () => {
     router.push('/song')
-}
+};
+
 </script>
 
 <style lang="less" scoped>

@@ -25,10 +25,15 @@
 import { ref } from 'vue';
 import instance from '../api/instance'
 import Apis from '../api/apis'
-let name = ref('')
-let password = ref('')
-let phone = ref(0)
+
+let name = ref('');
+
+let password = ref('');
+
+let phone = ref(0);
+
 let captcha = ref(0)
+
 const createMyWin = () => {
     // if (!name.value || !password.value || !phone.value || !captcha.value) return;
     // instance.signUp({ params: { phone: phone.value, captcha: captcha.value, password: password.value, nickname: name.value } }).then(res => {
@@ -45,27 +50,15 @@ const createMyWin = () => {
     const options = {
         h: 800,
         w: 400
-    }
+    };
+
     window.api.createWinMy(options)
     localStorage.setItem('isLogin', 'true')
-}
-// const sendCaptcha = () => {
-//     instance.sendCaptcha({ params: { phone: phone.value } }).then(res => {
-//         console.log('sendCaptcha', res);
-//     }).catch(err => {
-//         return Apis.reqMiddleware[0].onRejected(err)
-//     }).then(res => {
-//         console.log(res);
+};
 
-//     }, err => {
-//         console.log(err);
-
-//     })
-// }
-//登录
-const signIn = () => {
-    instance.signIn({ params: { phone: phone.value, password: password.value } }).then(res => {
-        console.log('sgnIn', res);
+/* const sendCaptcha = () => {
+    instance.sendCaptcha({ params: { phone: phone.value } }).then(res => {
+        console.log('sendCaptcha', res);
     }).catch(err => {
         return Apis.reqMiddleware[0].onRejected(err)
     }).then(res => {
@@ -75,7 +68,25 @@ const signIn = () => {
         console.log(err);
 
     })
-}
+} */
+
+//登录
+const signIn = () => {
+    instance.signIn({ params: { phone: phone.value, password: password.value } }).then(res => {
+        console.log('sgnIn', res);
+    })
+        .catch(err => {
+            return Apis.reqMiddleware[0].onRejected(err);
+        })
+        .then(res => {
+            console.log(res);
+
+        }, err => {
+            console.log(err);
+
+        })
+};
+
 </script>
 
 <style lang="less" scoped>

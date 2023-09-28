@@ -22,7 +22,8 @@ import router from '@renderer/router';
 
 const switchToMy = () => {
     router.push('/my')
-}
+};
+
 </script>
 
 <style lang="less" scoped>

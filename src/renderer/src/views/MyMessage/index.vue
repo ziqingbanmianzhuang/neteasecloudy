@@ -27,6 +27,7 @@
 <script setup lang="ts">
 import router from '@renderer/router';
 import { reactive } from 'vue'
+
 //存储列表聊天数据的Map对象
 const lis = reactive(new Map([
     ['id1', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: true }],
@@ -46,15 +47,19 @@ const lis = reactive(new Map([
     ['id15', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
     ['id16', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
     ['id17', { id: 1, avatar: '/src/public/images/sign.jpg', name: '半面妆', lastinfo: '[图片]xxxxxxxxxxxxxxxxxxxxxxxxxx', time: '昨天', active: false }],
-]))
+]));
+
 // 跳转到聊天二级页面
 const switchToChat = (name) => {
+
     router.push({
         path: '/message/chat', query: {
             name
         }
     })
-}
+
+};
+
 </script>
 
 <style lang="less" scoped>

@@ -7,10 +7,12 @@
 
 <script setup lang="ts">
 import router from '../router/index';
+
 // 登录注册窗口
 const switchToSign = () => {
     router.push('/sign')
-}
+};
+
 </script>
 
 <style lang="less" scoped>

@@ -25,20 +25,23 @@
   
 <script setup lang="ts">
 import router from '../../router/index'
-// 保存我的xx的列表数据
 
+// 保存我的xx的列表数据
 // 跳转mylis二级页面
 const switchToMyLis = (name) => {
     router.push({ path: '/my/mylis', query: { name } })
-}
+};
+
 // createMyInfoWin
 const createMyInfoWin = () => {
     const options = {
         w: 900,
         h: 700
-    }
+    };
+
     window.api.createMyInfoWin(options)
-}
+};
+
 </script>
 <style lang="less" scoped>
 @import "../../assets/styles/variable.less";

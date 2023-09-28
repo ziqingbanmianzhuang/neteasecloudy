@@ -47,13 +47,17 @@ import router from '@renderer/router';
 import { reactive, onBeforeMount } from 'vue'
 import instance from '../api/instance'
 import Apis from '../api/apis'
+
 // 在组件挂载阶段获取相关的推荐歌单
 //存储相关推荐歌单的数据
-let relatedCommendedSong = reactive(new Map([]))
+let relatedCommendedSong = reactive(new Map([]));
+
 //存储榜单歌曲
-let topSong = reactive(new Map([]))
+let topSong = reactive(new Map([]));
+
 //存储热门歌手
-let hotSings = reactive(new Map([]))
+let hotSings = reactive(new Map([]));
+
 onBeforeMount(async () => {
   //获取推荐歌单
   instance.getRelativeRecommendedSongs({ params: { id: 1 } }).then(res => {
@@ -63,34 +67,38 @@ onBeforeMount(async () => {
     });
     console.log(111111111, relatedCommendedSong);
   }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err)
+    return Apis.reqMiddleware[0].onRejected(err);
   }).then(res => {
     console.log(res);
 
   }, err => {
     console.log(err);
 
-  })
+  });
+
   // 获取歌单分类
-  let songType = ''
+  let songType = '';
+
   await instance.getSongsType().then(res => {
     console.log('type', res.data.sub[9].name);
-    songType = res.data.sub[1].name
+    songType = res.data.sub[1].name;
   }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err)
+    return Apis.reqMiddleware[0].onRejected(err);
   }).then(res => {
+    ;
     console.log(res);
 
   }, err => {
     console.log(err);
 
   })
+
   // 获取最新的歌单
   instance.getRelativeLatestSongs({ params: { order: 'new', cat: songType, limit: 50, offset: 1 } }).then(res => {
     console.log('last', res);
 
   }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err)
+    return Apis.reqMiddleware[0].onRejected(err);
   }).then(res => {
     console.log(res);
 
@@ -98,6 +106,7 @@ onBeforeMount(async () => {
     console.log(err);
 
   })
+
   //获取榜单歌曲
   instance.getTopSongs({ params: { id: 2809577409 } }).then(res => {
 
@@ -107,7 +116,7 @@ onBeforeMount(async () => {
     })
     console.log('top', topSong);
   }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err)
+    return Apis.reqMiddleware[0].onRejected(err);
   }).then(res => {
     console.log(res);
 
@@ -115,6 +124,7 @@ onBeforeMount(async () => {
     console.log(err);
 
   })
+
   //获取歌手列表
   instance.getSingList({ params: { limit: 4, offset: 1 } }).then(res => {
     // hotSings = res.data.artists
@@ -124,7 +134,7 @@ onBeforeMount(async () => {
     console.log('sing', hotSings);
 
   }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err)
+    return Apis.reqMiddleware[0].onRejected(err);
   }).then(res => {
     console.log(res);
 
@@ -134,7 +144,6 @@ onBeforeMount(async () => {
   })
 
 })
-
 
 // 跳转home页面
 const switchToHome = () => {
@@ -149,31 +158,58 @@ const switchToHome = () => {
     router.push('/')
 
   })
-}
+};
+
 //创建播放歌曲的窗口
 // 创建唱歌播放窗口
 const createSongWin = () => {
   const options = {
     w: 400,
     h: 800
-  }
+  };
+
   window.api.createSongWin(options)
-}
+};
 
 // 保存导航链接的map对象
 const links = reactive(new Map([
-  ['nav1', { name: '推荐' }],
-  ['nav2', { name: '最新' }],
-  ['nav3', { name: '榜单' }],
-  ['nav4', { name: '歌手' }],
+  [
+    'nav1',
+    { name: '推荐' }
+  ],
+  [
+    'nav2',
+    { name: '最新' }
+  ],
+  [
+    'nav3',
+    { name: '榜单' }
+  ],
+  [
+    'nav4',
+    { name: '歌手' }
+  ],
 
 ]))
+
 // 保存四张旋转图像的角度值的Mpa对象
 const tags = reactive([
-  ['song1', { '--deg': -2 }],
-  ['song2', { '--deg': -1 }],
-  ['song3', { '--deg': 1 }],
-  ['songg4', { '--deg': 2 }],
+  [
+    'song1',
+    { '--deg': -2 }
+  ],
+  [
+    'song2',
+    { '--deg': -1 }
+  ],
+  [
+    'song3',
+    { '--deg': 1 }
+  ],
+  [
+    'songg4',
+    { '--deg': 2 }
+  ],
 ])
 </script>
 

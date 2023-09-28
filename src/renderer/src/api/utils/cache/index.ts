@@ -1,1 +1,1 @@
-export   const cacheMap = {}
+export const cacheMap = {};

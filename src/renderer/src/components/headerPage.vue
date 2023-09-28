@@ -28,12 +28,16 @@
 
 <script setup lang="ts">
 import { defineEmits } from 'vue';
-const emit = defineEmits(['switchToComponent'])
+
+const emit = defineEmits(['switchToComponent']);
+
 // 导航跳转函数,触发父级导航跳转
 const switchToComponent = (path) => {
   emit('switchToComponent', path)
-}
+};
+
 localStorage.setItem('isLogin', 'false')
+
 //判断是否登录
 const judgeIsLogin = () => {
   // 是否登录
@@ -41,34 +45,44 @@ const judgeIsLogin = () => {
     const options = {
       h: 800,
       w: 400
-    }
+    };
+
     window.api.createWinMy(options)
   }
+
   else {
     const options = {
       h: 600,
       w: 900
-    }
+    };
+
     // 创建提示登录注册窗口
     window.api.createSignTips(options)
 
   }
-}
+
+};
+
 // 关闭窗口
 const closeWin = () => {
-  let page = 'main'
+  let page = 'main';
+
   window.api.closeWin(page)
-}
+};
+
 // 隐藏窗口
 const hiddenWin = () => {
-  let page = 'main'
+  let page = 'main';
+
   window.api.hiddenWin(page)
-}
+};
+
 // 最大化窗口
 const maximizeWin = () => {
-  let page = 'main'
+  let page = 'main';
+
   window.api.maximizeWin(page)
-}
+};
 
 
 

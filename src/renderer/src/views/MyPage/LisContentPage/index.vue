@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import router from './../../../router/index'
+
 // 保存我的xx的列表数据
 const mys = reactive(new Map(
     [
@@ -18,11 +19,13 @@ const mys = reactive(new Map(
         ['follow', { name: '我的关注' }],
         ['lis', { name: '我的歌单' }],
     ]
-))
+));
+
 // 跳转mylis二级页面
 const switchToMyLis = (name) => {
     router.push({ path: '/my/mylis', query: { name } })
-}
+};
+
 </script>
 
 <style lang="less" scoped>

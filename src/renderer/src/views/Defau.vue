@@ -13,30 +13,34 @@
 </template>
 
 <script setup lang="ts">
+
 // 引入headerPage组件
 import headerPage from '../components/headerPage.vue';
+
 // 引入sidebarPage组件
 import sidebarPage from '../components/sidebarPage.vue';
+
 // 引入hompage组件
 import homePage from '../components/homePage.vue';
+
 // 引入路由器
 import router from '../router/index'
-import { log } from 'console';
+
 // 跳转组件方法的封装
 const switchToComponent = (to) => {
     // router.push(to)
-
     // UI层面的状态过度
     if (!document.startViewTransition) {
         router.push(to)
     }
+
     document.startViewTransition(() => {
         console.log('trandiotion');
 
         router.push(to)
     })
 
-}
+};
 
 
 </script>

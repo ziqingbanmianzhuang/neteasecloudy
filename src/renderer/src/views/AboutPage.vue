@@ -32,8 +32,10 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
+
 // 引入路由
 import router from '@renderer/router';
+
 // 跳转home页面
 const switchToHome = () => {
     // UI层面的状态过度
@@ -41,13 +43,15 @@ const switchToHome = () => {
         router.push('/')
 
     }
+
     document.startViewTransition(() => {
         console.log('trandiotion');
 
         router.push('/')
 
     })
-}
+};
+
 // 存储导航链接的Map对象数组
 const navLinks = reactive(new Map([
     ['official', { link: '官网' }],
@@ -55,13 +59,14 @@ const navLinks = reactive(new Map([
     ['service', { link: '服务条款' }],
     ['privacy', { link: '隐私政策' }],
     ['child', { link: '儿童隐私政策' }]
-]))
+]));
+
 // 保存联系方式的Map对象数组
 const contacts = reactive(new Map([
     ['email', { info: '邮箱:1387545' }],
     ['github', { info: 'github:47545859586' }],
     ['wechat', { info: '微信:13dfdhf' }]
-]))
+]));
 
 
 

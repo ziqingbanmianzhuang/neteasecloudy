@@ -68,6 +68,7 @@
 <script setup lang="ts">
 import router from '@renderer/router';
 import { reactive } from 'vue'
+
 // 跳转home
 const switchToHome = () => {
     // UI层面的状态过度
@@ -75,54 +76,164 @@ const switchToHome = () => {
         router.push('/')
 
     }
+
     document.startViewTransition(() => {
         console.log('trandiotion');
 
         router.push('/')
 
     })
-}
+};
+
 // 保存工具栏的链接的Map对象
 const links = reactive(new Map([
-    ['账号', { name: '账号' }],
-    ['常规', { name: '常规' }],
-    ['播放', { name: '播放' }],
-    ['消息和隐私', { name: '消息和隐私' }],
-    ['快捷键', { name: '快捷键' }],
-    ['下载', { name: '下载' }],
-    ['歌词', { name: '歌词' }],
-    ['工具', { name: '工具' }],
-]))
+    [
+        '账号',
+        { name: '账号' }
+    ],
+    [
+        '常规',
+        { name: '常规' }
+    ],
+    [
+        '播放',
+        { name: '播放' }
+    ],
+    [
+        '消息和隐私',
+        { name: '消息和隐私' }
+    ],
+    [
+        '快捷键',
+        { name: '快捷键' }
+    ],
+    [
+        '下载',
+        { name: '下载' }
+    ],
+    [
+        '歌词',
+        { name: '歌词' }
+    ],
+    [
+        '工具',
+        { name: '工具' }
+    ],
+]));
+
 // 保存账号头像的链接的Map对象
 const images = reactive(new Map([
-    ['头像1', { src: '/src/public/images/home-1.jpg' }],
-    ['头像2', { src: '/src/public/images/home-2.jpg' }],
-    ['头像3', { src: '/src/public/images/home-3.jpg' }],
-]))
+    [
+        '头像1',
+        { src: '/src/public/images/home-1.jpg' }
+    ],
+    [
+        '头像2',
+        { src: '/src/public/images/home-2.jpg' }
+    ],
+    [
+        '头像3',
+        { src: '/src/public/images/home-3.jpg' }
+    ],
+]));
+
 // 保存选择字体大小数据的Map对象,
 const fontOpts = reactive(new Map([
-    ['默认', { value: '默认', selected: false }],
-    ['14px', { value: '14px', selected: false }],
-    ['20px', { value: '20px', selected: true }],
-    ['25px', { value: '25px', selected: false }],
-    ['30px', { value: '30px', selected: false }]
-]))
+    [
+        '默认',
+        { value: '默认', selected: false }
+    ],
+    [
+        '14px',
+        { value: '14px', selected: false }
+    ],
+    [
+        '20px',
+        { value: '20px', selected: true }
+    ],
+    [
+        '25px',
+        { value: '25px', selected: false }
+    ],
+    [
+        '30px',
+        { value: '30px', selected: false }
+    ]
+]));
+
 const settings = reactive(new Map([
-    ['启动', { title: '启动', info: '开启自动运行' }],
-    ['关联', { title: '关联', info: '设置为默认浏览器' }],
-    ['动画', { title: '动画', info: '禁用动画效果' }],
-    ['gpu加速', { title: 'gpu加速', info: '禁用gpu加速' }],
-]))
+    [
+        '启动',
+        {
+            title: '启动',
+            info: '开启自动运行'
+        }],
+    [
+        '关联',
+        {
+            title: '关联',
+            info: '设置为默认浏览器'
+        }],
+    [
+        '动画',
+        {
+            title: '动画',
+            info: '禁用动画效果'
+        }],
+    [
+        'gpu加速',
+        {
+            title: 'gpu加速',
+            info: '禁用gpu加速'
+        }],
+]));
+
 // 保存时间option的数据的Map对象
 const times = reactive(new Map([
-    ['默认', { value: '默认', selected: false }],
-    ['10', { value: 10, selected: true }],
-    ['20', { value: 20, selected: false }],
-    ['30', { value: 30, selected: false }],
-    ['40', { value: 40, selected: false }],
-    ['50', { value: 50, selected: false }],
-    ['60', { value: 60, selected: false }]
-]))
+    [
+        '默认',
+        {
+            value: '默认',
+            selected: false
+        }],
+    [
+        '10',
+        {
+            value: 10,
+            selected: true
+        }],
+    [
+        '20',
+        {
+            value: 20,
+            selected: false
+        }],
+    [
+        '30',
+        {
+            value: 30,
+            selected: false
+        }],
+    [
+        '40',
+        {
+            value: 40,
+            selected: false
+        }],
+    [
+        '50',
+        {
+            value: 50,
+            selected: false
+        }],
+    [
+        '60',
+        {
+            value: 60,
+            selected: false
+        }]
+]));
+
 </script>
 
 <style lang="less" scoped>

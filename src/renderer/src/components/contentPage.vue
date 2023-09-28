@@ -11,27 +11,34 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const popdialog = ref()
-const isLogin = localStorage.getItem('isLogin')
+
+const popdialog = ref();
+
+const isLogin = localStorage.getItem('isLogin');
+
 // 创建登录注册窗口
 // 初始化dislog对话框
 const initalDialog = () => {
-  if (!isLogin)
-    popdialog.value.style.display = "block"
+  if (!isLogin) {
+    popdialog.value.style.display = 'block';
+  }
 
-}
+};
 const createSign = () => {
   const options = {
     h: 600,
     w: 900
-  }
+  };
+
   window.api.createSign(options)
-  popdialog.value.style.display = "none"
-}
+  popdialog.value.style.display = 'none';
+};
+
 // 取消登录注册
 const cancelSign = () => {
-  popdialog.value.style.display = "none"
-}
+  popdialog.value.style.display = 'none';
+};
+
 </script>
 
 <style lang="less" scoped>

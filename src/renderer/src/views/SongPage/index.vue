@@ -19,14 +19,17 @@
 
 <script setup lang="ts">
 import router from '../../router/index';
+
 // 返回到我的页面
 const switchToMy = () => {
     router.push('/my')
-}
-const switchToWords = (words) => {
-    words === 'geci' ? router.push('/song/geci') : router.push('/song/pinglun')
+};
 
-}
+const switchToWords = (words) => {
+    words === 'geci' ? router.push('/song/geci') : router.push('/song/pinglun');
+
+};
+
 </script>
 
 <style lang="less" scoped>
