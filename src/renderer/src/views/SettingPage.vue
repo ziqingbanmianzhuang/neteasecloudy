@@ -20,9 +20,9 @@
             <button>修改个人信息</button>
         </section>
         <section class="changgui" id="常规">
-            <h1>常规</h1>
+            <h2>常规</h2>
             <article>
-                <h2>字体选择</h2>
+                <h3>字体选择</h3>
                 <select id="font-setting" name="">
                     <optgroup>
                         <option :value="value.value" :selected="value.selected" v-for="([key, value]) in fontOpts"
@@ -32,17 +32,17 @@
                     </optgroup>
                 </select>
                 <template v-for="([key, value]) in settings" :key="key">
-                    <h2>{{ value.title }}</h2>
+                    <h3>{{ value.title }}</h3>
                     <label><input type="radio">{{ value.info }}</label>
                 </template>
             </article>
             <article>
-                <h2>关闭主面板</h2>
+                <h3>关闭主面板</h3>
                 <label><input name="mianban" type="radio">最小化到系统托盘</label>
                 <label><input name="mianban" type="radio">退出音丸子</label>
             </article>
             <article>
-                <h2>定时关机</h2>
+                <h3>定时关机</h3>
                 <section class="time-box">
                     <button>剩余关机时间</button>
                     <div class="hours">
@@ -67,9 +67,9 @@
             </article>
         </section>
         <section class="bofang" id="播放">
-            <h1>播放</h1>
+            <h2>播放</h2>
             <article>
-                <h2>高清屏幕适配</h2>
+                <h3>高清屏幕适配</h3>
                 <label><input type="radio" name="gaoqing">最小化到系统托盘</label>
                 <label><input type="radio" name="gaoqing">退出音丸子</label>
             </article>
@@ -272,7 +272,7 @@ const times = reactive(new Map([
         margin-block-start: @yihao-margin;
     }
 
-    h2 {
+    h3 {
         margin-block-start: @yihao-margin;
 
         font-weight: 600;

@@ -14,7 +14,7 @@
             </nav>
         </section>
         <section>
-            <h1>contact with us</h1>
+            <h2>contact with us</h2>
             <p>if you have any question or want anything else ,please contact with us by:
             </p>
             <ul>
@@ -24,7 +24,7 @@
             </ul>
         </section>
         <section>
-            <h1>Flower Wind</h1>
+            <h2>Flower Wind</h2>
             <p>随风起舞的自由的花</p>
         </section>
     </main>
@@ -175,7 +175,7 @@ const contacts = reactive(new Map([
 
         background: @sihao-green-bgc;
 
-        h1 {
+        h2 {
             font-weight: normal;
             color: @sanhao-font-color;
         }
@@ -209,7 +209,7 @@ const contacts = reactive(new Map([
 
         transform: translate(130px, 100px) rotate(-30deg);
 
-        h1 {
+        h2 {
             margin-block-start: @sanhao-margin;
 
             font-size: 80px;
