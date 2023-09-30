@@ -1,5 +1,5 @@
 <template>
-    <div class="container-box">
+    <main class="container-box">
         <section>
             <i @click="switchToHome">返回</i>
         </section>
@@ -24,10 +24,10 @@
             </ul>
         </section>
         <section>
-            <h2>Flower Wind</h2>
+            <h1>Flower Wind</h1>
             <p>随风起舞的自由的花</p>
         </section>
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">
@@ -209,7 +209,7 @@ const contacts = reactive(new Map([
 
         transform: translate(130px, 100px) rotate(-30deg);
 
-        h2 {
+        h1 {
             margin-block-start: @sanhao-margin;
 
             font-size: 80px;

@@ -1,15 +1,17 @@
 <template>
     <div class="container-box">
-        <a class="return" href="" @click="switchToMy">返回</a>
-        <h1>简单</h1>
+        <header>
+            <a class="return" href="" @click="switchToMy">返回</a>
+            <h1>简单</h1>
+        </header>
         <aside>
             <i>歌手:鬼卞</i>
             <i>来源:2023全网</i>
         </aside>
-        <secton class="btn-group">
+        <main class="btn-group">
             <button>歌词</button>
             <button>评论</button>
-        </secton>
+        </main>
         <router-view></router-view>
         <footer>
             播放器

@@ -1,15 +1,14 @@
 <template>
     <div class="container-chat-box">
         <h1>{{ $route.query.name }}</h1>
-        <section class="show-chat"></section>
-        <section class="chat-text-area">
+        <aside class="show-chat"></aside>
+        <main class="chat-text-area">
             <textarea id="" name="" cols="30" rows="10"></textarea>
             <section class="button-group">
                 <button>关闭</button>
                 <button>发送</button>
             </section>
-        </section>
-
+        </main>
     </div>
 </template>
 

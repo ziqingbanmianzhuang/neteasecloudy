@@ -3,24 +3,22 @@
         <nav>
             <input type="text" placeholder="搜索聊天列表">
         </nav>
-        <section class="main-box">
+        <main class="div-box">
             <section class="li-box">
                 <li :class="value.active ? 'active' : ''" v-for="([key, value]) in lis" :key="key"
                     @click="switchToChat(value.name)">
                     <img :src="value.avatar" alt="">
-                    <aside>
+                    <section>
                         <h2>{{ value.name }}</h2>
                         <p>{{ value.lastinfo }}</p>
                         <i>{{ value.time }}</i>
-                    </aside>
+                    </section>
                 </li>
-
             </section>
             <section class="chatbox">
                 <router-view></router-view>
             </section>
-        </section>
-
+        </main>
     </div>
 </template>
 
@@ -100,7 +98,7 @@ const switchToChat = (name) => {
 
     }
 
-    .main-box {
+    .div-box {
         display: flex;
 
         .li-box {
@@ -142,7 +140,7 @@ const switchToChat = (name) => {
 
             }
 
-            aside {
+            section {
 
                 h2 {
                     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;

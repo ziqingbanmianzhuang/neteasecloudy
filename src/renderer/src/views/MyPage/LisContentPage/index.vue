@@ -1,10 +1,10 @@
 
 <template>
-    <section class="mys-box">
+    <div class="mys-box">
         <ul>
             <li v-for="([key, value]) in mys" :key="key" @click="switchToMyLis(value.name)">{{ value.name }}</li>
         </ul>
-    </section>
+    </div>
 </template>
 
 <script setup lang="ts">

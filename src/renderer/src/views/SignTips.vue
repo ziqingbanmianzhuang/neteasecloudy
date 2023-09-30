@@ -1,8 +1,8 @@
 <template>
-    <div class="container-box">
+    <main class="container-box">
         <h1>QAQ,你忘记登录啦</h1>
         <button @click="switchToSign">赶紧登录一个❤</button>
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">

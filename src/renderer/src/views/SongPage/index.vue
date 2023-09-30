@@ -6,10 +6,10 @@
             <i>歌手:鬼卞</i>
             <i>来源:2023全网</i>
         </aside>
-        <secton class="btn-group">
+        <main class="btn-group">
             <button @click="switchToWords('geci')">歌词</button>
             <button @click="switchToWords('pinglun')">评论</button>
-        </secton>
+        </main>
         <router-view></router-view>
         <footer>
             播放器

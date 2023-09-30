@@ -1,9 +1,9 @@
 <template>
-    <section class="container-box">
-        <nav>
+    <div class="container-box">
+        <section>
             <h2> {{ $route.query.name }}</h2>
             <a href="" @click="switchToMyLisIndex">返回</a>
-        </nav>
+        </section>
         <ul>
             <li v-for="(li) in lis" :key="li.id" @click="switchSong">
                 <a href="">{{ li.id }}</a>
@@ -18,7 +18,7 @@
                 </footer>
             </li>
         </ul>
-    </section>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -139,7 +139,7 @@ const switchSong = () => {
 .container-box {
     padding: @qihao-padding;
 
-    nav {
+    section {
         display: flex;
         justify-content: space-between;
 

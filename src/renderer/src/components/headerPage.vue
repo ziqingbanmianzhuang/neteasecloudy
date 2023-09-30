@@ -1,28 +1,30 @@
 <template>
-  <header class="keep-px">
-    <!-- <header> 元素应该被用作介绍性内容的容器。元素通常包含：一个或多个标题元素 (<h1> - <h6>)logo 或 icon作者信息 -->
-    <nav>
+  <div class="keep-px">
+    <!-- <div> 元素应该被用作介绍性内容的容器。元素通常包含：一个或多个标题元素 (<h1> - <h6>)logo 或 icon作者信息 -->
+    <section>
       <!-- 元定义导航链接集合。 -->
       <h1>
         <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="">
         <a class="keep-px" href="">音丸子</a>
       </h1>
-      <h2>
-        <a class="keep-px" ref="" @click="judgeIsLogin">我的</a>
-        <!-- // 通知父级跳转Find路由页面 -->
-        <a class="keep-px" ref="" @click="switchToComponent('/find')">发现</a>
-        <a class="keep-px" ref="" @click="switchToComponent('/setting')">设置</a>
-        <!-- // 通知父级跳转About路由页面 -->
-        <a class="keep-px" ref="" @click="switchToComponent('/about')">关于</a>
-      </h2>
+      <nav>
+        <h2>
+          <a class="keep-px" ref="" @click="judgeIsLogin">我的</a>
+          <!-- // 通知父级跳转Find路由页面 -->
+          <a class="keep-px" ref="" @click="switchToComponent('/find')">发现</a>
+          <a class="keep-px" ref="" @click="switchToComponent('/setting')">设置</a>
+          <!-- // 通知父级跳转About路由页面 -->
+          <a class="keep-px" ref="" @click="switchToComponent('/about')">关于</a>
+        </h2>
+      </nav>
       <div></div>
       <ul>
         <li class="keep-px" @click="hiddenWin">-</li>
         <li class="keep-px" @click="maximizeWin">+</li>
         <li class="keep-px" @click="closeWin">x</li>
       </ul>
-    </nav>
-  </header>
+    </section>
+  </div>
   <router-view></router-view>
 </template>
 
@@ -91,13 +93,13 @@ const maximizeWin = () => {
 <style lang="less" scoped>
 @import "../assets/styles/variable.less";
 
-header.keep-px {
+div.keep-px {
   position: relative;
 
   inline-size: 100%;
   block-size: @sanhao-height;
 
-  nav {
+  section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-template-rows: @sanhao-height;

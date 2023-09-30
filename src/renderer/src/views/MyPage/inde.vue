@@ -1,26 +1,26 @@
 <template>
-    <section class="container-box">
+    <main class="container-box">
         <section class="bgc-box"></section>
         <section class="info-box">
-            <aside>
-                <img class="avatar-box" src="../../public/images/my-2.jpg" alt="">
-                <h1>半面妆</h1>
+            <section>
+                <header>
+                    <img class="avatar-box" src="../../public/images/my-2.jpg" alt="">
+                    <h1>半面妆</h1>
+                </header>
                 <nav>
                     <a href="">16关注</a>
                     <a href="">5粉丝</a>
                     <a href="">Lv7</a>
                 </nav>
                 <p>这归途尚远,且迷人且倔强</p>
-            </aside>
+            </section>
         </section>
-        <section class="tool-box">
+        <aside class="tool-box">
             <i class="iconfont" @click="createMyInfoWin">&#xe61a;</i>
             <i class="iconfont" @click="switchToMyLis('我的下载')">&#xe619;</i>
-        </section>
-
-        <router-view></router-view>
-
-    </section>
+        </aside>
+        <main> <router-view></router-view></main>
+    </main>
 </template>
   
 <script setup lang="ts">
@@ -80,7 +80,7 @@ const createMyInfoWin = () => {
         box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .3),
             -3px -3px 3px 0 rgba(0, 0, 0, .1);
 
-        aside {
+        section {
             display: flex;
             flex-direction: column;
             justify-content: center;

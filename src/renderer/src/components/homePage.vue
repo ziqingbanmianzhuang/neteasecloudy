@@ -1,9 +1,9 @@
 <template>
-    <section class="contain animation">
-        <div class="pop-dialog" v-if="isLogin">
+    <main class="contain animation">
+        <article class="pop-dialog" v-if="isLogin">
             <content-page></content-page>
-        </div>
-    </section>
+        </article>
+    </main>
     <img :style="{ '--i': value['--i'] }" class="animation" :src="value.src" alt="" v-for="([key, value]) in  images  "
         :key="key">
 </template>

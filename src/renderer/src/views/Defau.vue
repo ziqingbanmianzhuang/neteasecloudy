@@ -1,14 +1,16 @@
 <template>
     <div class="container">
-        <headerPage @switchToComponent="switchToComponent">
-        </headerPage>
+        <div class="header">
+            <headerPage @switchToComponent="switchToComponent">
+            </headerPage>
+        </div>
         <!-- 头部组件 -->
-        <section class="main">
+        <div class="main">
             <homePage></homePage>
             <!-- 内容展示组件 -->
             <sidebarPage></sidebarPage>
             <!-- 侧边栏组件 -->
-        </section>
+        </div>
     </div>
 </template>
 

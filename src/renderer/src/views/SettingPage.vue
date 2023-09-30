@@ -1,10 +1,14 @@
 <template>
     <div class="container-box">
-        <h1>设置</h1>
-        <i @click="switchToHome">返回</i>
-        <nav>
-            <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
-        </nav>
+        <section>
+            <header>
+                <h1>设置</h1>
+                <i @click="switchToHome">返回</i>
+            </header>
+            <nav>
+                <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
+            </nav>
+        </section>
         <section class="zhanghao" id="账号">
             <ul>
                 <li><img :src="value.src" v-for="([key, value]) in images" alt="" :key="key"></li>
@@ -17,50 +21,58 @@
         </section>
         <section class="changgui" id="常规">
             <h1>常规</h1>
-            <h2>字体选择</h2>
-            <select id="font-setting" name="">
-                <optgroup>
-                    <option :value="value.value" :selected="value.selected" v-for="([key, value]) in fontOpts" :key="key">{{
-                        value.value }}
-                    </option>
-                </optgroup>
-            </select>
-            <template v-for="([key, value]) in settings" :key="key">
-                <h2>{{ value.title }}</h2>
-                <label><input type="radio">{{ value.info }}</label>
-            </template>
-            <h2>关闭主面板</h2>
-            <label><input name="mianban" type="radio">最小化到系统托盘</label>
-            <label><input name="mianban" type="radio">退出音丸子</label>
-            <h2>定时关机</h2>
-            <section class="time-box">
-                <button>剩余关机时间</button>
-                <div class="hours">
-                    <select id="hours" name="">
-                        <optgroup>
-                            <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
-                                :key="key">{{ value.value }}</option>
-                        </optgroup>
-                    </select>
-                    <i>时</i>
-                </div>
-                <div class="minutes">
-                    <select id="minutes" name="">
-                        <optgroup>
-                            <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
-                                :key="key">{{ value.value }}</option>
-                        </optgroup>
-                    </select>
-                    <i>分</i>
-                </div>
-            </section>
-
+            <article>
+                <h2>字体选择</h2>
+                <select id="font-setting" name="">
+                    <optgroup>
+                        <option :value="value.value" :selected="value.selected" v-for="([key, value]) in fontOpts"
+                            :key="key">{{
+                                value.value }}
+                        </option>
+                    </optgroup>
+                </select>
+                <template v-for="([key, value]) in settings" :key="key">
+                    <h2>{{ value.title }}</h2>
+                    <label><input type="radio">{{ value.info }}</label>
+                </template>
+            </article>
+            <article>
+                <h2>关闭主面板</h2>
+                <label><input name="mianban" type="radio">最小化到系统托盘</label>
+                <label><input name="mianban" type="radio">退出音丸子</label>
+            </article>
+            <article>
+                <h2>定时关机</h2>
+                <section class="time-box">
+                    <button>剩余关机时间</button>
+                    <div class="hours">
+                        <select id="hours" name="">
+                            <optgroup>
+                                <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
+                                    :key="key">{{ value.value }}</option>
+                            </optgroup>
+                        </select>
+                        <i>时</i>
+                    </div>
+                    <div class="minutes">
+                        <select id="minutes" name="">
+                            <optgroup>
+                                <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
+                                    :key="key">{{ value.value }}</option>
+                            </optgroup>
+                        </select>
+                        <i>分</i>
+                    </div>
+                </section>
+            </article>
         </section>
         <section class="bofang" id="播放">
             <h1>播放</h1>
-            <h2>高清屏幕适配</h2>
-            <label><input type="radio" name="gaoqing">最小化到系统托盘</label>
-            <label><input type="radio" name="gaoqing">退出音丸子</label>
+            <article>
+                <h2>高清屏幕适配</h2>
+                <label><input type="radio" name="gaoqing">最小化到系统托盘</label>
+                <label><input type="radio" name="gaoqing">退出音丸子</label>
+            </article>
         </section>
     </div>
 </template>
@@ -244,7 +256,7 @@ const times = reactive(new Map([
 
     font-family: "YinWanZi", 'Courier New', Courier, monospace, sans-serif;
 
-    >i {
+    header i {
         display: block;
 
         position: fixed;

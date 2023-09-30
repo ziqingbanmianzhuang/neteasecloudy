@@ -1,12 +1,14 @@
 <template>
-  <article class="container-box">
-    <header>
-      <h1>发现</h1>
+  <div class="container-box">
+    <section>
+      <header>
+        <h1>发现</h1>
+      </header>
       <nav>
         <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
       </nav>
       <i @click="switchToHome">返回</i>
-    </header>
+    </section>
     <main>
       <section>
         <h2 id="推荐">推荐</h2>
@@ -27,7 +29,6 @@
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
           <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong" :key="value.id">
-
           </i>
         </div>
       </section>
@@ -39,7 +40,7 @@
         </div>
       </section>
     </main>
-  </article>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -226,7 +227,7 @@ const tags = reactive([
   color: @erhao-font-color;
   background-color: @yihao-red-bgc;
 
-  header {
+  >section {
     display: flex;
     align-items: center;
 
