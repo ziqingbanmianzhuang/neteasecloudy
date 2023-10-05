@@ -1,12 +1,12 @@
 <template>
     <div class="container-box">
-        <section>
+        <section cite="">
             <h2> {{ $route.query.name }}</h2>
-            <a href="" @click="switchToMyLisIndex">返回</a>
+            <a href="#" ref="prev" @click="switchToMyLisIndex">返回</a>
         </section>
         <ul>
             <li v-for="(li) in lis" :key="li.id" @click="switchSong">
-                <a href="">{{ li.id }}</a>
+                <a href="#" ref="nofollow">{{ li.id }}</a>
                 <aside>
                     <h3>{{ li.songName }}</h3>
                     <i>{{ li.isLove ? '❤' : '❤' }}</i>

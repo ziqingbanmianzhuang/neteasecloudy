@@ -1,7 +1,7 @@
 <template>
     <div class="container-box">
         <header>
-            <a class="return" href="" @click="switchToMy">返回</a>
+            <a class="return" href="#" ref="prev" @click="switchToMy">返回</a>
             <h1>简单</h1>
         </header>
         <aside>
@@ -9,8 +9,8 @@
             <i>来源:2023全网</i>
         </aside>
         <main class="btn-group">
-            <button>歌词</button>
-            <button>评论</button>
+            <button type="button">歌词</button>
+            <button type="button">评论</button>
         </main>
         <router-view></router-view>
         <footer>

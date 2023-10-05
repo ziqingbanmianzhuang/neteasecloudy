@@ -1,15 +1,15 @@
 <template>
   <aside>
-    <section class="date-box">
+    <section class="date-box" cite="">
       <img src="../public/images/date.jpg" alt="">
       <time>夏至</time>
       <time>2023.07.18</time>
       <p>活着是为了幸福,是我们的追求,是人生的旅途</p>
     </section>
     <section class="tools-box">
-      <a href="">mini模式</a>
-      <a href="">主题颜色</a>
-      <a href="">听歌识曲</a>
+      <a href="#" ref="nofollow">mini模式</a>
+      <a href="#" ref="nofollow">主题颜色</a>
+      <a href="#" ref="nofollow">听歌识曲</a>
     </section>
   </aside>
 </template>

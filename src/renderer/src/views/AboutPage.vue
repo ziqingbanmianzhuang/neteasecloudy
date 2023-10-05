@@ -1,29 +1,31 @@
 <template>
     <main class="container-box">
-        <section>
+        <section cite="">
             <i @click="switchToHome">返回</i>
         </section>
-        <section>
+        <section cite="">
             <h1>关于音/丸/子</h1>
             <p>当前版本:1.0.0</p>
-            <button>检查更新</button>
-            <label><input name="upgrade" type="radio">自动更新</label>
-            <label><input name="upgrade" type="radio">有新版本的时候提醒我</label>
+            <button type="button">检查更新</button>
+            <label><input name="upgrade" type="radio" checked>自动更新</label>
+            <label><input name="upgrade" type="radio" checked>有新版本的时候提醒我</label>
             <nav>
-                <a href="#" v-for="([key, value]) in navLinks" :key="key"> {{ value.link }}</a>
+                <a href="#" ref="help" v-for="([key, value]) in navLinks" :key="key"> {{ value.link }}</a>
             </nav>
         </section>
-        <section>
+        <section cite="">
             <h2>contact with us</h2>
             <p>if you have any question or want anything else ,please contact with us by:
             </p>
-            <ul>
-                <li v-for="( [key, value] ) in  contacts " :key="key">
-                    {{ value.info }}
-                </li>
-            </ul>
+            <address>
+                <ul>
+                    <li v-for="( [key, value] ) in  contacts " :key="key">
+                        {{ value.info }}
+                    </li>
+                </ul>
+            </address>
         </section>
-        <section>
+        <section cite="">
             <h2>Flower Wind</h2>
             <p>随风起舞的自由的花</p>
         </section>

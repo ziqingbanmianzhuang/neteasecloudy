@@ -2,9 +2,9 @@
   <div class="contain-box" ref="popdialog">
     <h2>音丸子</h2>
     <p>你好,欢迎来到音丸子,丸子终于被发现啦,我这里收藏了好多密码宝藏呢!和我做好朋友就有几乎和我一起遨游音乐世界噢~~~~~~而且丸子还有好多话想和你说,快点加入进来,接下来,带上耳机,丸子和你一起听歌啦♥♥</p>
-    <section class="login-cancel-button">
-      <button @click="createSign">加入丸子</button>
-      <button @click="cancelSign">俺先看看</button>
+    <section class="login-cancel-button" cite="">
+      <button type="button" @click="createSign">加入丸子</button>
+      <button type="button" @click="cancelSign">俺先看看</button>
     </section>
   </div>
 </template>

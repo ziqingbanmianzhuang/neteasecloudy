@@ -1,7 +1,7 @@
 <template>
     <main class="container-box">
         <h1>QAQ,你忘记登录啦</h1>
-        <button @click="switchToSign">赶紧登录一个❤</button>
+        <button type="button" @click="switchToSign">赶紧登录一个❤</button>
     </main>
 </template>
 

@@ -1,20 +1,20 @@
 <template>
   <div class="keep-px">
     <!-- <div> 元素应该被用作介绍性内容的容器。元素通常包含：一个或多个标题元素 (<h1> - <h6>)logo 或 icon作者信息 -->
-    <section>
+    <section cite="">
       <!-- 元定义导航链接集合。 -->
       <h1>
-        <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="">
-        <a class="keep-px" href="">音丸子</a>
+        <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="音丸子icon">
+        <a class="keep-px" href="#" ref="nofollow">音丸子</a>
       </h1>
       <nav>
         <h2>
-          <a class="keep-px" ref="" @click="judgeIsLogin">我的</a>
+          <a class="keep-px" href="#" ref="next" @click="judgeIsLogin">我的</a>
           <!-- // 通知父级跳转Find路由页面 -->
-          <a class="keep-px" ref="" @click="switchToComponent('/find')">发现</a>
-          <a class="keep-px" ref="" @click="switchToComponent('/setting')">设置</a>
+          <a class="keep-px" href="#" ref="next" @click="switchToComponent('/find')">发现</a>
+          <a class="keep-px" href="#" ref="next" @click="switchToComponent('/setting')">设置</a>
           <!-- // 通知父级跳转About路由页面 -->
-          <a class="keep-px" ref="" @click="switchToComponent('/about')">关于</a>
+          <a class="keep-px" href="#" ref="next" @click="switchToComponent('/about')">关于</a>
         </h2>
       </nav>
       <div></div>

@@ -1,16 +1,16 @@
 <template>
   <div class="container-box">
-    <section>
+    <section cite="">
       <header>
         <h1>发现</h1>
       </header>
       <nav>
-        <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
+        <a :href="`#${value.name}`" ref="section" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
       </nav>
       <i @click="switchToHome">返回</i>
     </section>
     <main>
-      <section>
+      <section cite="">
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
           <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in relatedCommendedSong" :key="value.name"
@@ -19,20 +19,20 @@
           </i>
         </div>
       </section>
-      <section>
+      <section cite="">
         <h2 id="最新">最新</h2>
         <div class="images-box">
           <i v-for="n in 10" :key="n" @click="createSongWin"></i>
         </div>
       </section>
-      <section>
+      <section cite="">
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
           <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong" :key="value.id">
           </i>
         </div>
       </section>
-      <section id="歌手">
+      <section id="歌手" cite="">
         <h2>歌手</h2>
         <div class="images-box">
           <i :style="{ '--deg': value['--deg'] }" v-for="([key, value]) in tags" :key="value['--deg']"

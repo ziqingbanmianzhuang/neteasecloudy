@@ -1,16 +1,16 @@
 <template>
     <main class="container-box">
-        <section class="bgc-box"></section>
-        <section class="info-box">
-            <section>
+        <section class="bgc-box" cite=""></section>
+        <section class="info-box" cite="">
+            <section cite="">
                 <header>
-                    <img class="avatar-box" src="../../public/images/my-2.jpg" alt="">
+                    <img class="avatar-box" src="../../public/images/my-2.jpg" alt="头像图片">
                     <h1>半面妆</h1>
                 </header>
                 <nav>
-                    <a href="">16关注</a>
-                    <a href="">5粉丝</a>
-                    <a href="">Lv7</a>
+                    <a href="#" ref="nofollow">16关注</a>
+                    <a href="#" ref="nofollow">5粉丝</a>
+                    <a href="#" ref="nofollow">Lv7</a>
                 </nav>
                 <p>这归途尚远,且迷人且倔强</p>
             </section>

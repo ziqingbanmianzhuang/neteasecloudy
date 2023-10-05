@@ -1,30 +1,30 @@
 <template>
     <div class="container-box">
-        <section>
+        <section cite="">
             <header>
                 <h1>设置</h1>
                 <i @click="switchToHome">返回</i>
             </header>
             <nav>
-                <a :href="`#${value.name}`" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
+                <a :href="`#${value.name}`" ref="section" v-for="([key, value]) in links" :key="key">{{ value.name }}</a>
             </nav>
         </section>
-        <section class="zhanghao" id="账号">
+        <section class="zhanghao" id="账号" cite="">
             <ul>
-                <li><img :src="value.src" v-for="([key, value]) in images" alt="" :key="key"></li>
+                <li><img :src="value.src" alt="头像图片" v-for="([key, value]) in images" :key="key"></li>
                 <li>
-                    <a href="">绑定账号</a>
+                    <a href="#" ref="nofollow">绑定账号</a>
                     <i>-></i>
                 </li>
             </ul>
             <button>修改个人信息</button>
         </section>
-        <section class="changgui" id="常规">
+        <section class="changgui" id="常规" cite="">
             <h2>常规</h2>
             <article>
                 <h3>字体选择</h3>
-                <select id="font-setting" name="">
-                    <optgroup>
+                <select id="font-setting" name="" required>
+                    <optgroup label="0-60">
                         <option :value="value.value" :selected="value.selected" v-for="([key, value]) in fontOpts"
                             :key="key">{{
                                 value.value }}
@@ -33,21 +33,21 @@
                 </select>
                 <template v-for="([key, value]) in settings" :key="key">
                     <h3>{{ value.title }}</h3>
-                    <label><input type="radio">{{ value.info }}</label>
+                    <label><input :name="value.title" type="radio" :value="value.info" checked>{{ value.info }}</label>
                 </template>
             </article>
             <article>
                 <h3>关闭主面板</h3>
-                <label><input name="mianban" type="radio">最小化到系统托盘</label>
-                <label><input name="mianban" type="radio">退出音丸子</label>
+                <label><input name="mianban" type="radio" value="minize" checked>最小化到系统托盘</label>
+                <label><input name="mianban" type="radio" value="quit-system">退出音丸子</label>
             </article>
             <article>
                 <h3>定时关机</h3>
-                <section class="time-box">
-                    <button>剩余关机时间</button>
+                <section class="time-box" cite="">
+                    <button type="button">剩余关机时间</button>
                     <div class="hours">
-                        <select id="hours" name="">
-                            <optgroup>
+                        <select id="hours" name="" required>
+                            <optgroup label="0-60">
                                 <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
                                     :key="key">{{ value.value }}</option>
                             </optgroup>
@@ -55,8 +55,8 @@
                         <i>时</i>
                     </div>
                     <div class="minutes">
-                        <select id="minutes" name="">
-                            <optgroup>
+                        <select id="minutes" name="" required>
+                            <optgroup label="0-60">
                                 <option :value="value.value" :selected="value.selected" v-for="[key, value] in times"
                                     :key="key">{{ value.value }}</option>
                             </optgroup>
@@ -66,12 +66,12 @@
                 </section>
             </article>
         </section>
-        <section class="bofang" id="播放">
+        <section class="bofang" id="播放" cite="">
             <h2>播放</h2>
             <article>
                 <h3>高清屏幕适配</h3>
-                <label><input type="radio" name="gaoqing">最小化到系统托盘</label>
-                <label><input type="radio" name="gaoqing">退出音丸子</label>
+                <label><input type="radio" name="gaoqing" value="minize" checked>最小化到系统托盘</label>
+                <label><input type="radio" name="gaoqing" value="quit-system">退出音丸子</label>
             </article>
         </section>
     </div>

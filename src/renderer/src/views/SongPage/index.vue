@@ -1,14 +1,14 @@
 <template>
     <div class="container-box">
-        <a class="return" href="" @click="switchToMy">返回</a>
+        <a class="return" href="#" ref="prev" @click="switchToMy">返回</a>
         <h1>简单</h1>
         <aside>
             <i>歌手:鬼卞</i>
             <i>来源:2023全网</i>
         </aside>
         <main class="btn-group">
-            <button @click="switchToWords('geci')">歌词</button>
-            <button @click="switchToWords('pinglun')">评论</button>
+            <button type="button" @click="switchToWords('geci')">歌词</button>
+            <button type="button" @click="switchToWords('pinglun')">评论</button>
         </main>
         <router-view></router-view>
         <footer>

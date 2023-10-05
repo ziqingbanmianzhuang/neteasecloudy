@@ -1,13 +1,13 @@
 <template>
     <div class="container-box">
         <nav>
-            <input type="text" placeholder="搜索聊天列表">
+            <input name="search" type="text" value="" placeholder="搜索聊天列表">
         </nav>
         <main class="div-box">
-            <section class="li-box">
+            <section class="li-box" cite="">
                 <li :class="value.active ? 'active' : ''" v-for="([key, value]) in lis" :key="key"
                     @click="switchToChat(value.name)">
-                    <img :src="value.avatar" alt="">
+                    <img :src="value.avatar" alt="用户头像" loading="lazy">
                     <section>
                         <h2>{{ value.name }}</h2>
                         <p>{{ value.lastinfo }}</p>
@@ -15,7 +15,7 @@
                     </section>
                 </li>
             </section>
-            <section class="chatbox">
+            <section class="chatbox" cite="">
                 <router-view></router-view>
             </section>
         </main>

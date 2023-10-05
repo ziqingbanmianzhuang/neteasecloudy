@@ -1,24 +1,28 @@
 <template>
     <div class="container-box">
         <article class="sign-box">
-            <section class="info-box">
+            <section class="info-box" cite="">
                 <header>
                     <h1>登录</h1>
-                    <a href="#"></a>
+                    <a href="#" ref="nofollow"></a>
                     <h1>注册</h1>
                 </header>
                 <main>
-                    <form action="">
+                    <form action="" autocomplete="on">
                         <!-- <input type="text" v-model="name" placeholder="your name"> -->
-                        <input type="text" v-model="password" placeholder="your password">
-                        <input type="text" v-model="password" placeholder="your password again">
-                        <input type="text" v-model.number="phone" placeholder="your phone">
+                        <input name="password" type="text" v-model="password" placeholder="your password" autocomplete="on"
+                            required autofocus>
+                        <input name="password" type="text" v-model="password" placeholder="your password again"
+                            autocomplete="on" required>
+                        <input name="phone" type="text" v-model.number="phone" placeholder="your phone" autocomplete="on"
+                            required>
+                        <input type="reset" value="reset重置">
                         <!-- <input type="text" v-model.number="captcha" placeholder="your captcha"> -->
                     </form>
                 </main>
                 <footer>
-                    <button @click="sendCaptcha">发送验证码</button>
-                    <button @click="createMyWin">确定</button>
+                    <button type="button" @click="sendCaptcha">发送验证码</button>
+                    <button type="button" @click="createMyWin">确定</button>
                 </footer>
             </section>
         </article>

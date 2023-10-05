@@ -3,10 +3,10 @@
         <h1>{{ $route.query.name }}</h1>
         <aside class="show-chat"></aside>
         <main class="chat-text-area">
-            <textarea id="" name="" cols="30" rows="10"></textarea>
-            <section class="button-group">
-                <button>关闭</button>
-                <button>发送</button>
+            <textarea id="" name="" autofocus cols="30" rows="10"></textarea>
+            <section class="button-group" cite="">
+                <button type="button">关闭</button>
+                <button type="button">发送</button>
             </section>
         </main>
     </div>
