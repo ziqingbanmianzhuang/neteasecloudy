@@ -26,6 +26,7 @@ export default function cancelReq(config) {
     cancelMap[config.url] = true;
 
     if (cancelMap[config.url]) {
+        //可以手动在cancelMap中设置想要取消的请求的路径,这样就可以自动取消掉你不想要发出去的请求了
         cancel('Request was canceled')
         delete cancelMap[config.url];
     }

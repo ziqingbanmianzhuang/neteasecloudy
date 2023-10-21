@@ -1,8 +1,10 @@
 <script setup lang="ts">
-// import instance from './api/instance'
-// import Apis from './api/Apis'
-
-
+import { onMounted } from 'vue';
+onMounted(() => {
+    window.api.getProcessValue((event, env) => {
+        localStorage.setItem('envValue', env)
+    })
+})
 </script>
 <template>
     <!-- <button @click="getBooks">请求books</button> -->

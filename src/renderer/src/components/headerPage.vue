@@ -5,7 +5,7 @@
       <!-- 元定义导航链接集合。 -->
       <h1>
         <img class="flower-logo" src="../public/images/flower-logo.jpg" alt="音丸子icon">
-        <a class="keep-px" href="#" ref="nofollow">音丸子</a>
+        <a class="keep-px" href="#" ref="nofollow"></a>
       </h1>
       <nav>
         <h2>

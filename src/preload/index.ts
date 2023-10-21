@@ -28,8 +28,8 @@ const api = {
   },
   createSongWin: (options) => {
     ipcRenderer.send('createSongWin',options)
-    
-  }
+  },
+  getProcessValue:(callback)=>ipcRenderer.on('sendProcessValue',callback)
   }
 
 

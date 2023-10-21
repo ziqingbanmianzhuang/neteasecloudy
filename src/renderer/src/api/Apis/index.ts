@@ -1,6 +1,6 @@
 import axios from 'axios'
-import  createReqInterceptor from './interceptors/createReqInterceptor'
-import createResInterceptor from './interceptors/createResInterceptor'
+import  createReqInterceptor from '../interceptors/createReqInterceptor'
+import createResInterceptor from '../interceptors/createResInterceptor'
 
 //类Apis
  export class Apis {
@@ -8,7 +8,7 @@ import createResInterceptor from './interceptors/createResInterceptor'
      public serverMap = null;
      public apiMap = null;
      public instance = null;
-    public baseURL = ''
+     public baseURL = ''
      public axiosInstance = null;
     static resMiddleware:any = []
     static reqMiddleware: any = []
@@ -26,11 +26,16 @@ import createResInterceptor from './interceptors/createResInterceptor'
         createResInterceptor(this.axiosInstance);
         this.serverMap = serverMap;
         this.apiMap = apiMap;
+        this.common = common;
         this.baseURL = this.getBaseURL();
         this.instance = {};
         this.combineRequest();
        
-    }
+     }
+     
+
+
+    //获取baseurl的方法
     getBaseURL(){
         let baseURL = '';
 
@@ -38,7 +43,20 @@ import createResInterceptor from './interceptors/createResInterceptor'
 
             // 找到默认的配置值
             if (this.serverMap[key].default) {
-                baseURL = this.serverMap[key].baseMap.baseURL;
+                // 统一根据Node的环境变量进行baseurl的选择
+                switch(localStorage.getItem('envValue')){
+                    case 'development':
+                        baseURL = this.serverMap[key].baseMap.dev;
+                        break;
+                    case 'test':
+                        baseURL = this.serverMap[key].baseMap.test;
+                        break;
+                    case 'production':
+                        baseURL = this.serverMap[key].baseMap.prod;
+                        break;
+                    default:
+                        baseURL = this.serverMap[key].baseMap.baseURL;
+                }
             }
 
         }
@@ -58,7 +76,12 @@ import createResInterceptor from './interceptors/createResInterceptor'
                     config = {};
                 }
                 result = this.restCombine(result, config);
-                return this.axiosInstance.request(result);
+                return this.axiosInstance
+                    .request(result)
+                    .then(res => res)
+                    .catch(err => {
+                    return Apis.reqMiddleware[0].onRejected(err);
+                  })
             }
          }
          
@@ -106,7 +129,9 @@ import createResInterceptor from './interceptors/createResInterceptor'
         return this.axiosInstance.request({
             ...options,
             url: path
-        });
+        }).then(res => res).catch(err => {
+            return Apis.reqMiddleware[0].onRejected(err);
+          })
         
      }
      

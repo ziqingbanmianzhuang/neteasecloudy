@@ -30,17 +30,5 @@ export default {
     getSingList: {
         method: 'get',
         url:'/top/artists'
-    },
-
-    //发送验证码
-    sendCaptcha: {
-        method: 'get',
-        url:'/captcha/sent'
-    },
-    
-    //注册
-    signIn: {
-        method: 'get',
-        url:'/login/cellphone'
     }
 }

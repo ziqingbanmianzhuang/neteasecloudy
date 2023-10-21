@@ -13,10 +13,13 @@
       <section cite="">
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
-          <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in relatedCommendedSong" :key="value.name"
-            @click="createSongWin">
+          <!-- loadToast组件 -->
+          <load-toast v-if="commendloadFlag"></load-toast>
+          <i v-else-if="commendErrorFlag" :style="{ '--name': `'${value.name}'` }"
+            v-for="([key, value]) in relatedCommendedSong" :key="value.name" @click="createSongWin">
             <!-- {{ song.name }} -->
           </i>
+          <error-placeholder v-else @retryToRequest="getRelativeLatestSongs"></error-placeholder>
         </div>
       </section>
       <section cite="">
@@ -28,122 +31,154 @@
       <section cite="">
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
-          <i :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong" :key="value.id">
+          <load-toast v-if="topLoadFlag"></load-toast>
+          <i v-else-if="topErrorFlag" :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong"
+            :key="value.id">
           </i>
+          <error-placeholder v-else @retryToRequest="getTopSongs"></error-placeholder>
         </div>
       </section>
       <section id="歌手" cite="">
         <h2>歌手</h2>
         <div class="images-box">
-          <i :style="{ '--deg': value['--deg'] }" v-for="([key, value]) in tags" :key="value['--deg']"
-            @click="createSongWin"></i>
+          <load-toast v-if="hotLoadFlag"></load-toast>
+          <i v-else-if="hotErrorFlag" :style="{ '--deg': value['--deg'] }" v-for="([key, value]) in tags"
+            :key="value['--deg']" @click="createSongWin"></i>
+          <error-placeholder v-else @retryToRequest="getSings"></error-placeholder>
         </div>
       </section>
     </main>
   </div>
+
+  <!-- messageToast组件 -->
+  <message-toast class="message-toast"></message-toast>
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, onBeforeMount } from 'vue'
 import router from '@renderer/router';
-import { reactive, onBeforeMount } from 'vue'
-import instance from '../api/instance'
-import Apis from '../api/apis'
+import instance from '../api/modules/find_module/index'
+import { useMessageToastStore } from '../store/message_toast_store/index';
+import { nanoid } from 'nanoid'
+
+//useMessageToastStore
+const messageToastStore = useMessageToastStore();
 
 // 在组件挂载阶段获取相关的推荐歌单
 //存储相关推荐歌单的数据
 let relatedCommendedSong = reactive(new Map([]));
+//推荐是否加载
+let commendLoadFlag = ref(true);
+//推荐是否出错
+let commendErrorFlag = ref(false);
+//获取推荐歌单
+const getRelativeLatestSongs = async () => {
+  try {
+
+    const res = await instance.getRelativeRecommendedSongs({ params: { id: 1 } });
+
+    commendLoadFlag.value = false
+
+    res.data.playlists.forEach(item => {
+      relatedCommendedSong.set(item.id, item);
+    });
+  } catch (err) {
+    console.log('1111111111111finderror', err);
+
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+    })
+  }
+}
 
 //存储榜单歌曲
 let topSong = reactive(new Map([]));
+//榜单是否加载
+let topLoadFlag = ref(true);
+//榜单是否出错
+let topErrorFlag = ref(false);
+// 获取歌单分类
+let songType
+const getSongTypes = async () => {
 
-//存储热门歌手
-let hotSings = reactive(new Map([]));
+  try {
+    let res = await instance.getSongsType();
 
-onBeforeMount(async () => {
-  //获取推荐歌单
-  instance.getRelativeRecommendedSongs({ params: { id: 1 } }).then(res => {
-    // relatedCommendedSong = res.data.playlists
-    res.data.playlists.forEach(item => {
-      relatedCommendedSong.set(item.id, item)
-    });
-    console.log(111111111, relatedCommendedSong);
-  }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err);
-  }).then(res => {
-    console.log(res);
-
-  }, err => {
-    console.log(err);
-
-  });
-
-  // 获取歌单分类
-  let songType = '';
-
-  await instance.getSongsType().then(res => {
-    console.log('type', res.data.sub[9].name);
     songType = res.data.sub[1].name;
-  }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err);
-  }).then(res => {
-    ;
-    console.log(res);
+  } catch (err) {
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+    })
+  }
+}
+// 获取最新的歌单
+const getLastedSongs = async () => {
+  try {
+    await instance.getRelativeLatestSongs({ params: { order: 'new', cat: songType, limit: 50, offset: 1 } })
+  } catch (err) {
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+    })
+  }
+}
 
-  }, err => {
-    console.log(err);
 
-  })
+//获取榜单歌曲
+const getTopSongs = async () => {
+  try {
+    const res = await instance.getTopSongs({ params: { id: 2809577409 } })
 
-  // 获取最新的歌单
-  instance.getRelativeLatestSongs({ params: { order: 'new', cat: songType, limit: 50, offset: 1 } }).then(res => {
-    console.log('last', res);
+    topLoadFlag.value = false
 
-  }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err);
-  }).then(res => {
-    console.log(res);
-
-  }, err => {
-    console.log(err);
-
-  })
-
-  //获取榜单歌曲
-  instance.getTopSongs({ params: { id: 2809577409 } }).then(res => {
-
-    // topSong.value = res.data.playlist.tracks.slice(0, 10)
     res.data.playlist.tracks.slice(0, 10).forEach((item) => {
       topSong.set(item.id, item);
     })
-    console.log('top', topSong);
-  }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err);
-  }).then(res => {
-    console.log(res);
+  } catch (err) {
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+    })
+  }
+}
 
-  }, err => {
-    console.log(err);
-
-  })
-
-  //获取歌手列表
-  instance.getSingList({ params: { limit: 4, offset: 1 } }).then(res => {
-    // hotSings = res.data.artists
+//获取歌手列表
+const getSings = async () => {
+  try {
+    const res = await instance.getSingList({ params: { limit: 4, offset: 1 } })
+    hotLoadFlag.value = false;
     res.data.artists.forEach(item => {
       hotSings.set(item.id, item)
     });
-    console.log('sing', hotSings);
+  } catch (err) {
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+    })
+  }
+}
 
-  }).catch(err => {
-    return Apis.reqMiddleware[0].onRejected(err);
-  }).then(res => {
-    console.log(res);
+//存储热门歌手
+let hotSings = reactive(new Map([]));
+//热门歌手是否加载
+let hotLoadFlag = ref(true);
+//热门歌手是否出错
+let hotErrorFlag = ref(false);
 
-  }, err => {
-    console.log(err);
+onBeforeMount(() => {
 
-  })
+  //获取推荐歌单
+  getRelativeLatestSongs();
 
+  // 获取歌单分类
+  getSongTypes();
+
+  // 获取最新的歌单
+  getLastedSongs();
+
+
+  //获取榜单歌曲
+  getTopSongs();
+
+  //获取歌手列表
+  getSings();
 })
 
 // 跳转home页面
@@ -217,7 +252,16 @@ const tags = reactive([
 <style lang="less" scoped>
 @import "../assets/styles/variable.less";
 
+.message-toast {
+  position: fixed;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  z-index: 100;
+}
+
 .container-box {
+  overflow: hidden;
+
   margin-inline: auto;
   margin-block: 0;
 
@@ -277,7 +321,7 @@ const tags = reactive([
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
 
     }
 
@@ -287,6 +331,7 @@ const tags = reactive([
       .images-box {
         display: flex;
         justify-content: space-around;
+
 
         i {
           display: block;
@@ -303,7 +348,7 @@ const tags = reactive([
           transition: all 0.3s;
 
 
-          ::after {
+          &::after {
             content: var(--name);
 
             display: block;
@@ -323,7 +368,7 @@ const tags = reactive([
             transition: all 0.3s;
           }
 
-          ::before {
+          &::before {
             content: '你的名字';
 
             display: block;
@@ -351,13 +396,13 @@ const tags = reactive([
           border-radius: @erhao-border-radius;
           inline-size: 80px;
 
-          ::before {
+          &::before {
             inset-block-end: -60px;
 
             inline-size: 80px;
           }
 
-          :after {
+          &:after {
             inset-block-start: 80px;
           }
         }
@@ -370,7 +415,7 @@ const tags = reactive([
     section:nth-child(2) {
       .images-box {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
 
         i {
           display: block;
@@ -386,7 +431,7 @@ const tags = reactive([
           transition: all 0.3s;
 
 
-          ::before {
+          &::before {
             content: "love  is painful xxxx";
 
             display: block;
@@ -404,10 +449,10 @@ const tags = reactive([
 
           }
 
-          :hover {
+          &:hover {
             block-size: 120px;
 
-            ::before {
+            &::before {
               transform: translateY(calc(100% + 10px));
             }
           }
@@ -437,7 +482,7 @@ const tags = reactive([
 
 
 
-        ::before {
+        &::before {
           content: var(--name);
 
           display: block;
@@ -463,11 +508,11 @@ const tags = reactive([
     }
 
     section:nth-child(4) {
-      inline-size: 100%;
+      // inline-size: 100%;
 
       .images-box {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
 
         i {
           display: block;
@@ -482,7 +527,7 @@ const tags = reactive([
           transform-origin: 50%;
         }
 
-        ::before {
+        &::before {
           content: "";
 
           display: block;

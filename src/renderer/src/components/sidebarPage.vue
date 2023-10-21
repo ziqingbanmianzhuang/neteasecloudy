@@ -127,8 +127,6 @@ aside {
         border-inline-end-color: @yihao-border-color ;
         border-block-end-color: @yihao-border-color;
         border-inline-start-color: transparent;
-
-
         inline-size: @erhao-width;
         block-size: @yihao-height;
 

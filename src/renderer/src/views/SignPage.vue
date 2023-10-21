@@ -31,8 +31,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import instance from '../api/instance'
-import Apis from '../api/apis'
+import instance from '../api/modules/sign_module/index'
+import Apis from '../api/Apis/index'
 
 let name = ref('');
 

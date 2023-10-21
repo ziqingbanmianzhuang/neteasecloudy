@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { Apis } from '../index'
+import { Apis } from '../Apis/index'
+import { log } from 'console';
 export default function retry() {
 let __retryCount = 0;
 Apis.reqMiddleware.push({
@@ -7,12 +8,12 @@ Apis.reqMiddleware.push({
     onRejected: function axiosRetryInterceptor(err) {
         const config = err.config;
 
-        // if (!config || !config.retry) return Promise.reject(err)
+        if (!config || !config.retry) return Promise.reject(err)
         config.retry || (config.retry = 3);
 
         // 已经尝试retry的次数
         if (__retryCount >= config.retry) {
-            return Promise.reject(`retry次数已经用完,${err}`);
+            return Promise.reject(`retry次数已经用完,${err.config.url}`);
         }
         
         __retryCount += 1;

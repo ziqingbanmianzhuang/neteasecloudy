@@ -55,7 +55,17 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
+  //创建主窗口
   const win = createWindow()
+
+  //发送环境变量的事件
+  //设置环境变量
+  win.webContents.on('did-finish-load', () => {
+    console.log(process.env);
+    
+  win.webContents.send('sendProcessValue',process.env.NODE_ENV )
+  })
+
   // 监听创建My窗口事件
   ipcMain.on('createWinMy', (event,options) => {
     const winMy = new BrowserWindow({
