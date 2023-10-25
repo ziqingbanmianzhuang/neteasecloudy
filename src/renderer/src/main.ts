@@ -8,6 +8,7 @@ import App from './App.vue'
 import messageToast from './global_components/messageToast/index.vue'
 import loadToast from './global_components/loadToast/index.vue'
 import errorPlaceholder from './global_components/errorPlaceholder/index.vue'
+import emptyPlaceholder from './global_components/emptyPlaceholder/index.vue'
 
 // 引入全局字体配置文件
 import loadBackFonts from './assets/fonts/font.js'
@@ -23,6 +24,7 @@ const app = createApp(App);
 app.component('messageToast', messageToast);
 app.component('loadToast', loadToast);
 app.component('errorPlaceholder', errorPlaceholder);
+app.component('emptyPlaceholder', emptyPlaceholder);
 
 app.use(router).use(pinia);
 app.mount('#app');

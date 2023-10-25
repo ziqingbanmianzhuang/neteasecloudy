@@ -3,15 +3,16 @@ import pinia from "../../store/index";
 import { nanoid} from 'nanoid'
 
 import { useMessageToastStore } from "../../store/message_toast_store/index";
-import resCache from "../utils/cache/res";
+// import resCache from "../utils/cache/res";
 
 //messageToastStore
-const messageToastStore =useMessageToastStore(pinia);
+const messageToastStore = useMessageToastStore(pinia);
 
 export default function createResInterceptor(axiosInstance) {
     axiosInstance.interceptors.response.use(function (res) {
+        //对响应数据做些什么
+        
         //统一成功情况下的不同返回码对应的处理
-
         if (res.status === 200) {
             switch (res.data.code) {
                 case 102:
@@ -56,14 +57,19 @@ export default function createResInterceptor(axiosInstance) {
             document.body.appendChild(link)
             link.click()
         }
-
-        let cache = resCache(res);
-        
-        return cache || res;
+        return  res;
     }, async function (err) {
-        //统一失败情况的不同返回码对应的处理
+        //对响应错误做点什么
 
-        console.log('err', err.response.status)
+        //统一失败情况的不同返回码对应的处理
+        console.log('errresponse', err);
+        if (!err.response) {
+            if (err.message.includes('timeout')) {
+                await messageToastStore.addToToastList({ id: nanoid(), isShowMessageToast: true, messageToastTitle: '客户端请求错误', messageToastContent: `${err.config.url}'timout! ! !'` })
+            }
+            return Promise.reject(err);
+        }
+        
         switch (err.response.status) {
             case 400:
                await messageToastStore.addToToastList({id:nanoid(),isShowMessageToast: true,messageToastTitle: '哎呀,出错了',messageToastContent:'请求错误'})

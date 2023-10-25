@@ -14,6 +14,15 @@ import Setting from '../views/SettingPage.vue'
 import Defau from '../views/Defau.vue'
 import SignPage from '../views/SignPage.vue'
 import SignTips from '../views/SignTips.vue'
+
+//引入pinia
+import pinia from '../store/index'
+
+//引入usecancelRequestStore
+import { useCancelRequestStore } from '../store/cancelRequestStore/index'
+
+//cancelRequestStore
+const cancelRequestStore = useCancelRequestStore(pinia);
 const routes = [
   {path:'/',component:Defau},
   {path:'',component:Defau},
@@ -55,7 +64,14 @@ const routes = [
   { path: '/setting', component: Setting },
   { path: '/signtips', component: SignTips }
 ]
-export default VueRouter.createRouter({
+ const router = VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
   routes
+ })
+
+//拦截器
+router.beforeEach(() => {
+  cancelRequestStore.cancelReuquest()
+  return true;
 })
+ export default router

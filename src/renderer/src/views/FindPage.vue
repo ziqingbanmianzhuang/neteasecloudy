@@ -14,12 +14,15 @@
         <h2 id="推荐">推荐</h2>
         <div class="images-box">
           <!-- loadToast组件 -->
-          <load-toast v-if="commendloadFlag"></load-toast>
-          <i v-else-if="commendErrorFlag" :style="{ '--name': `'${value.name}'` }"
-            v-for="([key, value]) in relatedCommendedSong" :key="value.name" @click="createSongWin">
-            <!-- {{ song.name }} -->
+          <load-toast v-if="commendLoadFlag"></load-toast>
+          <i v-if="!commendLoadFlag && !commendErrorFlag && relatedCommendedSong.size"
+            :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in relatedCommendedSong" :key="value.name"
+            @click="createSongWin">
           </i>
-          <error-placeholder v-else @retryToRequest="getRelativeLatestSongs"></error-placeholder>
+          <empty-placeholder
+            v-if="!commendLoadFlag && !commendErrorFlag && !relatedCommendedSong.size"></empty-placeholder>
+          <error-placeholder v-if="!commendLoadFlag && commendErrorFlag && !relatedCommendedSong.size"
+            @retryToRequest="getRelativeLatestSongs"></error-placeholder>
         </div>
       </section>
       <section cite="">
@@ -32,19 +35,23 @@
         <h2 id="榜单">榜单</h2>
         <div class="images-box">
           <load-toast v-if="topLoadFlag"></load-toast>
-          <i v-else-if="topErrorFlag" :style="{ '--name': `'${value.name}'` }" v-for="([key, value]) in topSong"
-            :key="value.id">
+          <i v-if="!topLoadFlag && !topErrorFlag && topSong.size" :style="{ '--name': `'${value.name}'` }"
+            v-for="([key, value]) in topSong" :key="value.id">
           </i>
-          <error-placeholder v-else @retryToRequest="getTopSongs"></error-placeholder>
+          <empty-placeholder v-if="!topLoadFlag && !topErrorFlag && !topSong.size"></empty-placeholder>
+          <error-placeholder v-if="!topLoadFlag && topErrorFlag && !topSong.size"
+            @retryToRequest="getTopSongs"></error-placeholder>
         </div>
       </section>
       <section id="歌手" cite="">
         <h2>歌手</h2>
         <div class="images-box">
           <load-toast v-if="hotLoadFlag"></load-toast>
-          <i v-else-if="hotErrorFlag" :style="{ '--deg': value['--deg'] }" v-for="([key, value]) in tags"
-            :key="value['--deg']" @click="createSongWin"></i>
-          <error-placeholder v-else @retryToRequest="getSings"></error-placeholder>
+          <i v-if="!hotLoadFlag && !hotErrorFlag && hotSings.size" :style="{ '--deg': value['--deg'] }"
+            v-for="([key, value]) in tags" :key="value['--deg']" @click="createSongWin"></i>
+          <empty-placeholder v-if="!hotLoadFlag && !hotErrorFlag && !hotSings"></empty-placeholder>
+          <error-placeholder v-if="!hotLoadFlag && hotErrorFlag && !hotSings.size"
+            @retryToRequest="getSings"></error-placeholder>
         </div>
       </section>
     </main>
@@ -64,6 +71,7 @@ import { nanoid } from 'nanoid'
 //useMessageToastStore
 const messageToastStore = useMessageToastStore();
 
+
 // 在组件挂载阶段获取相关的推荐歌单
 //存储相关推荐歌单的数据
 let relatedCommendedSong = reactive(new Map([]));
@@ -77,16 +85,16 @@ const getRelativeLatestSongs = async () => {
 
     const res = await instance.getRelativeRecommendedSongs({ params: { id: 1 } });
 
-    commendLoadFlag.value = false
+    commendLoadFlag.value = false;
 
     res.data.playlists.forEach(item => {
       relatedCommendedSong.set(item.id, item);
     });
   } catch (err) {
     console.log('1111111111111finderror', err);
-
+    commendErrorFlag.value = true;
     messageToastStore.addToToastList({
-      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '努力多少次看来都是错的QAQ', messageToastContent: `${err}`
     })
   }
 }
@@ -107,7 +115,7 @@ const getSongTypes = async () => {
     songType = res.data.sub[1].name;
   } catch (err) {
     messageToastStore.addToToastList({
-      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '努力多少次看来都是错的QAQ', messageToastContent: `${err}`
     })
   }
 }
@@ -117,7 +125,7 @@ const getLastedSongs = async () => {
     await instance.getRelativeLatestSongs({ params: { order: 'new', cat: songType, limit: 50, offset: 1 } })
   } catch (err) {
     messageToastStore.addToToastList({
-      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '努力多少次看来都是错的QAQ', messageToastContent: `${err}`
     })
   }
 }
@@ -134,23 +142,9 @@ const getTopSongs = async () => {
       topSong.set(item.id, item);
     })
   } catch (err) {
+    topErrorFlag.value = true;
     messageToastStore.addToToastList({
-      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
-    })
-  }
-}
-
-//获取歌手列表
-const getSings = async () => {
-  try {
-    const res = await instance.getSingList({ params: { limit: 4, offset: 1 } })
-    hotLoadFlag.value = false;
-    res.data.artists.forEach(item => {
-      hotSings.set(item.id, item)
-    });
-  } catch (err) {
-    messageToastStore.addToToastList({
-      id: nanoid(), isShowMessageToast: true, messageToastTitle: '哎呀,出错了', messageToastContent: `${err}`
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '努力多少次看来都是错的QAQ', messageToastContent: `${err}`
     })
   }
 }
@@ -161,6 +155,24 @@ let hotSings = reactive(new Map([]));
 let hotLoadFlag = ref(true);
 //热门歌手是否出错
 let hotErrorFlag = ref(false);
+
+//获取歌手列表
+const getSings = async () => {
+  try {
+    const res = await instance.getSingList({ params: { limit: 4, offset: 1 } })
+    hotLoadFlag.value = false;
+    res.data.artists.forEach(item => {
+      hotSings.set(item.id, item)
+    });
+  } catch (err) {
+    hotErrorFlag.value = true;
+    messageToastStore.addToToastList({
+      id: nanoid(), isShowMessageToast: true, messageToastTitle: '努力多少次看来都是错的QAQ', messageToastContent: `${err}`
+    })
+  }
+}
+
+
 
 onBeforeMount(() => {
 

@@ -91,32 +91,32 @@ import createResInterceptor from '../interceptors/createResInterceptor'
     }
 
     // 各种请求
-    public get(url,config) {
+     get(url,config) {
         config = { ...config, method: 'GET' };
         return this.request(url, config);
      }
 
-     public post(url,config) {
+      post(url,config) {
         config = { ...config, method: 'POST' };
          return this.request(url, config);
      }
 
-     public put(url,config) {
+      put(url,config) {
         config = { ...config, method: 'PUT' };
          return this.request(url, config);
      }
 
-     public delete(url,config) {
+      delete(url,config) {
         config = { ...config, method: 'DELETE' };
          return this.request(url, config);
      }
 
-     public patch(url,config) {
+     patch(url,config) {
         config = { ...config, method: 'PATCH' };
          return this.request(url, config);
      }
      
-    public request(url,config) {
+    request(url,config) {
         const rest = config.rest || {};
 
         let path = url;
